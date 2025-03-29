@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=SleepButton
+comment0.text=\r\n\ A\ toggle\ button\ that\ puts\ the\ pet\ to\ sleep\ or\ wakes\ it\ up.\r\n
+comment1.params=screen
+comment1.target=SleepButton(PlayWithPetScreen)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ updateImage()
+numComments=4
