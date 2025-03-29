@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=QuestionDisplay
+comment0.text=\n\ Write\ a\ description\ of\ class\ QuestionDisplay\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=QuestionDisplay()
+comment2.params=
+comment2.target=java.lang.String\ getCorrect()
+comment3.params=
+comment3.target=void\ generate()
+comment4.params=val
+comment4.target=void\ setReveal(boolean)
+comment5.params=
+comment5.target=void\ updateImage()
+comment6.params=
+comment6.target=void\ act()
+comment6.text=\n\ Act\ -\ do\ whatever\ the\ QuestionDisplay\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+numComments=7
