@@ -1,0 +1,189 @@
+/**
+ * The PetSelectionScreen class represents the pet selection screen of the Virtual Pet Simulator game.
+ * It allows the player to select one of three pets, enter a name for the pet, and confirm their selection.
+ * Clicking confirm will transition to the Inventory screen. Clicking exit will return to Main Menu.
+ * 
+ * @author Jay Prajapati
+ * @version March 29th 2025
+ */
+
+import greenfoot.*;
+import java.util.*;
+
+public class PetSelectionScreen extends World 
+{
+    private RadioButton pet1, pet2, pet3;
+    private ConfirmButton confirmButton;
+    private ExitIcon exitIcon;
+    private String selectedPet = "";
+
+    /**
+     * Constructor for objects of class PetSelectionScreen.
+     * Initializes and displays pet selection UI components.
+     */
+    public PetSelectionScreen() {
+        super(700, 500, 1);
+
+        addObject (new pageTitle("Pick a Pet"), 350, 60);
+
+        pet1 = new RadioButton("  Bear", "bear.png");
+        pet2 = new RadioButton("  Cat", "cat.png");
+        pet3 = new RadioButton("  Dog", "dog.png");
+
+        addObject(pet1, 175, 200);
+        addObject(pet2, 350, 200);
+        addObject(pet3, 525, 200);
+
+        NameInput nameInput = new NameInput();
+        addObject(nameInput, 350, 300);
+
+        confirmButton = new ConfirmButton();
+        addObject(confirmButton, 600, 450);
+
+        exitIcon = new ExitIcon();
+        addObject(exitIcon, 70, 450);
+    }
+
+    /**
+     * Handles mouse click events for pet selection, confirmation, and exiting.
+     */
+    public void act() {
+        if (Greenfoot.mouseClicked(pet1)) selectPet("Bear");
+        else if (Greenfoot.mouseClicked(pet2)) selectPet("Cat");
+        else if (Greenfoot.mouseClicked(pet3)) selectPet("Dog");
+        else if (Greenfoot.mouseClicked(confirmButton)) {
+            Greenfoot.setWorld(new InventoryScreen());
+        } else if (Greenfoot.mouseClicked(exitIcon)) {
+            Greenfoot.setWorld(new MainMenu());
+        }
+    }
+
+    /**
+     * Updates selected pet.
+     * @param pet The selected pet.
+     */
+    private void selectPet(String pet) {
+        selectedPet = pet;
+        pet1.setSelected(pet.equals("Bear"));
+        pet2.setSelected(pet.equals("Cat"));
+        pet3.setSelected(pet.equals("Dog"));
+    }
+}
+
+/**
+ * The Title class creates a title that goes on top of the Main Menu Page. The regular text does not look good in Greenfoot, so an extra class had to be created
+ * to make the Main Menu page seem appealing.
+ */
+class pageTitle extends Actor {
+    public pageTitle(String titleText) {
+        GreenfootImage titleImage = new GreenfootImage(titleText, 40, Color.BLACK, Color.WHITE);
+        setImage(titleImage);
+    }
+}
+
+/**
+ * The RadioButton class represents a selectable radio button for choosing a pet.
+ */
+class RadioButton extends Actor {
+    private boolean selected = false;
+    private String label;
+    private String imageName;
+
+    /**
+     * Constructs a RadioButton with the specified label and image.
+     * @param label The label of the radio button.
+     * @param imageName The image filename for the pet icon.
+     */
+    public RadioButton(String label, String imageName) {
+        this.label = label;
+        this.imageName = imageName;
+        updateImage();
+    }
+
+    /**
+     * Sets the selected state of the radio button.
+     * @param s True if selected, false otherwise.
+     */
+    public void setSelected(boolean s) {
+        selected = s;
+        updateImage();
+    }
+
+    /**
+     * Updates the radio button image based on selection state.
+     */
+    private void updateImage() {
+        GreenfootImage img = new GreenfootImage(80, 100);
+        GreenfootImage petImg = new GreenfootImage(imageName);
+        petImg.scale(60, 60);
+        img.drawImage(petImg, 10, 0);
+        img.setColor(Color.BLACK);
+        img.drawOval(30, 70, 15, 15);
+        if (selected) img.fillOval(34, 74, 7, 7);
+        img.drawString(label, 20, 95);
+        setImage(img);
+    }
+}
+
+/**
+ * The ConfirmButton class represents a button to confirm pet selection.
+ */
+class ConfirmButton extends Actor {
+    public ConfirmButton() {
+        GreenfootImage img = new GreenfootImage("CONFIRM", 24, Color.BLACK, new Color(200, 200, 200, 150));
+        setImage(img);
+    }
+}
+
+/**
+ * The NameInput class represents an input field where the player can type a pet name.
+ */
+class NameInput extends Actor {
+    private String text = "";
+
+    public NameInput() {
+        updateImage();
+    }
+
+    /**
+     * Updates the name text as the player types.
+     */
+    public void act() {
+        String key = Greenfoot.getKey();
+        if (key != null) {
+            if (key.equals("backspace") && text.length() > 0) {
+                text = text.substring(0, text.length() - 1);
+            } else if (key.length() == 1 && text.length() < 12) {
+                text += key;
+            }
+            updateImage();
+        }
+    }
+
+    /**
+     * Updates the visual display of the input field.
+     */
+    private void updateImage() {
+        GreenfootImage img = new GreenfootImage("Name: " + text, 24, Color.BLACK, new Color(200, 200, 200, 150));
+        setImage(img);
+    }
+
+    /**
+     * Returns the entered name text.
+     * @return The name input text.
+     */
+    public String getText() {
+        return text;
+    }
+}
+
+/**
+ * The ExitIcon class represents the icon used to exit the pet selection screen.
+ */
+class ExitIcon extends Actor {
+    public ExitIcon() {
+        GreenfootImage img = new GreenfootImage("exit.png");
+        img.scale(40, 40);
+        setImage(img);
+    }
+}

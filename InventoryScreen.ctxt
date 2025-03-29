@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=InventoryScreen
+comment1.params=
+comment1.target=InventoryScreen()
+comment1.text=\n\ This\ is\ the\ constructor\ for\ objects\ of\ class\ InventoryScreen.\n\ This\ function\ initializes\ and\ displays\ the\ inventory\ UI\ components.\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ This\ funciton\ handles\ mouse\ click\ events\ in\ the\ inventory\ screen.\n\ Updates\ description\ panel\ or\ navigates\ back\ to\ main\ menu.\n
+numComments=3
