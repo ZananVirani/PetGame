@@ -1,3 +1,4 @@
+
 /**
  * The PetSelectionScreen class represents the pet selection screen of the Virtual Pet Simulator game.
  * It allows the player to select one of three pets, enter a name for the pet, and confirm their selection.
@@ -10,8 +11,7 @@
 import greenfoot.*;
 import java.util.*;
 
-public class PetSelectionScreen extends World 
-{
+public class PetSelectionScreen extends World {
     private RadioButton pet1, pet2, pet3;
     private ConfirmButton confirmButton;
     private ExitIcon exitIcon;
@@ -24,10 +24,10 @@ public class PetSelectionScreen extends World
     public PetSelectionScreen() {
         super(700, 500, 1);
 
-        addObject (new pageTitle("Pick a Pet"), 350, 60);
+        addObject(new pageTitle("Pick a Pet"), 350, 60);
 
         pet1 = new RadioButton("  Bear", "bear.png");
-        pet2 = new RadioButton("  Cat", "cat.png");
+        pet2 = new RadioButton("  Cat", "petCat.png");
         pet3 = new RadioButton("  Dog", "dog.png");
 
         addObject(pet1, 175, 200);
@@ -48,9 +48,12 @@ public class PetSelectionScreen extends World
      * Handles mouse click events for pet selection, confirmation, and exiting.
      */
     public void act() {
-        if (Greenfoot.mouseClicked(pet1)) selectPet("Bear");
-        else if (Greenfoot.mouseClicked(pet2)) selectPet("Cat");
-        else if (Greenfoot.mouseClicked(pet3)) selectPet("Dog");
+        if (Greenfoot.mouseClicked(pet1))
+            selectPet("Bear");
+        else if (Greenfoot.mouseClicked(pet2))
+            selectPet("Cat");
+        else if (Greenfoot.mouseClicked(pet3))
+            selectPet("Dog");
         else if (Greenfoot.mouseClicked(confirmButton)) {
             Greenfoot.setWorld(new InventoryScreen());
         } else if (Greenfoot.mouseClicked(exitIcon)) {
@@ -60,6 +63,7 @@ public class PetSelectionScreen extends World
 
     /**
      * Updates selected pet.
+     * 
      * @param pet The selected pet.
      */
     private void selectPet(String pet) {
@@ -71,7 +75,9 @@ public class PetSelectionScreen extends World
 }
 
 /**
- * The Title class creates a title that goes on top of the Main Menu Page. The regular text does not look good in Greenfoot, so an extra class had to be created
+ * The Title class creates a title that goes on top of the Main Menu Page. The
+ * regular text does not look good in Greenfoot, so an extra class had to be
+ * created
  * to make the Main Menu page seem appealing.
  */
 class pageTitle extends Actor {
@@ -82,7 +88,8 @@ class pageTitle extends Actor {
 }
 
 /**
- * The RadioButton class represents a selectable radio button for choosing a pet.
+ * The RadioButton class represents a selectable radio button for choosing a
+ * pet.
  */
 class RadioButton extends Actor {
     private boolean selected = false;
@@ -91,7 +98,8 @@ class RadioButton extends Actor {
 
     /**
      * Constructs a RadioButton with the specified label and image.
-     * @param label The label of the radio button.
+     * 
+     * @param label     The label of the radio button.
      * @param imageName The image filename for the pet icon.
      */
     public RadioButton(String label, String imageName) {
@@ -102,6 +110,7 @@ class RadioButton extends Actor {
 
     /**
      * Sets the selected state of the radio button.
+     * 
      * @param s True if selected, false otherwise.
      */
     public void setSelected(boolean s) {
@@ -119,7 +128,8 @@ class RadioButton extends Actor {
         img.drawImage(petImg, 10, 0);
         img.setColor(Color.BLACK);
         img.drawOval(30, 70, 15, 15);
-        if (selected) img.fillOval(34, 74, 7, 7);
+        if (selected)
+            img.fillOval(34, 74, 7, 7);
         img.drawString(label, 20, 95);
         setImage(img);
     }
@@ -136,7 +146,8 @@ class ConfirmButton extends Actor {
 }
 
 /**
- * The NameInput class represents an input field where the player can type a pet name.
+ * The NameInput class represents an input field where the player can type a pet
+ * name.
  */
 class NameInput extends Actor {
     private String text = "";
@@ -170,6 +181,7 @@ class NameInput extends Actor {
 
     /**
      * Returns the entered name text.
+     * 
      * @return The name input text.
      */
     public String getText() {

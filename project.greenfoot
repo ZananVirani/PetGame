@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #Greenfoot project file
 class.Pet.image=hippo.png
 class.Toy.image=gold-ball.png
@@ -88,7 +87,6 @@ width=2576
 world.lastInstantiated=PlayWithPetScreen
 xPosition=0
 yPosition=0
-=======
 #Greenfoot project file
 dependency1.from=PetSelectionScreen
 dependency1.to=InventoryScreen
@@ -438,4 +436,3 @@ width=1313
 world.lastInstantiated=MathTutorial
 xPosition=0
 yPosition=43
->>>>>>> origin/main
