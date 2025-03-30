@@ -157,15 +157,16 @@ class NameInput extends Actor {
         if (key != null) {
             if (key.equals("backspace") && text.length() > 0) {
                 text = text.substring(0, text.length() - 1);
-            } else if (key.length() == 1 && text.length() < 20) {
-                text += key;
-            } else if (key.equals("space")){
+            } 
+            else if (key.equals("space")){
                 text += ' ';
             } else if (key.equals("enter") && text.length() > 0){
                 if (getPrompt().equals("Name: ")){
                     createPet();
                 } else validatePassword();
-            }
+            } else if (key.length() == 1 && (Character.isDigit(key.charAt(0)) || Character.isLetter(key.charAt(0))) && text.length() < 20) {
+                text += key;
+            } 
             updateImage();
         }
     }

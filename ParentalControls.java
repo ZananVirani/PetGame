@@ -31,12 +31,12 @@ public class ParentalControls extends World
         addObject(new SubtitleText("Playtime Restrictions"), 620, 260);
         addObject(new ParentalToggle(), 370, 170);
         
-        addObject(new SubtitleText("Allowable Play\nTime:"), 390, 370);
-        addObject(new TitleText("      -"), 690, 390);
-        addObject(h1, 250, 250);
-        addObject(m1, 340, 250);
-        addObject(h2, 480, 250);
-        addObject(m2, 570, 250);
+        addObject(new SubtitleText("Allowable Play\nTime:"), 370, 370);
+        addObject(new TitleText(" -"), 690, 390);
+        addObject(h1, 220, 250);
+        addObject(m1, 310, 250);
+        addObject(h2, 440, 250);
+        addObject(m2, 530, 250);
         
         addObject(new SubtitleText("Playtime Statistics"), 633, 470);
         addObject(new ParagraphText("Average Session: 180mins"), 490, 530);

@@ -34,12 +34,12 @@ public class MinutesBox extends Actor
         img.setColor(Color.WHITE);
         img.fill();
         img.setColor(Color.BLACK);
-        img.drawRect(0, 0, 80, 99);
+        img.drawRect(0, 0, 70, 99);
 
         img.setFont(new Font("Arial", false, false, 18));
-        img.drawString("▲", 35, 20); // up arrow
-        img.drawString(String.format("%02d mins", minutes), 10, 55);
-        img.drawString("▼", 35, 90); // down arrow
+        img.drawString("▲", 28, 20); // up arrow
+        img.drawString(String.format("%02d min", minutes), 10, 55);
+        img.drawString("▼", 28, 90); // down arrow
 
         setImage(img);
     }
