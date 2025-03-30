@@ -30,13 +30,15 @@ public class MainMenu extends World
         dogImg.scale(120, 120);
         getBackground().drawImage(dogImg, 300, 100);
 
-        addObject(new MenuButton("NEW GAME"), 350, 300);
-        addObject(new MenuButton("LOAD GAME"), 350, 350);
-        addObject(new MenuButton("TUTORIAL"), 350, 400);
+        addObject(new MenuButton("NEW GAME"), 350, 280);
+        addObject(new MenuButton("LOAD GAME"), 350, 330);
+        addObject(new MenuButton("TUTORIAL"), 350, 380);
+        addObject(new MenuButton("PARENTAL CONTROLS"), 350, 430);
+        addObject(new Cross(), 50, 50);
 
-        GreenfootImage gearImg = new GreenfootImage("gear.png");
-        gearImg.scale(100, 100);
-        getBackground().drawImage(gearImg, 570, 370);
+       // GreenfootImage gearImg = new GreenfootImage("gear.png");
+        //gearImg.scale(100, 100);
+       // getBackground().drawImage(gearImg, 570, 370);
     }
 
     /**
@@ -48,7 +50,13 @@ public class MainMenu extends World
             if (clicked instanceof MenuButton) {
                 MenuButton btn = (MenuButton) clicked;
                 if (btn.getLabel().equals("NEW GAME")) {
-                    Greenfoot.setWorld(new PetSelectionScreen());
+                    ScreenManager.push(new PetSelectionScreen());
+                } else if (btn.getLabel().equals("LOAD GAME")) {
+                    // Dummy Screen, implement
+                } else if (btn.getLabel().equals("TUTORIAL")) {
+                    ScreenManager.push(new TutorialScreen());
+                } else {
+                    ScreenManager.push(new ParentalControls());
                 }
             }
         }

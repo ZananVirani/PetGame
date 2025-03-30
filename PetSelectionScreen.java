@@ -40,8 +40,7 @@ public class PetSelectionScreen extends World {
         confirmButton = new ConfirmButton();
         addObject(confirmButton, 600, 450);
 
-        exitIcon = new ExitIcon();
-        addObject(exitIcon, 70, 450);
+        addObject(new Cross(), 50, 50);
     }
 
     /**
@@ -56,9 +55,7 @@ public class PetSelectionScreen extends World {
             selectPet("Dog");
         else if (Greenfoot.mouseClicked(confirmButton)) {
             Greenfoot.setWorld(new InventoryScreen());
-        } else if (Greenfoot.mouseClicked(exitIcon)) {
-            Greenfoot.setWorld(new MainMenu());
-        }
+        } 
     }
 
     /**
