@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=InteractionButton
+comment0.text=\n\ A\ styled\ and\ animated\ action\ button\ using\ only\ fillRect.\n\ No\ roundRect,\ but\ includes\ shadow\ effect\ and\ click\ animation.\n
+comment1.params=actionType\ screen
+comment1.target=InteractionButton(java.lang.String,\ PlayWithPetScreen)
+comment1.text=\n\ Constructor.\n\ @param\ actionType\ The\ action\ this\ button\ triggers\n\ @param\ screen\ The\ world\ the\ button\ belongs\ to\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=enlarged
+comment3.target=void\ drawButton(boolean)
+comment3.text=\n\ Draws\ a\ rectangular\ button\ with\ text\ and\ optional\ scale\ effect.\n\ @param\ enlarged\ Whether\ to\ draw\ the\ button\ in\ a\ "clicked"\ larger\ size.\n
+numComments=4

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Hand
+comment0.text=\n\ Hand\ animation\ appears\ when\ petting.\ Stops\ if\ the\ game\ is\ over.\n
+comment1.params=
+comment1.target=Hand()
+comment2.params=
+comment2.target=void\ act()
+numComments=3

@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=PlayWithPetScreen
+comment0.text=\n\ PlayWithPetScreen\ is\ the\ main\ interactive\ area\ with\ the\ pet.\n\ Handles\ stat\ tracking,\ interaction,\ passive\ depletion,\ and\ Game\ Over\ logic.\n
+comment1.params=
+comment1.target=PlayWithPetScreen()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=interaction
+comment3.target=void\ interact(java.lang.String)
+comment4.params=
+comment4.target=void\ triggerGameOver()
+comment4.text=\n\ Triggers\ end\ of\ game.\n
+comment5.params=sleep
+comment5.target=void\ setSleepingMode(boolean)
+comment6.params=
+comment6.target=void\ updatePetMood()
+comment6.text=\n\ Updates\ the\ pet's\ image\ based\ on\ current\ stat\ levels.\n\ Prioritizes\ death\ first,\ then\ other\ moods\ if\ pet\ is\ alive\ and\ awake.\n
+comment7.params=
+comment7.target=void\ updateWarnings()
+comment7.text=\n\ Display\ appropriate\ warning\ text\ based\ on\ stat\ levels.\n
+comment8.params=
+comment8.target=boolean\ isGameOver()
+numComments=9

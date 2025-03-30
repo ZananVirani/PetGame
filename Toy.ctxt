@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Toy
+comment0.text=\n\ Toy\ bounces\ around\ while\ pet\ is\ playing.\ Stops\ if\ the\ game\ is\ over.\n
+comment1.params=
+comment1.target=Toy()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ moveAround()
+numComments=4

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=PetSelectionScreen
+comment1.params=
+comment1.target=PetSelectionScreen()
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ PetSelectionScreen.\n\ Initializes\ and\ displays\ pet\ selection\ UI\ components.\n
+comment2.params=pet
+comment2.target=void\ selectPet(java.lang.String)
+comment2.text=\n\ Updates\ selected\ pet.\n\ \n\ @param\ pet\ The\ selected\ pet.\n
+numComments=3
