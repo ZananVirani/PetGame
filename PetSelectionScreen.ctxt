@@ -8,5 +8,5 @@ comment2.target=void\ act()
 comment2.text=\n\ Handles\ mouse\ click\ events\ for\ pet\ selection,\ confirmation,\ and\ exiting.\n
 comment3.params=pet
 comment3.target=void\ selectPet(java.lang.String)
-comment3.text=\n\ Updates\ selected\ pet.\n\ @param\ pet\ The\ selected\ pet.\n
+comment3.text=\n\ Updates\ selected\ pet.\n\ \n\ @param\ pet\ The\ selected\ pet.\n
 numComments=4
