@@ -26,15 +26,14 @@ public class PetSelectionScreen extends World {
 
         addObject(new pageTitle("Give Your Pet A Name!"), 350, 60);
 
-        //pet1 = new RadioButton("  Bear", "bear.png");
-        //pet2 = new RadioButton("  Cat", "petCat.png");
-        //pet3 = new RadioButton("  Dog", "dog.png");
+        pet1 = new RadioButton("  Bear", "bear.png");
+        pet2 = new RadioButton("  Cat", "petCat.png");
+        pet3 = new RadioButton("  Dog", "dog.png");
 
-        //addObject(pet1, 175, 200);
-        //addObject(pet2, 350, 200);
-        //addObject(pet3, 525, 200);
+        addObject(pet1, 175, 200);
+        addObject(pet2, 350, 200);
+        addObject(pet3, 525, 200);
         
-        addObject(new Pet(), 200, 250);
         
         NameInput nameInput = new NameInput();
         addObject(nameInput, 400, 280);
@@ -48,6 +47,7 @@ public class PetSelectionScreen extends World {
     /**
      * Handles mouse click events for pet selection, confirmation, and exiting.
      *
+     **/
     public void act() {
         if (Greenfoot.mouseClicked(pet1))
             selectPet("Bear");
@@ -55,11 +55,7 @@ public class PetSelectionScreen extends World {
             selectPet("Cat");
         else if (Greenfoot.mouseClicked(pet3))
             selectPet("Dog");
-        else if (Greenfoot.mouseClicked(confirmButton)) {
-            Greenfoot.setWorld(new InventoryScreen());
-        } 
     }
-    */
 
     /**
      * Updates selected pet.
