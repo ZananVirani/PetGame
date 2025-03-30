@@ -24,20 +24,22 @@ public class PetSelectionScreen extends World {
     public PetSelectionScreen() {
         super(700, 500, 1);
 
-        addObject(new pageTitle("Pick a Pet"), 350, 60);
+        addObject(new pageTitle("Give Your Pet A Name!"), 350, 60);
 
-        pet1 = new RadioButton("  Bear", "bear.png");
-        pet2 = new RadioButton("  Cat", "petCat.png");
-        pet3 = new RadioButton("  Dog", "dog.png");
+        //pet1 = new RadioButton("  Bear", "bear.png");
+        //pet2 = new RadioButton("  Cat", "petCat.png");
+        //pet3 = new RadioButton("  Dog", "dog.png");
 
-        addObject(pet1, 175, 200);
-        addObject(pet2, 350, 200);
-        addObject(pet3, 525, 200);
-
+        //addObject(pet1, 175, 200);
+        //addObject(pet2, 350, 200);
+        //addObject(pet3, 525, 200);
+        
+        addObject(new Pet(), 200, 250);
+        
         NameInput nameInput = new NameInput();
-        addObject(nameInput, 350, 300);
-
-        confirmButton = new ConfirmButton();
+        addObject(nameInput, 400, 280);
+        
+        confirmButton = new ConfirmButton(nameInput);
         addObject(confirmButton, 600, 450);
 
         addObject(new Cross(), 50, 50);
@@ -45,7 +47,7 @@ public class PetSelectionScreen extends World {
 
     /**
      * Handles mouse click events for pet selection, confirmation, and exiting.
-     */
+     *
     public void act() {
         if (Greenfoot.mouseClicked(pet1))
             selectPet("Bear");
@@ -57,6 +59,7 @@ public class PetSelectionScreen extends World {
             Greenfoot.setWorld(new InventoryScreen());
         } 
     }
+    */
 
     /**
      * Updates selected pet.
@@ -136,9 +139,19 @@ class RadioButton extends Actor {
  * The ConfirmButton class represents a button to confirm pet selection.
  */
 class ConfirmButton extends Actor {
-    public ConfirmButton() {
+    private NameInput input;
+    
+    public ConfirmButton(NameInput input) {
+        this.input = input;
         GreenfootImage img = new GreenfootImage("CONFIRM", 24, Color.BLACK, new Color(200, 200, 200, 150));
         setImage(img);
+    }
+    
+    
+    public void act(){
+        if (Greenfoot.mouseClicked(this)){
+            input.createPet();
+        }
     }
 }
 
@@ -148,7 +161,7 @@ class ConfirmButton extends Actor {
  */
 class NameInput extends Actor {
     private String text = "";
-
+    
     public NameInput() {
         updateImage();
     }
@@ -161,8 +174,12 @@ class NameInput extends Actor {
         if (key != null) {
             if (key.equals("backspace") && text.length() > 0) {
                 text = text.substring(0, text.length() - 1);
-            } else if (key.length() == 1 && text.length() < 12) {
+            } else if (key.length() == 1 && text.length() < 20) {
                 text += key;
+            } else if (key.equals("space")){
+                text += ' ';
+            } else if (key.equals("enter")){
+                createPet();
             }
             updateImage();
         }
@@ -183,6 +200,12 @@ class NameInput extends Actor {
      */
     public String getText() {
         return text;
+    }
+    
+    public void createPet(){
+        // do something to create pet
+        
+        ScreenManager.replace(new PlayWithPetScreen());
     }
 }
 

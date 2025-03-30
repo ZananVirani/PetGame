@@ -13,11 +13,9 @@ public class ScreenManager {
     public static void push(World newWorld) {
         worldStack.push(newWorld);
         Greenfoot.setWorld(newWorld);
-        System.out.println(worldStack);
     }
 
     public static void pop() {
-        System.out.println(worldStack);
         if (!worldStack.isEmpty()){
             worldStack.pop();
             if (!worldStack.isEmpty())
@@ -26,7 +24,13 @@ public class ScreenManager {
         } else{
             Greenfoot.setWorld(new BlackScreen());
         }
-        System.out.println(worldStack);
+    }
+    
+    public static void replace(World newWorld) {
+        if (!worldStack.isEmpty()){
+            worldStack.pop();
+        }
+        push(newWorld);
     }
 
     public static void clearStack() {

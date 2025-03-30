@@ -30,8 +30,7 @@ public class InventoryScreen extends World
         panel = new DescriptionPanel();
         addObject(panel, 550, 250);
 
-        ExitIcon exit = new ExitIcon();
-        addObject(exit, 650, 450);
+        addObject(new Cross(), 50, 50);
     }
 
     /**

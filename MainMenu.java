@@ -34,6 +34,7 @@ public class MainMenu extends World
         addObject(new MenuButton("LOAD GAME"), 350, 330);
         addObject(new MenuButton("TUTORIAL"), 350, 380);
         addObject(new MenuButton("PARENTAL CONTROLS"), 350, 430);
+        
         addObject(new Cross(), 50, 50);
 
        // GreenfootImage gearImg = new GreenfootImage("gear.png");
@@ -52,7 +53,7 @@ public class MainMenu extends World
                 if (btn.getLabel().equals("NEW GAME")) {
                     ScreenManager.push(new PetSelectionScreen());
                 } else if (btn.getLabel().equals("LOAD GAME")) {
-                    // Dummy Screen, implement
+                    ScreenManager.push(new LoadPet());
                 } else if (btn.getLabel().equals("TUTORIAL")) {
                     ScreenManager.push(new TutorialScreen());
                 } else {

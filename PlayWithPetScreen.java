@@ -19,7 +19,7 @@ public class PlayWithPetScreen extends World
 
         // Set custom background color
         GreenfootImage bg = new GreenfootImage(700, 500);
-        bg.setColor(Color.LIGHT_GRAY);
+        bg.setColor(Color.WHITE);
         bg.fill();
         setBackground(bg);
 
@@ -42,6 +42,11 @@ public class PlayWithPetScreen extends World
         addObject(new InteractionButton("Give Toy", this), 360, 460);
         addObject(new InteractionButton("Feed", this), 490, 460);
         addObject(new SleepButton(this), 620, 460);
+        
+        addObject(new InventoryIcon(), 620, 70);
+        addObject(new Cross(), 50, 50);
+        addObject(new SimpleText(), 620, 230);  
+        addObject(new Calculator(), 610, 250);
 
         globalTimer = 0;
         isGameOver = false;
@@ -229,6 +234,17 @@ public class PlayWithPetScreen extends World
     public boolean isGameOver()
     {
         return isGameOver;
+    }
+    
+    class SimpleText extends Actor{
+        public SimpleText(){
+            GreenfootImage img = new GreenfootImage(150, 100);
+            img.setColor(Color.BLACK);
+            img.setFont(new Font("Arial", false, false, 20));
+            img.drawString("Math Game!", 10, 25);
+            
+            setImage(img);
+        }
     }
 
 }

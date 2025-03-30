@@ -26,13 +26,24 @@ public class SleepButton extends Actor
 
     private void updateImage()
     {
+        int width = 120;
+        int height = 30;
         String label = sleeping ? "Wake Up" : "Sleep";
         GreenfootImage img = new GreenfootImage(120, 30);
-        img.setColor(Color.DARK_GRAY);
-        img.fillRect(0, 0, 120, 30);
-        img.setColor(Color.WHITE);
+                // Shadow effect
+        img.setColor(new Color(50, 50, 50)); // dark gray
+        img.fillRect(3, 3, width - 3, height - 3);
+
+        // Button background
+        img.setColor(new Color(80, 160, 255)); // light blue
+        img.fillRect(0, 0, width - 3, height - 3);
+
+        // Text
+        img.setColor(Color.BLACK);
         img.setFont(new Font("Arial", 14));
-        img.drawString(label, 20, 20);
+        int textX = 10;
+        int textY = height / 2 + 5;
+        img.drawString("Sleep", textX, textY);
         setImage(img);
     }
 }

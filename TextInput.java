@@ -65,6 +65,10 @@ public class TextInput extends Actor {
             setSubmit(true);
             String correctAnswer = qDisplay.getCorrect(); 
             
+            while (input.charAt(0) == ('0') && input.length() > 1){
+                input.deleteCharAt(0);
+            }
+            
             if (input.toString().equals(correctAnswer)){
                 score.increase(1);
                 icon.setCorrect(true);
