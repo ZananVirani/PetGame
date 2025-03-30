@@ -16,6 +16,11 @@ public class Pet {
       this.sleep = sleep;
    }
 
+   public String getName() {
+      return name;
+   }
+
+
    // public void feed(Food food) {
    //    inventory.useFood(food, fullness, score);
    // }
