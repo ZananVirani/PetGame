@@ -17,7 +17,7 @@ public class Pet extends Actor
         if (!currentState.equals("normal"))
         {
             setImage("Cat.png");
-            getImage().scale(350, 350); 
+            getImage().scale(200, 200); 
             currentState = "normal";
         }
     }

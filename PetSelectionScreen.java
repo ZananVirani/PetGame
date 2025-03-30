@@ -132,33 +132,20 @@ class RadioButton extends Actor {
 }
 
 /**
- * The ConfirmButton class represents a button to confirm pet selection.
- */
-class ConfirmButton extends Actor {
-    private NameInput input;
-    
-    public ConfirmButton(NameInput input) {
-        this.input = input;
-        GreenfootImage img = new GreenfootImage("CONFIRM", 24, Color.BLACK, new Color(200, 200, 200, 150));
-        setImage(img);
-    }
-    
-    
-    public void act(){
-        if (Greenfoot.mouseClicked(this)){
-            input.createPet();
-        }
-    }
-}
-
-/**
  * The NameInput class represents an input field where the player can type a pet
  * name.
  */
 class NameInput extends Actor {
     private String text = "";
+    private String prompt = "";
     
     public NameInput() {
+        this.prompt = "Name: ";
+        updateImage();
+    }
+    
+    public NameInput(String prompt) {
+        this.prompt = prompt;
         updateImage();
     }
 
@@ -174,18 +161,27 @@ class NameInput extends Actor {
                 text += key;
             } else if (key.equals("space")){
                 text += ' ';
-            } else if (key.equals("enter")){
-                createPet();
+            } else if (key.equals("enter") && text.length() > 0){
+                if (getPrompt().equals("Name: ")){
+                    createPet();
+                } else validatePassword();
             }
             updateImage();
         }
+    }
+    
+    public void validatePassword(){
+        String password = "ilovecs2212";
+        
+        if (text.equals(password)) ScreenManager.replace(new ParentalControls());
+        else ScreenManager.replace(new IncorrectScreen());
     }
 
     /**
      * Updates the visual display of the input field.
      */
     private void updateImage() {
-        GreenfootImage img = new GreenfootImage("Name: " + text, 24, Color.BLACK, new Color(200, 200, 200, 150));
+        GreenfootImage img = new GreenfootImage(prompt + text, 24, Color.BLACK, new Color(200, 200, 200, 150));
         setImage(img);
     }
 
@@ -196,6 +192,10 @@ class NameInput extends Actor {
      */
     public String getText() {
         return text;
+    }
+    
+    public String getPrompt() {
+        return prompt;
     }
     
     public void createPet(){

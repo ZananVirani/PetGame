@@ -57,7 +57,7 @@ public class MainMenu extends World
                 } else if (btn.getLabel().equals("TUTORIAL")) {
                     ScreenManager.push(new TutorialScreen());
                 } else {
-                    ScreenManager.push(new ParentalControls());
+                    ScreenManager.push(new PasswordScreen());
                 }
             }
         }

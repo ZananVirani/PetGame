@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=ConfirmButton
+comment0.text=\n\ The\ ConfirmButton\ class\ represents\ a\ button\ to\ confirm\ pet\ selection.\n
+comment1.params=input
+comment1.target=ConfirmButton(NameInput)
+comment2.params=
+comment2.target=ConfirmButton()
+comment3.params=
+comment3.target=void\ act()
+numComments=4
