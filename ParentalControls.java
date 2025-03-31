@@ -29,7 +29,9 @@ public class ParentalControls extends World
         // Title
         addObject(new TitleText("Parental Controls"), 590, 200);
         addObject(new SubtitleText("Playtime Restrictions"), 620, 260);
-        addObject(new ParentalToggle(), 370, 170);
+        
+        ParentalToggle pt = new ParentalToggle();
+        addObject(pt, 370, 170);
         
         addObject(new SubtitleText("Allowable Play\nTime:"), 370, 370);
         addObject(new TitleText(" -"), 690, 390);
@@ -41,6 +43,8 @@ public class ParentalControls extends World
         addObject(new SubtitleText("Playtime Statistics"), 633, 470);
         addObject(new ParagraphText("Average Session: 180mins"), 490, 530);
         addObject(new ParagraphText("Total Time: 200hrs and 50 mins"), 740, 530);
+        
+        addObject(new CheckConfirm(h1, m1, h2, m2, pt), 620, 250);
         
         
         addObject(new ReviveButton(), 370, 440);
