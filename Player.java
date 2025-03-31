@@ -1,5 +1,3 @@
-package com.example.models;
-
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.ArrayList;
