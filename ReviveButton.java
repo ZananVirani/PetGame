@@ -1,20 +1,23 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class ReviveButton here.
+ * ReviveButton navigates the player to the RevivePetScreen
+ * when clicked, showing all dead pets passed from the backend.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jay Prajapati
  */
-public class ReviveButton extends Actor
-{
+public class ReviveButton extends Actor {
+    // Example array of dead pets (replace this with backend array when integrating)
+    private String[] deadPets = { "Shadow", "Luna", "Rex", "Fluffy", "Buddy", "Max", "Fluffy", "Buddy", "Max", "Fluffy",
+            "Buddy", "Max" };
+
     public ReviveButton() {
         int width = 160;
         int height = 50;
         String label = "Revive Pets";
 
         GreenfootImage buttonImg = new GreenfootImage(width, height);
-        buttonImg.setColor(Color.MAGENTA); // Green background
+        buttonImg.setColor(Color.MAGENTA);
         buttonImg.fillRect(0, 0, width, height);
 
         Font font = new Font("Arial", true, false, 24);
@@ -25,15 +28,13 @@ public class ReviveButton extends Actor
         buttonImg.drawImage(textImg, textX, textY);
         setImage(buttonImg);
     }
-    
+
     /**
-     * Act - do whatever the LetsGoButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * When clicked, open RevivePetScreen with dead pet array.
      */
-    public void act()
-    {
-        if (Greenfoot.mouseClicked(this)){
-            ScreenManager.push(new RevivePet());
+    public void act() {
+        if (Greenfoot.mouseClicked(this)) {
+            Greenfoot.setWorld(new RevivePetScreen(deadPets));
         }
     }
 }

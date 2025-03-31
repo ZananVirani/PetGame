@@ -1,4 +1,4 @@
-import java.util.Map; 
+import java.util.Map;
 import java.util.HashMap;
 
 public class PetClass {
@@ -8,9 +8,12 @@ public class PetClass {
     private static int happiness;
     private static int sleep;
     private static int score;
+    private static String petType;
+    private static int multiplier;
+    private static String vitalMultiplier;
     private static String currentState;
 
-    public static void Setup(String name){
+    public static void Setup(String name, String type) {
         petName = name;
         health = 100;
         fullness = 100;
@@ -18,14 +21,29 @@ public class PetClass {
         sleep = 100;
         score = 0;
         currentState = null;
+        petType = type;
+        if (petType == "Cat") {
+            multiplier = 1;
+            vitalMultiplier = "fullness";
+        } else if (petType == "Dog") {
+            multiplier = 2;
+            vitalMultiplier = "happiness";
+        } else if (petType == "Bear") {
+            multiplier = 3;
+            vitalMultiplier = "sleep";
+        }
     }
 
     public static void increaseVital(int vital, int value) {
         vital += value;
     }
 
-    public static void decreaseVital(int vital, int value) {
-        vital -= value;
+    public static void decreaseVital(int vital, int value, String vitalName) {
+        if (vitalName.equals(vitalMultiplier)) {
+            vital -= value * multiplier;
+        } else {
+            vital -= value;
+        }
     }
 
     public static int getVital(int vital) {
@@ -34,7 +52,7 @@ public class PetClass {
 
     public static void increaseScore(int value) {
         score += value;
-    }  
+    }
 
     public static void decreaseScore(int value) {
         score -= value;
@@ -48,27 +66,27 @@ public class PetClass {
         return petName;
     }
 
-    public static int getFullness(){
-        return fullness;     
+    public static int getFullness() {
+        return fullness;
     }
 
-    public static int getHealth(){
+    public static int getHealth() {
         return health;
     }
 
-    public static int getHappiness(){
+    public static int getHappiness() {
         return happiness;
     }
 
-    public static int getSleep(){
+    public static int getSleep() {
         return sleep;
     }
 
-    public static void setCurrentState(String state){
+    public static void setCurrentState(String state) {
         currentState = state;
     }
 
-    public static String getCurrentState(){
+    public static String getCurrentState() {
         return currentState;
     }
 
@@ -81,6 +99,9 @@ public class PetClass {
         petData.put("sleep", String.valueOf(sleep));
         petData.put("score", String.valueOf(score));
         petData.put("currentState", currentState);
+        petData.put("petType", Pet.petType);
+        petData.put("multiplier", String.valueOf(Pet.multiplier));
+        petData.put("vitalMultiplier", Pet.vitalMultiplier);
         return petData;
     }
 
@@ -94,6 +115,9 @@ public class PetClass {
         score = parseIntSafe(petData.get("score"));
 
         currentState = petData.get("currentState") != null ? petData.get("currentState").toString() : null;
+        petType = petData.get("petType") != null ? petData.get("petType").toString() : null;
+        multiplier = petData.get("multiplier") != null ? petData.get("multiplier").toString() : null;
+        vitalMultiplier = petData.get("vitalMultiplier") != null ? petData.get("vitalMultiplier").toString() : null;
 
     }
 
