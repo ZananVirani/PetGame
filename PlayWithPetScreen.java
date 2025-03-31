@@ -25,6 +25,9 @@ public class PlayWithPetScreen extends World
     private boolean vetOnCooldown = false;
     private int vetCoolDownTimer = 0;
     private final int VET_COOLDOWN_DURATION = 600;
+    private boolean toyOnCoolDown = false;
+    private int toyCoolDownTimer = 0;
+    private final int TOY_COOLDOWN_DURATION = 600; 
 
     public PlayWithPetScreen()
     {
@@ -113,6 +116,11 @@ public class PlayWithPetScreen extends World
                 showVet = false;
                 removeObjects(getObjects(Nurse.class));
             }
+        }
+
+        if(toyOnCoolDown){
+            toyCoolDownTimer--;
+
         }
 
         // Vet timer logic (if you have vet feature)
@@ -205,6 +213,10 @@ public class PlayWithPetScreen extends World
         switch(interaction)
         {
             case "Throw Ball":
+                if(toyOnCoolDown){
+                    showText("Take a break!", getWidth() / 2, 60);
+                    return;
+                }
                 // xyz
                 happinessBar.increase(10);
                 // xyz
@@ -214,6 +226,10 @@ public class PlayWithPetScreen extends World
                 if (currentToy != null) removeObject(currentToy);
                 currentToy = new Toy();
                 addObject(currentToy, 150, 250);
+
+                toyOnCoolDown = true;
+                toyCoolDownTimer = TOY_COOLDOWN_DURATION;
+
                 break;
 
             case "Pet the Pet":
