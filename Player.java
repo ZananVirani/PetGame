@@ -172,14 +172,10 @@ public class Player {
                 break;
             }
         }
-
-        if (alivePets[alivePets.length-1] != null) alivePets = expandArray(alivePets,alivePets.length * 2); 
-        for (int i=0;i<alivePets.length;i++){
-            if (alivePets[i] == null){
-                alivePets[i] = petName;
-                break;
-            }
-        }
+        
+        GameState.loadPet(petName);
+        PetClass.Setup(petName, PetClass.getType());
+        GameState.createNewPet();
     }
 
     public static boolean createPet(){

@@ -40,13 +40,15 @@ public class RevivePetScreen extends World {
         int y = START_Y;
 
         for (String pet : pets) {
-            PetNameBox box = new PetNameBox(pet);
-            addObject(box, x, y);
+            if (pet != null){
+                PetNameBox box = new PetNameBox(pet, this);
+                addObject(box, x, y);
 
-            x += PADDING_X;
-            if (x > MAX_X) {
-                x = START_X;
-                y += PADDING_Y;
+                x += PADDING_X;
+                if (x > MAX_X) {
+                    x = START_X;
+                    y += PADDING_Y;
+                }
             }
         }
     }
@@ -55,11 +57,5 @@ public class RevivePetScreen extends World {
      * Detects if the cross button is clicked to return to Main Menu.
      */
     public void act() {
-        if (Greenfoot.mouseClicked(null)) {
-            Actor clicked = Greenfoot.getMouseInfo().getActor();
-            if (clicked instanceof Cross) {
-                Greenfoot.setWorld(new MainMenu());
-            }
-        }
     }
 }

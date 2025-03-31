@@ -7,9 +7,6 @@ import greenfoot.*;
  * @author Jay Prajapati
  */
 public class ReviveButton extends Actor {
-    // Example array of dead pets (replace this with backend array when integrating)
-    private String[] deadPets = { "Shadow", "Luna", "Rex", "Fluffy", "Buddy", "Max", "Fluffy", "Buddy", "Max", "Fluffy",
-            "Buddy", "Max" };
 
     public ReviveButton() {
         int width = 160;

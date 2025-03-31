@@ -40,7 +40,7 @@ public class LoadPetScreen extends World {
 
         for (String pet : pets) {
             if (pet != null){
-                PetNameBox box = new PetNameBox(pet);
+                PetNameBox box = new PetNameBox(pet, this);
                 addObject(box, x, y);
 
                 x += PADDING_X;
@@ -56,25 +56,37 @@ public class LoadPetScreen extends World {
      * Detects if the cross button is clicked to return to Main Menu.
      */
     public void act() {
-        if (Greenfoot.mouseClicked(null)) {
-            Actor clicked = Greenfoot.getMouseInfo().getActor();
-            if (clicked instanceof Cross) {
-                Greenfoot.setWorld(new MainMenu());
-            }
-        }
+
     }
 }
 
 class PetNameBox extends Actor 
 {
+    private String name;
+    private World world;
     /**
      * Creates a new PetNameBox with the given pet name.
      * 
      * @param petName Name of the pet to display.
      */
-    public PetNameBox(String petName) 
+    public PetNameBox(String petName, World world) 
     {
+        this.name = petName;
+        this.world = world;
         GreenfootImage img = new GreenfootImage(petName, 24, Color.BLACK, new Color(200, 200, 200, 150));
         setImage(img);
     }
+
+    public void act(){
+        if (Greenfoot.mouseClicked(this)){
+            if (world instanceof LoadPetScreen){
+                GameState.loadPet(name);
+                ScreenManager.replace(new PlayWithPetScreen());
+            } else{
+                Player.revivePet(name);
+                ScreenManager.pop();
+            }
+        }
+    }
+
 }

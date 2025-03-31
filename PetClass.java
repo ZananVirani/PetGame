@@ -51,6 +51,10 @@ public class PetClass {
     public static int getVital(int vital) {
         return vital;
     }
+    
+    public static String getType(){
+        return petType;
+    }
 
     public static void increaseScore(int value) {
         score += value;
