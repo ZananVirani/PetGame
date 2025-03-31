@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MathGame extends World
 {
-
+    private int globalTimer;
     /**
      * Constructor for objects of class MathGame.
      * 
@@ -45,6 +45,16 @@ public class MathGame extends World
         addObject(resIcon, 590, 340);
         // Next Question Button
         addObject(new NextQButton(input), 570, 440);
+        
+        globalTimer = 0;
 
+    }
+    
+    public void act(){
+        globalTimer++;
+        if (globalTimer % 60 == 0){
+            Player.incrementTime();
+            globalTimer = 0;
+        }
     }
 }

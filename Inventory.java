@@ -95,8 +95,6 @@ public class Inventory {
 
     public void useFood(Food food) {
         if (this.hasFood(food)) {
-            //PetClass.increaseVital(PetClass.getFullness(), food.getValue());
-            PetClass.increaseScore(10);
             foodItems.remove(food);
         } else {
             System.out.println("Food item not found in inventory.");
@@ -105,8 +103,6 @@ public class Inventory {
 
     public void useGift(Gift gift) {
         if (this.hasGift(gift)) {
-            //PetClass.increaseVital(PetClass.getHappiness(), gift.getValue());
-            PetClass.increaseScore(10);
             giftItems.remove(gift);
         } else {
             System.out.println("Gift item not found in inventory.");

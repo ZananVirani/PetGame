@@ -27,7 +27,8 @@ public class PlayWithPetScreen extends World
     private final int VET_COOLDOWN_DURATION = 600;
     private boolean toyOnCoolDown = false;
     private int toyCoolDownTimer = 0;
-    private final int TOY_COOLDOWN_DURATION = 600; 
+    private final int TOY_COOLDOWN_DURATION = 600;
+    private boolean gift;
 
     public PlayWithPetScreen()
     {
@@ -75,6 +76,7 @@ public class PlayWithPetScreen extends World
 
         globalTimer = 0;
         isGameOver = false;
+        gift = false;
     }
 
     public void act()
@@ -142,9 +144,21 @@ public class PlayWithPetScreen extends World
         }
         if (globalTimer >= 1200)
         {
+            
             GameState.saveAll();
-            // TODO
-            // Give player a gift
+            
+            Inventory inv = PetClass.getInventory();
+            if (gift) {
+                Gift gift = inv.addGift();
+                addObject(new ItemImage(gift.getName().toLowerCase(), this),450, 300);
+                showText("Gift Received!", 450, 370);  
+            } else{
+                Food food = inv.addFood();
+                addObject(new ItemImage(food.getName().toLowerCase(), this), 450, 300);
+                showText("Food Received!", 450, 370); 
+            }
+            
+            
             if (isSleeping)
             {
                 PetClass.increaseSleep(15);
@@ -224,11 +238,13 @@ public class PlayWithPetScreen extends World
                     showText("Take a break!", getWidth() / 2, 60);
                     return;
                 }
-                // xyz
+                PetClass.increaseHappiness(10);
                 happinessBar.increase(10);
-                // xyz
+                
+                PetClass.decreaseSleep(5);
                 sleepBar.decrease(5);
-                // xyz
+                
+                PetClass.decreaseFullness(3);
                 fullnessBar.decrease(3);
                 if (currentToy != null) removeObject(currentToy);
                 currentToy = new Toy();
@@ -245,7 +261,7 @@ public class PlayWithPetScreen extends World
                     showText(PetClass.getName() + " is unhappy, play with it!", getWidth() / 2, 60);
                     return;
                 }
-                // xyz
+                PetClass.increaseHappiness(7);
                 happinessBar.increase(7);
                 addObject(new Hand(), pet.getX() - 30, pet.getY() - 40);
                 break;

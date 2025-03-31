@@ -17,6 +17,7 @@ public class InventoryScreen extends World
     //private String[][] inventory;
     private Inventory inventory;
     private UseButton useButton;
+    private int globalTimer;
 
     /**
      * Constructs an InventoryScreen with the given inventory items.
@@ -31,6 +32,7 @@ public class InventoryScreen extends World
         loadInventory(this.inventory);
         panel = new DescriptionPanel();
         addObject(panel, 550, 250);
+        globalTimer = 0;
     }
 
     /**
@@ -106,6 +108,11 @@ public class InventoryScreen extends World
      */
     public void act() 
     {
+        globalTimer++;
+        if (globalTimer % 60 == 0){
+            Player.incrementTime();
+            globalTimer = 0;
+        }
         if (Greenfoot.mouseClicked(null)) 
         {
             Actor clicked = Greenfoot.getMouseInfo().getActor();

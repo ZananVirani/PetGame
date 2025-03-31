@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MathTutorial extends World
 {
-
+    private int globalTimer;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -23,6 +23,16 @@ public class MathTutorial extends World
         addObject(new TutorialText(),400,280);
         addObject(new TitleText("Math Game Tutorial"), 550, 200);
         addObject(btn, 570, 440);
+        
+        globalTimer = 0;
 
+    }
+    
+    public void act(){
+        globalTimer++;
+        if (globalTimer % 60 == 0){
+            Player.incrementTime();
+            globalTimer = 0;
+        }
     }
 }
