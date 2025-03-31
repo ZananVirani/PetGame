@@ -22,10 +22,10 @@ public class RevivePetScreen extends World {
      * 
      * @param pets An array of strings containing names of dead pets.
      */
-    public RevivePetScreen(String[] pets) {
+    public RevivePetScreen() {
         super(700, 500, 1);
         addObject(new TitleText("Revive Pets"), 620, 200);
-        layoutPets(pets);
+        layoutPets(Player.getDeceasedPets());
         addObject(new Cross(), 50, 50);
     }
 

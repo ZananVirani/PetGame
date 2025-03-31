@@ -34,7 +34,7 @@ public class ReviveButton extends Actor {
      */
     public void act() {
         if (Greenfoot.mouseClicked(this)) {
-            Greenfoot.setWorld(new RevivePetScreen(deadPets));
+            ScreenManager.push(new RevivePetScreen());
         }
     }
 }

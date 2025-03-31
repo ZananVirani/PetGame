@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=RevivePetScreen
 comment0.text=\n\ RevivePetScreen\ displays\ all\ dead\ pets\ passed\ from\ the\ backend.\n\ Each\ pet\ name\ is\ shown\ in\ a\ simple\ box,\ evenly\ spaced\ and\ wrapped\n\ across\ multiple\ rows\ if\ necessary.\n\ Provides\ a\ way\ for\ players\ to\ select\ and\ revive\ a\ dead\ pet.\n\ Includes\ a\ cross\ button\ to\ return\ to\ the\ Main\ Menu.\n\ \n\ @author\ Jay\n\ @version\ 1.0\n
-comment1.params=pets
-comment1.target=RevivePetScreen(java.lang.String[])
+comment1.params=
+comment1.target=RevivePetScreen()
 comment1.text=\n\ Creates\ a\ new\ RevivePetScreen\ with\ the\ given\ array\ of\ dead\ pet\ names.\n\ \n\ @param\ pets\ An\ array\ of\ strings\ containing\ names\ of\ dead\ pets.\n
 comment2.params=pets
 comment2.target=void\ layoutPets(java.lang.String[])
