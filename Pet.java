@@ -71,5 +71,26 @@ public class Pet {
       return currentState;
    }
 
+   public static Map<String, Object> getPetData() {
+      Map<String, Object> petData = new HashMap<>();
+      petData.put("petName", Pet.classpetName);
+      petData.put("health", Pet.health);
+      petData.put("fullness", Pet.fullness);
+      petData.put("happiness", Pet.happiness);
+      petData.put("sleep", Pet.sleep);
+      petData.put("score", Pet.score);
+      petData.put("currentState", Pet.currentState);
+      return petData;
+   }
+
+   public static void setPetData(Map<String, Object> petData) {
+      Pet.petName = (String) petData.get("petName");
+      Pet.health = (int) petData.get("health");
+      Pet.fullness = (int) petData.get("fullness");
+      Pet.happiness = (int) petData.get("happiness");
+      Pet.sleep = (int) petData.get("sleep");
+      Pet.score = (int) petData.get("score");
+      Pet.currentState = (String) petData.get("currentState");
+   }
 
 }
