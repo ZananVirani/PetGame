@@ -157,6 +157,8 @@ public class Player {
                 break;
             }
         }
+        
+        GameState.saveAll();
     }
 
     public static void revivePet(String petName){

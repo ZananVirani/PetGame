@@ -257,3 +257,26 @@ class ExitIcon extends Actor {
         setImage(img);
     }
 }
+
+
+/**
+ * Displays the description of the selected pet.
+ */
+class DescriptionLabel extends Actor {
+    private String text = "";
+
+    public DescriptionLabel() {
+        updateImage();
+        
+    }
+
+    public void setText(String newText) {
+        text = newText;
+        updateImage();
+    }
+
+    private void updateImage() {
+        GreenfootImage img = new GreenfootImage(text, 20, Color.BLACK, new Color(255, 255, 255, 180));
+        setImage(img);
+    }
+}
