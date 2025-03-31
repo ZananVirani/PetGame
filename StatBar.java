@@ -80,7 +80,7 @@ public class StatBar extends Actor
                 return (value < maxValue / 2) ? Color.RED : Color.GREEN;
             case "happiness":
                 return Color.YELLOW;
-            case "hunger":
+            case "fullness":
                 return Color.ORANGE; // Not available — fallback below
             case "sleepiness":
                 return Color.BLUE;

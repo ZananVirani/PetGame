@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=CheckConfirm
 comment0.text=\n\ Write\ a\ description\ of\ class\ CheckConfirm\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=h1\ m1\ h2\ m2\ pt
-comment1.target=CheckConfirm(HoursBox,\ MinutesBox,\ HoursBox,\ MinutesBox,\ ParentalToggle)
+comment1.params=h1\ m1\ h2\ m2\ pt\ world
+comment1.target=CheckConfirm(HoursBox,\ MinutesBox,\ HoursBox,\ MinutesBox,\ ParentalToggle,\ greenfoot.World)
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\n\ Act\ -\ do\ whatever\ the\ CheckConfirm\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n

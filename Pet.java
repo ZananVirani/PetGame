@@ -6,6 +6,7 @@ import greenfoot.*;
 public class Pet extends Actor
 {
     private String currentState = "";
+    private int scale = 200;
 
     public Pet()
     {
@@ -17,7 +18,7 @@ public class Pet extends Actor
         if (!currentState.equals("normal"))
         {
             setImage("Cat.png");
-            getImage().scale(200, 200); 
+            getImage().scale(scale, scale); 
             currentState = "normal";
         }
     }
@@ -27,7 +28,7 @@ public class Pet extends Actor
         if (!currentState.equals("hungry"))
         {
             setImage("catHungry.png");
-            getImage().scale(200, 200);
+            getImage().scale(scale, scale);
             currentState = "hungry";
         }
     }
@@ -37,7 +38,7 @@ public class Pet extends Actor
         if (!currentState.equals("sleepy"))
         {
             setImage("catSleepy.png");
-            getImage().scale(200, 200);
+            getImage().scale(scale, scale);
             currentState = "sleepy";
         }
     }
@@ -47,7 +48,7 @@ public class Pet extends Actor
         if (!currentState.equals("dead"))
         {
             setImage("catDead.png");
-            getImage().scale(200, 200);
+            getImage().scale(scale, scale);
             currentState = "dead";
         }
     }
@@ -57,7 +58,7 @@ public class Pet extends Actor
         if (!currentState.equals("angry"))
         {
             setImage("catAngry.png");
-            getImage().scale(200, 200);
+            getImage().scale(scale, scale);
             currentState = "angry";
         }
     }
@@ -67,7 +68,7 @@ public class Pet extends Actor
         if (!currentState.equals("sleeping"))
         {
             setImage("catSleeping.png");
-            getImage().scale(200, 200);
+            getImage().scale(scale, scale);
             currentState = "sleeping";
         }
     }

@@ -12,12 +12,15 @@ public class CheckConfirm extends Actor
     private HoursBox hours1, hours2; 
     private MinutesBox minutes1, minutes2;
     private ParentalToggle toggle;
-    public CheckConfirm(HoursBox h1, MinutesBox m1, HoursBox h2, MinutesBox m2, ParentalToggle pt){  
+    private World world;
+    
+    public CheckConfirm(HoursBox h1, MinutesBox m1, HoursBox h2, MinutesBox m2, ParentalToggle pt, World world){  
         hours1 = h1;
         hours2 = h2;
         minutes1 = m1;
         minutes2 = m2;
         toggle = pt;
+        this.world = world;
           
         GreenfootImage check = getImage();
         check.scale(30, 30); // scale original checkmark
@@ -52,7 +55,7 @@ public class CheckConfirm extends Actor
             Player.setTimeRestrictions(null, null);
             
             GameState.savePlayer();
-            
+            world.showText("Saved!", 620, 300);
             
         }
     }

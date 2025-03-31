@@ -44,7 +44,7 @@ public class ParentalControls extends World
         addObject(new ParagraphText(String.format("Average Session: %.2fmins", Player.getAverageSession())), 490, 530);
         addObject(new ParagraphText(String.format("Total Time: %d hrs and %d mins", Player.getTotalTime().toHours(), Player.getTotalTime().toMinutes())), 740, 530);
         
-        addObject(new CheckConfirm(h1, m1, h2, m2, pt), 620, 250);
+        addObject(new CheckConfirm(h1, m1, h2, m2, pt, this), 620, 250);
         
         
         addObject(new ReviveButton(), 370, 440);
