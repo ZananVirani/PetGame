@@ -44,6 +44,8 @@ public class CheckConfirm extends Actor
             int firstMin = minutes1.getMinutes();
             int secondMin = minutes2.getMinutes();
             boolean enabled = toggle.isEnabled();
+            
+            
         }
     }
 }

@@ -10,64 +10,51 @@ public class GameState {
    private static final String PET_SAVE_DIRECTORY = "pets/";
    private LocalDateTime lastSaved;
 
-   public GameState() {
-      this.lastSaved = LocalDateTime.now();
-      // Create pets directory if it doesn't exist
-      new File(PET_SAVE_DIRECTORY).mkdirs();
-   }
-
-   // public void setTimeRestrictions(LocalTime startTime, LocalTime endTime) {
-   //    this.timeRestrictions[0] = startTime;
-   //    this.timeRestrictions[1] = endTime;
+   // public GameState() {
+   //    this.lastSaved = LocalDateTime.now();
+   //    // Create pets directory if it doesn't exist
+   //    new File(PET_SAVE_DIRECTORY).mkdirs();
    // }
 
-   // public boolean isWithinTimeRestrictions() {
-   //    LocalTime currentTime = LocalTime.now();
-   //    return currentTime.isAfter(timeRestrictions[0]) && currentTime.isBefore(timeRestrictions[1]);
-   // }
-
-   // public LocalTime getStartTime() {
-   //    return timeRestrictions[0];
-   // }
-
-   // public LocalTime getEndTime() {
-   //    return timeRestrictions[1];
-   // }
-
-   public void savePlayer(Player player) {
+   public static void savePlayer() {
       try {
-         player.incrementSession();
+         Player.incrementSession();
          ObjectMapper mapper = new ObjectMapper();
-         mapper.writeValue(new File(PLAYER_SAVE_FILE), player);
-         this.lastSaved = LocalDateTime.now();
+         mapper.writeValue(new File(PLAYER_SAVE_FILE), Player.class);
+         // this.lastSaved = LocalDateTime.now();
       } catch (IOException e) {
          System.err.println("Error saving player: " + e.getMessage());
       }
    }
 
-   public Player loadPlayer() {
+   public static void loadPlayer() {
       try {
          ObjectMapper mapper = new ObjectMapper();
-         return mapper.readValue(new File(PLAYER_SAVE_FILE), Player.class);
+         mapper.readValue(new File(PLAYER_SAVE_FILE), Player.class);
       } catch (IOException e) {
          System.err.println("Error loading player: " + e.getMessage());
-         return null;
       }
    }
 
-   public void savePet(Player player, Pet pet) {
+   public static void savePet(Pet pet) {
       try {
          ObjectMapper mapper = new ObjectMapper();
-         String petFileName = PET_SAVE_DIRECTORY + pet.getName().toLowerCase() + "_save.json";
-         mapper.writeValue(new File(petFileName), pet);
-         this.lastSaved = LocalDateTime.now();
-         player.getAlivePets().add(pet.getName());
+         String petFileName = PET_SAVE_DIRECTORY + Pet.getName().toLowerCase() + "_save.json";
+         mapper.writeValue(new File(petFileName), Pet.class);
+         // this.lastSaved = LocalDateTime.now();
+         // Add pet name to alivePets array
+         for (int i = 0; i < Player.getAlivePets().length; i++) {
+            if (Player.getAlivePets()[i] == null) {
+               Player.getAlivePets()[i] = Pet.getName();
+               break;
+            }
+         }
       } catch (IOException e) {
          System.err.println("Error saving pet: " + e.getMessage());
       }
    }
 
-   public Pet loadPet(String petName) {
+   public static Pet loadPet(String petName) {
       try {
          ObjectMapper mapper = new ObjectMapper();
          String petFileName = PET_SAVE_DIRECTORY + petName.toLowerCase() + "_save.json";

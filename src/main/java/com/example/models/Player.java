@@ -6,35 +6,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-   private Pet pet;
-   private int numberOfSessions;
-   private Duration totalTimeSpent;
-   private boolean parentPass;
-   private List<String> alivePets;
-   private List<String> deceasedPets;
-   private LocalTime[] timeRestrictions; // Array to store start and end times
+   private static Pet pet;
+   private static int numberOfSessions;
+   private static Duration totalTimeSpent;
+   private static boolean parentPass;
+   private static String[] alivePets;
+   private static String[] deceasedPets;
+   private static LocalTime[] timeRestrictions; // Array to store start and end times
 
-   public Player(String name, int age, Pet pet) {
-      this.pet = pet;
-      this.numberOfSessions = 0;
-      this.totalTimeSpent = Duration.ZERO;
-      this.parentPass = false;
-      this.alivePets = new ArrayList<>();
-      this.deceasedPets = new ArrayList<>();
-      this.timeRestrictions = new LocalTime[2]; // Initialize array for start and end times
+   public static void Setup() {
+      pet = null;
+      numberOfSessions = 0;
+      totalTimeSpent = Duration.ZERO;
+      parentPass = false;
+      alivePets = new String[3];
+      deceasedPets = new String[3];
+      timeRestrictions = new LocalTime[2]; // Initialize array for start and end times
    }
 
-   public void setTimeRestrictions(LocalTime startTime, LocalTime endTime) {
+   public static String[] getAlivePets() {
+      return alivePets;
+   }
+
+   public static void setTimeRestrictions(LocalTime startTime, LocalTime endTime) {
       if (parentPass) {
-         this.timeRestrictions[0] = startTime;
-         this.timeRestrictions[1] = endTime;
+         timeRestrictions[0] = startTime;
+         timeRestrictions[1] = endTime;
          System.out.println("Time restrictions set from " + startTime + " to " + endTime);
       } else {
          System.out.println("Parent pass required to set time restrictions");
       }
    }
 
-   public boolean isWithinTimeRestrictions() {
+   public static boolean isWithinTimeRestrictions() {
       if (timeRestrictions[0] == null || timeRestrictions[1] == null) {
          return true; // If no restrictions set, allow play at any time
       }
@@ -42,34 +46,15 @@ public class Player {
       return currentTime.isAfter(timeRestrictions[0]) && currentTime.isBefore(timeRestrictions[1]);
    }
 
-   public LocalTime getStartTime() {
+   public static LocalTime getStartTime() {
       return timeRestrictions[0];
    }
 
-   public LocalTime getEndTime() {
+   public static LocalTime getEndTime() {
       return timeRestrictions[1];
    }
 
-   public void incrementSession() {
+   public static void incrementSession() {
       numberOfSessions++;
    }
-
-   // public void newGame(Player newPlayer) {
-   //    GameState newGame = new GameState(newPlayer);
-   // }
-
-   public List<String> getAlivePets() {
-      return alivePets;
-   }
-
-   // TODO: Add stats method
-   public void stats() {
-      System.out.println("Number of Sessions: " + numberOfSessions);
-      System.out.println("Total Time Spent: " + totalTimeSpent);
-      System.out.println("Parent Pass: " + parentPass);
-      if (timeRestrictions[0] != null && timeRestrictions[1] != null) {
-         System.out.println("Play Time: " + timeRestrictions[0] + " to " + timeRestrictions[1]);
-      }
-   }
-
 }

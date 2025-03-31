@@ -36,20 +36,20 @@ public class Inventory {
       return giftItems;
    }
 
-   public void useFood(Food food, Fullness fullness, Score score) {
+   public void useFood(Food food) {
       if (this.hasFood(food)) {
-         fullness.increaseFullness(food.getValue());
-         score.increaseScore(10);
+         Pet.increaseVital(Pet.getFullness(), food.getValue());
+         Pet.increaseScore(10);
          foodItems.remove(food);
       } else {
          // Error message or something
       }
    }
 
-   public void useGift(Gift gift, Happiness happiness, Score score) {
+   public void useGift(Gift gift) {
       if (this.hasGift(gift)) {
-         happiness.increaseHappiness(gift.getValue());
-         score.increaseScore(10);
+         Pet.increaseVital(Pet.getHappiness(), gift.getValue());
+         Pet.increaseScore(10);
          giftItems.remove(gift);
       } else {
          // Error message or something

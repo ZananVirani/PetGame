@@ -1,49 +1,75 @@
 package com.example.models;
 
 public class Pet {
-   private String name;
-   private Health health;
-   private Fullness fullness;
-   private Happiness happiness;
-   private Sleep sleep;
-   private Score score;
+   private static String petName;
+   private static int health;
+   private static int fullness;
+   private static int happiness;
+   private static int sleep;
+   private static int score;
+   private static String currentState;
 
-   private String currentState;
-
-   public Pet(String name, Health health, Fullness fullness, Happiness happiness, Sleep sleep) {
-      this.name = name;
-      this.health = health;
-      this.fullness = fullness;
-      this.happiness = happiness;
-      this.sleep = sleep;
+   public static void Setup(String name){
+      petName = name;
+      health = 100;
+      fullness = 100;
+      happiness = 100;
+      sleep = 100;
+      score = 0;
+      currentState = null;
    }
 
-   public String getName() {
-      return name;
+   public static void increaseVital(int vital, int value) {
+      vital += value;
+   }
+
+   public static void decreaseVital(int vital, int value) {
+      vital -= value;
+   }
+
+   public static int getVital(int vital) {
+      return vital;
+   }
+
+   public static void increaseScore(int value) {
+      score += value;
+   }  
+
+   public static void decreaseScore(int value) {
+      score -= value;
+   }
+
+   public static int getScore() {
+      return score;
+   }
+
+   public static String getName() {
+      return petName;
+   }
+
+   public static int getFullness(){
+      return fullness;     
+   }
+
+   public static int getHealth(){
+      return health;
+   }
+
+   public static int getHappiness(){
+      return happiness;
+   }
+
+   public static int getSleep(){
+      return sleep;
+   }
+
+   public static void setCurrentState(String state){
+      currentState = state;
+   }
+
+   public static String getCurrentState(){
+      return currentState;
    }
 
 
-   // public void feed(Food food) {
-   //    inventory.useFood(food, fullness, score);
-   // }
-
-   // public void play(Gift gift) {
-   //    inventory.useGift(gift, happiness, score);
-   // }
-
-
-
-   // public void sleep() {
-   //    sleep.increaseSleep(10);
-   //    score.increaseScore(5);
-   // }
-
-   // public void vet() {
-   //    health.increaseHealth(10);
-   //    score.increaseScore(5);
-   // }
-
-   // public void checkVitals() {
-      
-   // }
 }
