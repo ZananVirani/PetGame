@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Player
+comment1.params=
+comment1.target=void\ Setup()
+comment2.params=
+comment2.target=java.lang.String[]\ getAlivePets()
+comment3.params=startTime\ endTime
+comment3.target=void\ setTimeRestrictions(java.time.LocalTime,\ java.time.LocalTime)
+comment4.params=
+comment4.target=boolean\ isWithinTimeRestrictions()
+comment5.params=
+comment5.target=java.time.LocalTime\ getStartTime()
+comment6.params=
+comment6.target=java.time.LocalTime\ getEndTime()
+comment7.params=
+comment7.target=void\ incrementSession()
+numComments=8

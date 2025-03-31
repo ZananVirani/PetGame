@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.time.LocalTime;
 
 /**
  * Write a description of class CheckConfirm here.
@@ -43,7 +44,12 @@ public class CheckConfirm extends Actor
             int secondHr = hours2.getHour();
             int firstMin = minutes1.getMinutes();
             int secondMin = minutes2.getMinutes();
+            
+            LocalTime startTime = LocalTime.of(firstHr, firstMin);
+            LocalTime endTime = LocalTime.of(secondHr, secondMin);
             boolean enabled = toggle.isEnabled();
+            
+            Player.setTimeRestrictions(startTime, endTime);
             
             
         }
