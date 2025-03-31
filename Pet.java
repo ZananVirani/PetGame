@@ -6,11 +6,13 @@ import greenfoot.*;
 public class Pet extends Actor
 {
     private String currentState = "";
+    private String type;
     private static final int PET_WIDTH = 200;
     private static final int PET_HEIGHT = 200;
 
     public Pet()
     {
+        type = PetClass.getType().toLowerCase();
         setToNormal(); // Default state
     }
 
@@ -21,7 +23,7 @@ public class Pet extends Actor
     {
         if (!currentState.equals("normal"))
         {
-            setScaledImage("cat.png");
+            setScaledImage(type + "Normal.png");
             currentState = "normal";
         }
     }
@@ -33,7 +35,7 @@ public class Pet extends Actor
     {
         if (!currentState.equals("hungry"))
         {
-            setScaledImage("catHungry.png");
+            setScaledImage(type + "Hungry.png");
             currentState = "hungry";
         }
     }
@@ -45,7 +47,7 @@ public class Pet extends Actor
     {
         if (!currentState.equals("sleepy"))
         {
-            setScaledImage("catSleepy.png");
+            setScaledImage(type + "Sleepy.png");
             currentState = "sleepy";
         }
     }
@@ -57,7 +59,7 @@ public class Pet extends Actor
     {
         if (!currentState.equals("angry"))
         {
-            setScaledImage("catAngry.png");
+            setScaledImage(type + "Angry.png");
             currentState = "angry";
         }
     }
@@ -69,7 +71,7 @@ public class Pet extends Actor
     {
         if (!currentState.equals("dead"))
         {
-            setScaledImage("catDead.png");
+            setScaledImage(type + "Dead.png");
             currentState = "dead";
         }
     }
@@ -81,7 +83,7 @@ public class Pet extends Actor
     {
         if (!currentState.equals("sleeping"))
         {
-            setScaledImage("catSleeping.png");
+            setScaledImage(type + "Sleeping.png");
             currentState = "sleeping";
         }
     }
@@ -93,7 +95,7 @@ public class Pet extends Actor
     {
         if (!currentState.equals("exercise"))
         {
-            setScaledImage("catActive1.png");
+            setScaledImage(type + "Active1.png");
             currentState = "exercise";
         }
     }

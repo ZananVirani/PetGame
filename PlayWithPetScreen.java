@@ -67,6 +67,7 @@ public class PlayWithPetScreen extends World
         addObject(new Calculator(), 610, 250);
 
         addObject(new SaveButton(this), 325, 50);
+        showText(PetClass.getName(), 350, 330);
 
         globalTimer = 0;
         isGameOver = false;
