@@ -22,6 +22,7 @@ public class SaveButton extends Actor
     public void act(){
         if (Greenfoot.mouseClicked(this)){
             try{
+                GameState.savePet();
                 GameState.savePlayer();
             } catch (Exception e){
                 world.showText("SOMETHING WENT WRONG!", 325, 200);

@@ -7,9 +7,12 @@ public class PetClass {
    private static int happiness;
    private static int sleep;
    private static int score;
+   private static String petType;
+   private static int multiplier;
+   private static String vitalMultiplier;
    private static String currentState;
 
-   public static void Setup(String name){
+   public static void Setup(String name, String type){
       petName = name;
       health = 100;
       fullness = 100;
@@ -17,14 +20,29 @@ public class PetClass {
       sleep = 100;
       score = 0;
       currentState = null;
+      petType = type;
+      if(petType == "Cat"){
+         multiplier = 1;
+         vitalMultiplier = "fullness";
+      } else if(petType == "Dog"){
+         multiplier = 2;
+         vitalMultiplier = "happiness";
+      } else if(petType == "Bear"){
+         multiplier = 3;
+         vitalMultiplier = "sleep";
+      }
    }
 
    public static void increaseVital(int vital, int value) {
       vital += value;
    }
 
-   public static void decreaseVital(int vital, int value) {
-      vital -= value;
+   public static void decreaseVital(int vital, int value, String vitalName) {
+      if (vitalName.equals(vitalMultiplier)) {
+         vital -= value * multiplier;
+      } else {
+         vital -= value;
+      }
    }
 
    public static int getVital(int vital) {
@@ -69,6 +87,34 @@ public class PetClass {
 
    public static String getCurrentState(){
       return currentState;
+   }
+
+   public static Map<String, Object> getPetData() {
+      Map<String, Object> petData = new HashMap<>();
+      petData.put("petName", Pet.classpetName);
+      petData.put("health", Pet.health);
+      petData.put("fullness", Pet.fullness);
+      petData.put("happiness", Pet.happiness);
+      petData.put("sleep", Pet.sleep);
+      petData.put("score", Pet.score);
+      petData.put("currentState", Pet.currentState);
+      petData.put("petType", Pet.petType);
+      petData.put("multiplier", Pet.multiplier);
+      petData.put("vitalMultiplier", Pet.vitalMultiplier);
+      return petData;
+   }
+
+   public static void setPetData(Map<String, Object> petData) {
+      Pet.petName = (String) petData.get("petName");
+      Pet.health = (int) petData.get("health");
+      Pet.fullness = (int) petData.get("fullness");
+      Pet.happiness = (int) petData.get("happiness");
+      Pet.sleep = (int) petData.get("sleep");
+      Pet.score = (int) petData.get("score");
+      Pet.currentState = (String) petData.get("currentState");
+      Pet.petType = (String) petData.get("petType");
+      Pet.multiplier = (int) petData.get("multiplier");
+      Pet.vitalMultiplier = (String) petData.get("vitalMultiplier");
    }
 
 

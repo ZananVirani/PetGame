@@ -2,6 +2,8 @@ import java.time.Duration;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Player {
    private static int numberOfSessions;
@@ -11,13 +13,18 @@ public class Player {
    private static String[] deceasedPets;
    private static LocalTime[] timeRestrictions; // Array to store start and end times
 
-   public static void Setup() {
-      numberOfSessions = 0;
-      totalTimeSpent = Duration.ZERO;
-      parentPass = false;
-      alivePets = new String[3];
-      deceasedPets = new String[3];
-      timeRestrictions = new LocalTime[2]; // Initialize array for start and end times
+   public static void setup() {
+      File playerFile = new File("player_save.json");
+      if (playerFile.exists()) {
+         return;
+      } else {
+         numberOfSessions = 0;
+         totalTimeSpent = Duration.ZERO;
+         parentPass = false;
+         alivePets = new String[3];
+         deceasedPets = new String[3];
+         timeRestrictions = new LocalTime[2]; // Initialize array for start and end times
+      }
    }
 
    public static String[] getAlivePets() {
