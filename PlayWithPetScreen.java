@@ -22,6 +22,9 @@ public class PlayWithPetScreen extends World
     private static final int PET_HEIGHT = 100;
     private GreenfootImage exerciseFrame1;
     private GreenfootImage exerciseFrame2;
+    private boolean vetOnCooldown = false;
+    private int vetCoolDownTimer = 0;
+    private final int VET_COOLDOWN_DURATION = 600;
 
     public PlayWithPetScreen()
     {
@@ -102,6 +105,15 @@ public class PlayWithPetScreen extends World
                 return; // block all other logic while exercising
             }
         }
+        
+        if (vetOnCooldown){
+            vetCoolDownTimer--;
+            
+            if (vetTimer <= 0){
+                showVet = false;
+                removeObjects(getObjects(Nurse.class));
+            }
+        }
 
         // Vet timer logic (if you have vet feature)
         if (showVet)
@@ -120,20 +132,36 @@ public class PlayWithPetScreen extends World
         {
             if (isSleeping)
             {
-                sleepBar.increase(10);
+                PetClass.increaseSleep(15);
+                sleepBar.increase(15);
+                
+                PetClass.decreaseFullness(5);
                 fullnessBar.decrease(5);
+                
+                PetClass.decreaseHappiness(5);
                 happinessBar.decrease(5);
             }
             else
             {
+                PetClass.decreaseHappiness(5);
                 happinessBar.decrease(5);
+                
+                PetClass.decreaseFullness(5);
                 fullnessBar.decrease(7);
+                
+                PetClass.decreaseSleep(6);
                 sleepBar.decrease(6);
 
                 if (fullnessBar.getValue() == 0 || sleepBar.getValue() == 0)
                 {
+                    PetClass.decreaseHealth(10);
                     healthBar.decrease(10);
                 }
+            }
+            
+            if (fullnessBar.getValue() == 0) {
+                PetClass.decreaseHappiness(5);
+                happinessBar.decrease(5);
             }
 
             globalTimer = 0;
@@ -177,8 +205,11 @@ public class PlayWithPetScreen extends World
         switch(interaction)
         {
             case "Throw Ball":
+                // xyz
                 happinessBar.increase(10);
+                // xyz
                 sleepBar.decrease(5);
+                // xyz
                 fullnessBar.decrease(3);
                 if (currentToy != null) removeObject(currentToy);
                 currentToy = new Toy();
@@ -191,22 +222,23 @@ public class PlayWithPetScreen extends World
                     showText(PetClass.getName() + " is unhappy, play with it!", getWidth() / 2, 60);
                     return;
                 }
+                // xyz
                 happinessBar.increase(7);
                 addObject(new Hand(), pet.getX() - 30, pet.getY() - 40);
                 break;
 
-            case "Give Toy":
+            case "Give Gift":
+                // TODO
+                PetClass.increaseHappiness(5);
                 happinessBar.increase(5);
-                sleepBar.decrease(2);
-                if (currentToy != null) removeObject(currentToy); 
-                currentToy = new Toy();
-                addObject(currentToy, 200, 250);
                 break;
+                
             case "Feed":
+                PetClass.increaseFullness(15);
                 fullnessBar.increase(15);
-                happinessBar.increase(5);
 
                 break;
+                
             case "Exercise":
                 pet.setImage(exerciseFrame1);
                 pet.setCurrentState("exercise"); // Set state so mood logic knows to override it later
@@ -226,18 +258,31 @@ public class PlayWithPetScreen extends World
                 pet.setImage(exerciseFrame1); // Start with frame 1
 
                 showText(PetClass.getName() + "'s busy!", getWidth() / 2, 80);
-
+                
+                // xyz
                 sleepBar.decrease(15);
+                // xyz
                 healthBar.increase(10);
                 break;
 
             case "Take to Vet":
+                             if (vetOnCooldown)
+                {
+                    showText("Vet is on cooldown!", getWidth() / 2, 60);
+                    return;
+                }
                 showVet = true;
                 vetTimer = 180; // Nurse stays for 3 seconds
                 addObject(new Nurse(), getWidth() / 2, getHeight() / 2);
+                              
+                PetClass.increaseHealth(25);
                 healthBar.increase(25); // Boost health
-                happinessBar.increase(10);
-                break;
+               
+                
+                vetOnCooldown = true;
+                vetCoolDownTimer = VET_COOLDOWN_DURATION;
+                
+                break; 
         }
     }
 

@@ -13,7 +13,7 @@ public class PetClass {
     private static String petType;
     private static int multiplier;
     private static String vitalMultiplier;
-    private static String currentState;
+    //private static String currentState;
 
     public static void Setup(String name, String type) {
         petName = name;
@@ -22,34 +22,63 @@ public class PetClass {
         happiness = 100;
         sleep = 100;
         score = 0;
-        currentState = null;
+        //currentState = null;
         petType = type;
-        if (petType == "Cat") {
-            multiplier = 1;
+        if (petType.equals("Cat")) {
+            multiplier = 2;
             vitalMultiplier = "fullness";
-        } else if (petType == "Dog") {
+        } else if (petType.equals("Dog")) {
             multiplier = 2;
             vitalMultiplier = "happiness";
-        } else if (petType == "Bear") {
-            multiplier = 3;
+        } else {
+            multiplier = 2;
             vitalMultiplier = "sleep";
         }
     }
-
-    public static void increaseVital(int vital, int value) {
-        vital += value;
+    
+    public static void increaseHealth(int value) {
+        health += value;
     }
 
-    public static void decreaseVital(int vital, int value, String vitalName) {
-        if (vitalName.equals(vitalMultiplier)) {
-            vital -= value * multiplier;
+    public static void decreaseHealth(int value) {
+        health -= value;
+    }
+    
+        public static void increaseFullness(int value) {
+        fullness += value;
+    }
+
+    public static void decreaseFullness(int value) {
+        if (vitalMultiplier.equals("fullness")) {
+            fullness -= value * multiplier;
         } else {
-            vital -= value;
+            fullness -= value;
         }
     }
+        
+    public static void increaseHappiness(int value) {
+        happiness += value;
+    }
 
-    public static int getVital(int vital) {
-        return vital;
+    public static void decreaseHappiness(int value) {
+        if (vitalMultiplier.equals("happiness")) {
+            happiness -= value * multiplier;
+        } else {
+            happiness -= value;
+        }
+    }
+    
+    
+        public static void increaseSleep(int value) {
+        sleep += value;
+    }
+
+    public static void decreaseSleep(int value) {
+        if (vitalMultiplier.equals("sleep")) {
+            sleep -= value * multiplier;
+        } else {
+            sleep -= value;
+        }
     }
     
     public static String getType(){
@@ -87,7 +116,7 @@ public class PetClass {
     public static int getSleep() {
         return sleep;
     }
-
+/*
     public static void setCurrentState(String state) {
         currentState = state;
     }
@@ -95,6 +124,7 @@ public class PetClass {
     public static String getCurrentState() {
         return currentState;
     }
+    */
 
     public static Map<String, Object> getPetData() {
         Map<String, Object> petData = new HashMap<>();
@@ -104,7 +134,7 @@ public class PetClass {
         petData.put("happiness", String.valueOf(happiness));
         petData.put("sleep", String.valueOf(sleep));
         petData.put("score", String.valueOf(score));
-        petData.put("currentState", currentState);
+        //petData.put("currentState", currentState);
         petData.put("petType", petType);
         petData.put("multiplier", String.valueOf(multiplier));
         petData.put("vitalMultiplier", vitalMultiplier);
@@ -120,7 +150,7 @@ public class PetClass {
         sleep = parseIntSafe(petData.get("sleep"));
         score = parseIntSafe(petData.get("score"));
 
-        currentState = petData.get("currentState") != null ? petData.get("currentState").toString() : null;
+        //currentState = petData.get("currentState") != null ? petData.get("currentState").toString() : null;
         petType = petData.get("petType") != null ? petData.get("petType").toString() : null;
         multiplier = parseIntSafe(petData.get("multiplier"));
         vitalMultiplier = petData.get("vitalMultiplier") != null ? petData.get("vitalMultiplier").toString() : null;

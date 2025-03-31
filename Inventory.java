@@ -30,16 +30,20 @@ public class Inventory {
         randomGifts.add(new Gift("Red Gift", 10));
     }
 
-    public void addFood() {
+    public Food addFood() {
         Random random = new Random();
         int randomIndex = random.nextInt(randomFoods.size());
-        foodItems.add(randomFoods.get(randomIndex));
+        Food item = randomFoods.get(randomIndex);
+        foodItems.add(item);
+        return item;
     }
 
-    public void addGift() {
+    public Gift addGift() {
         Random random = new Random();
         int randomIndex = random.nextInt(randomGifts.size());
-        giftItems.add(randomGifts.get(randomIndex));
+        Gift item = randomGifts.get(randomIndex);
+        giftItems.add(item);
+        return item;
     }
 
     public boolean hasFood(Food food) {
@@ -60,7 +64,7 @@ public class Inventory {
 
     public void useFood(Food food) {
         if (this.hasFood(food)) {
-            PetClass.increaseVital(PetClass.getFullness(), food.getValue());
+            //PetClass.increaseVital(PetClass.getFullness(), food.getValue());
             PetClass.increaseScore(10);
             foodItems.remove(food);
         } else {
@@ -70,7 +74,7 @@ public class Inventory {
 
     public void useGift(Gift gift) {
         if (this.hasGift(gift)) {
-            PetClass.increaseVital(PetClass.getHappiness(), gift.getValue());
+            //PetClass.increaseVital(PetClass.getHappiness(), gift.getValue());
             PetClass.increaseScore(10);
             giftItems.remove(gift);
         } else {

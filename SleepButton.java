@@ -16,11 +16,16 @@ public class SleepButton extends Actor
 
     public void act()
     {
+        if (PetClass.getSleep() >= 100) sleeping = false;
+        
         if (Greenfoot.mouseClicked(this))
         {
-            sleeping = !sleeping;
-            screen.setSleepingMode(sleeping);
-            updateImage();
+            if (!sleeping || PetClass.getSleep() < 100)
+            {
+                sleeping = true;
+                screen.setSleepingMode(sleeping);
+                updateImage();
+            }
         }
     }
 
@@ -30,7 +35,7 @@ public class SleepButton extends Actor
         int height = 30;
         String label = sleeping ? "Wake Up" : "Sleep";
         GreenfootImage img = new GreenfootImage(120, 30);
-                // Shadow effect
+        // Shadow effect
         img.setColor(new Color(50, 50, 50)); // dark gray
         img.fillRect(3, 3, width - 3, height - 3);
 
