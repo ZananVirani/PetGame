@@ -222,6 +222,8 @@ class NameInput extends Actor {
         }
 
         PetClass.Setup(text, TempType.getValue());
+        GameState.createNewPet();
+        GameState.savePlayer();
 
         ScreenManager.replace(new PlayWithPetScreen());
     }

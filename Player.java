@@ -32,7 +32,7 @@ public class Player {
     public static String[] getAlivePets() {
         return alivePets;
     }
-    
+
     public static String[] getDeceasedPets() {
         return deceasedPets;
     }
@@ -94,7 +94,7 @@ public class Player {
         playerData.put("alivePets", alivePets);
         playerData.put("deceasedPets", deceasedPets);
         playerData.put("timeRestrictions", restrictions);
-        
+
         System.out.println(playerData);
         return playerData;
     }
@@ -134,5 +134,79 @@ public class Player {
         .map(obj -> obj == null ? null : LocalTime.parse(obj.toString()))
         .toArray(LocalTime[]::new);
 
+    }
+
+    public static void petDied(String petName){
+        for (int i=0;i<alivePets.length;i++){
+            if (alivePets[i] == null) break;
+            if (alivePets[i].equals(petName)){
+                alivePets[i] = null;
+                for (int j=i;j<alivePets.length-1;j++){
+                    alivePets[j] = alivePets[j+1];
+                }
+                alivePets[alivePets.length-1] = null;
+
+                break;
+            }
+        }
+
+        if (deceasedPets[deceasedPets.length-1] != null) deceasedPets = expandArray(deceasedPets,deceasedPets.length * 2); 
+        for (int i=0;i<deceasedPets.length;i++){
+            if (deceasedPets[i] == null){
+                deceasedPets[i] = petName;
+                break;
+            }
+        }
+    }
+
+    public static void revivePet(String petName){
+        for (int i=0;i<deceasedPets.length;i++){
+            if (deceasedPets[i] == null) break;
+            if (deceasedPets[i].equals(petName)){
+                deceasedPets[i] = null;
+                for (int j=i;j<deceasedPets.length-1;j++){
+                    deceasedPets[j] = deceasedPets[j+1];
+                }
+                deceasedPets[deceasedPets.length-1] = null;
+
+                break;
+            }
+        }
+
+        if (alivePets[alivePets.length-1] != null) alivePets = expandArray(alivePets,alivePets.length * 2); 
+        for (int i=0;i<alivePets.length;i++){
+            if (alivePets[i] == null){
+                alivePets[i] = petName;
+                break;
+            }
+        }
+    }
+
+    public static boolean createPet(){
+        if (alivePets[alivePets.length-1] != null) alivePets = expandArray(alivePets,alivePets.length * 2); 
+        for (int i = 0; i < alivePets.length; i++) {
+            if (alivePets[i] == null) {
+                alivePets[i] = PetClass.getName().toLowerCase();
+                return true;
+            }
+            if (alivePets[i].equals(PetClass.getName().toLowerCase()))
+                return false;
+        }
+
+        return false;
+    }
+
+    public static String[] expandArray(String[] original, int newSize) {
+        if (newSize <= original.length) {
+            throw new IllegalArgumentException("New size must be greater than current size");
+        }
+
+        // Create new array with the larger size
+        String[] expanded = new String[newSize];
+
+        // Copy all elements from the original array to the expanded one
+        System.arraycopy(original, 0, expanded, 0, original.length);
+
+        return expanded;
     }
 }
