@@ -23,8 +23,8 @@ public class Player {
             numberOfSessions = 0;
             totalTimeSpent = Duration.ZERO;
             parentPass = false;
-            alivePets = new String[3];
-            deceasedPets = new String[3];
+            alivePets = new String[10];
+            deceasedPets = new String[10];
             timeRestrictions = new LocalTime[2]; // Initialize array for start and end times
         }
     }
