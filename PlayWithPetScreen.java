@@ -64,12 +64,12 @@ public class PlayWithPetScreen extends World
         addObject(new InteractionButton("Take to Vet", this), 210, 420);
 
         //////////////////////////////////
-
-        addObject(new InventoryIcon(), 610, 115);
+        
         addObject(new SimpleText("Inventory"), 630, 85);
+        addObject(new InventoryIcon(), 610, 115);
         addObject(new Cross(), 50, 50);
-        addObject(new SimpleText("Math Game!"), 620, 230);  
         addObject(new Calculator(), 610, 250);
+        addObject(new SimpleText("Math Game!"), 620, 230);  
 
         addObject(new SaveButton(this), 355, 55);
         showText(PetClass.getName(), 350, 330);
@@ -158,28 +158,25 @@ public class PlayWithPetScreen extends World
                 showText("Food Received!", 450, 370); 
             }
             
+            gift = !gift;
+            
             
             if (isSleeping)
             {
                 PetClass.increaseSleep(15);
                 sleepBar.increase(15);
 
-                PetClass.decreaseFullness(5);
-                fullnessBar.decrease(5);
+                fullnessBar.decrease(PetClass.decreaseFullness(5));
 
-                PetClass.decreaseHappiness(5);
-                happinessBar.decrease(5);
+                happinessBar.decrease(PetClass.decreaseHappiness(5));
             }
             else
             {
-                PetClass.decreaseHappiness(5);
-                happinessBar.decrease(5);
+                happinessBar.decrease(PetClass.decreaseHappiness(5));
 
-                PetClass.decreaseFullness(7);
-                fullnessBar.decrease(7);
+                fullnessBar.decrease(PetClass.decreaseFullness(7));
 
-                PetClass.decreaseSleep(6);
-                sleepBar.decrease(6);
+                sleepBar.decrease(PetClass.decreaseSleep(6));
 
                 if (fullnessBar.getValue() == 0 || sleepBar.getValue() == 0)
                 {
@@ -189,8 +186,7 @@ public class PlayWithPetScreen extends World
             }
 
             if (fullnessBar.getValue() == 0) {
-                PetClass.decreaseHappiness(5);
-                happinessBar.decrease(5);
+                happinessBar.decrease(PetClass.decreaseHappiness(5));
             }
 
             globalTimer = 0;
@@ -241,11 +237,10 @@ public class PlayWithPetScreen extends World
                 PetClass.increaseHappiness(10);
                 happinessBar.increase(10);
                 
-                PetClass.decreaseSleep(5);
-                sleepBar.decrease(5);
+                sleepBar.decrease(PetClass.decreaseSleep(5));
                 
-                PetClass.decreaseFullness(3);
-                fullnessBar.decrease(3);
+                fullnessBar.decrease(PetClass.decreaseFullness(3));
+
                 if (currentToy != null) removeObject(currentToy);
                 currentToy = new Toy();
                 addObject(currentToy, 150, 250);
@@ -298,11 +293,9 @@ public class PlayWithPetScreen extends World
 
                 showText(PetClass.getName() + "'s busy!", getWidth() / 2, 80);
 
-                PetClass.decreaseSleep(10);
-                sleepBar.decrease(10);
+                sleepBar.decrease(PetClass.decreaseSleep(10));
 
-                PetClass.decreaseFullness(10);
-                fullnessBar.decrease(10);
+                fullnessBar.decrease(PetClass.decreaseFullness(10));
 
                 PetClass.increaseHealth(15);
                 healthBar.increase(10);
@@ -318,8 +311,8 @@ public class PlayWithPetScreen extends World
                 vetTimer = 180; // Nurse stays for 3 seconds
                 addObject(new Nurse(), getWidth() / 2, getHeight() / 2);
 
-                PetClass.increaseHealth(25);
-                healthBar.increase(25); // Boost health
+                PetClass.increaseHealth(10);
+                healthBar.increase(10); // Boost health
 
                 vetOnCooldown = true;
                 vetCoolDownTimer = VET_COOLDOWN_DURATION;

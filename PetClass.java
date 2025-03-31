@@ -54,11 +54,13 @@ public class PetClass {
         fullness += value;
     }
 
-    public static void decreaseFullness(int value) {
+    public static int decreaseFullness(int value) {
         if (vitalMultiplier.equals("fullness")) {
             fullness -= value * multiplier;
+            return value * multiplier;
         } else {
             fullness -= value;
+            return value;
         }
     }
 
@@ -66,11 +68,13 @@ public class PetClass {
         happiness += value;
     }
 
-    public static void decreaseHappiness(int value) {
+    public static int decreaseHappiness(int value) {
         if (vitalMultiplier.equals("happiness")) {
             happiness -= value * multiplier;
+            return value * multiplier;
         } else {
             happiness -= value;
+            return value;
         }
     }
 
@@ -78,11 +82,13 @@ public class PetClass {
         sleep += value;
     }
 
-    public static void decreaseSleep(int value) {
+    public static int decreaseSleep(int value) {
         if (vitalMultiplier.equals("sleep")) {
             sleep -= value * multiplier;
+            return value * multiplier;
         } else {
             sleep -= value;
+            return value;
         }
     }
 
@@ -164,7 +170,7 @@ public class PetClass {
         vitalMultiplier = petData.get("vitalMultiplier") != null ? petData.get("vitalMultiplier").toString() : null;
         
         // Inventory stuff
-        inventory.clear();
+        if (inventory == null) inventory = new Inventory();
         
         String[] foods = ((List<?>) petData.get("foodItems"))
             .stream()

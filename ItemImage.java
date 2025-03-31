@@ -19,7 +19,7 @@ public class ItemImage extends Actor
         img.scale(60,60);
         setImage(img);
 
-        lifetimer = 300;
+        lifetimer = 200;
     }
 
     /**
