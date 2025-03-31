@@ -34,7 +34,7 @@ public class InventoryIcon extends Actor
                 {"redgift", "0", "0"}
             };*/
             Inventory testInventory = new Inventory();
-            Greenfoot.setWorld(new InventoryScreen(testInventory)); 
+            Greenfoot.setWorld(new InventoryScreen()); 
         }
     }
 }

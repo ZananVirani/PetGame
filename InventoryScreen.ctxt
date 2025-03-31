@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=InventoryScreen
 comment0.text=\n\ The\ InventoryScreen\ class\ displays\ the\ player's\ inventory\ items\ dynamically\ based\ on\ the\ provided\ inventory\ array\ from\ the\ backend.\ It\ also\ shows\ item\ descriptions\n\ and\ allows\ the\ player\ to\ navigate\ back\ to\ the\ main\ menu.\n\ \n\ This\ screen\ contains\ interactive\ item\ icons,\ an\ exit\ button,\ and\ a\ description\ panel\ to\ display\ details\ of\ selected\ items.\n\ \n\ @author\ Jay\ Prajapati\n
-comment1.params=inventory
-comment1.target=InventoryScreen(Inventory)
+comment1.params=
+comment1.target=InventoryScreen()
 comment1.text=\n\ Constructs\ an\ InventoryScreen\ with\ the\ given\ inventory\ items.\n\ \n\ @param\ inventory\ 2D\ array\ containing\ item\ names\ and\ their\ stats\ Format\:\ {{"itemName",\ "health",\ "energy"},\ ...}\n
 comment2.params=
 comment2.target=void\ loadIcons()

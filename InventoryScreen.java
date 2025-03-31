@@ -16,18 +16,19 @@ public class InventoryScreen extends World
     private DescriptionPanel panel;
     //private String[][] inventory;
     private Inventory inventory;
+    private UseButton useButton;
 
     /**
      * Constructs an InventoryScreen with the given inventory items.
      * 
      * @param inventory 2D array containing item names and their stats Format: {{"itemName", "health", "energy"}, ...}
      */
-    public InventoryScreen(Inventory inventory) 
+    public InventoryScreen() 
     {
         super(700, 500, 1);
-        this.inventory = inventory;
+        this.inventory = PetClass.getInventory();
         loadIcons();
-        loadInventory(PetClass.);
+        loadInventory(this.inventory);
         panel = new DescriptionPanel();
         addObject(panel, 550, 250);
     }
@@ -40,7 +41,7 @@ public class InventoryScreen extends World
         addObject(new Cross(), 50, 50);
     }
 
-        /**
+    /**
      * Loads the inventory items based on the inventory array provided from the backend. Displays the items in rows with a maximum of 3 items per row.
      */
     private void loadInventory(Inventory backend) 
@@ -110,7 +111,15 @@ public class InventoryScreen extends World
             Actor clicked = Greenfoot.getMouseInfo().getActor();
             if (clicked instanceof InventoryItem) 
             {
+                InventoryItem item = (InventoryItem) clicked;
                 panel.updateDescription((InventoryItem) clicked);
+                
+                if(useButton != null){
+                    removeObject(useButton);
+                }
+                
+                useButton = new UseButton(inventory, item);
+                addObject(useButton, 550, 400); 
             } 
             else if (clicked instanceof ExitIcon) 
             {
@@ -236,12 +245,14 @@ public class InventoryScreen extends World
             setImage(panel);
         }
     }
-    
+
     class UseButton extends Actor {
         private InventoryItem linkedItem;
+        private Inventory inventory;
     
-        public UseButton(InventoryItem item) {
+        public UseButton(Inventory inventory, InventoryItem item) {
             this.linkedItem = item;
+            this.inventory = inventory;
             GreenfootImage img = new GreenfootImage("Use", 20, Color.WHITE, Color.BLUE);
             img.scale(80, 40);
             setImage(img);
@@ -249,17 +260,20 @@ public class InventoryScreen extends World
     
         public void act() {
             if (Greenfoot.mouseClicked(this)) {
-                useItem(linkedItem);
+                useItem(inventory, linkedItem);
             }
         }
     
-        private void useItem(InventoryItem item) {
+        private void useItem(Inventory inventory, InventoryItem item) {
             String name = item.getItemName();
             int value = item.getHealth();
-            
-                      
-            
-    
+            if(name.endsWith("Gift")){
+                Gift gift = new Gift(name, value);
+                inventory.useGift(gift);
+            } else{
+                Food food = new Food(name, value);
+                inventory.useFood(food);                
+            }                
+
         }
     }
-
