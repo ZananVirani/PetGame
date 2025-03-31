@@ -49,7 +49,7 @@ public class PlayWithPetScreen extends World
         addObject(new SimpleText("Math Game!"), 620, 230);  
         addObject(new Calculator(), 610, 250);
         
-        addObject(new SaveButton(), 325, 50);
+        addObject(new SaveButton(this), 325, 50);
 
         globalTimer = 0;
         isGameOver = false;
