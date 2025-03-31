@@ -16,6 +16,7 @@ public class PetSelectionScreen extends World {
     private ConfirmButton confirmButton;
     private ExitIcon exitIcon;
     private String selectedPet = "";
+    private DescriptionLabel descriptionLabel;
 
     /**
      * Constructor for objects of class PetSelectionScreen.
@@ -23,21 +24,22 @@ public class PetSelectionScreen extends World {
      */
     public PetSelectionScreen() {
         super(700, 500, 1);
-        
-        TempType.setValue("");
-        
+
         addObject(new pageTitle("Give Your Pet A Name!"), 350, 60);
 
         pet1 = new RadioButton("  Bear", "bear.png");
         pet2 = new RadioButton("  Cat", "petCat.png");
         pet3 = new RadioButton("  Dog", "dog.png");
 
+        descriptionLabel = new DescriptionLabel();
+        addObject(descriptionLabel, 350, 330); // Centered under pet images
+
         addObject(pet1, 175, 200);
         addObject(pet2, 350, 200);
         addObject(pet3, 525, 200);
 
         NameInput nameInput = new NameInput(this);
-        addObject(nameInput, 300, 350);
+        addObject(nameInput, 400, 280);
 
         confirmButton = new ConfirmButton(nameInput);
         addObject(confirmButton, 600, 450);
@@ -69,7 +71,24 @@ public class PetSelectionScreen extends World {
         pet1.setSelected(pet.equals("Bear"));
         pet2.setSelected(pet.equals("Cat"));
         pet3.setSelected(pet.equals("Dog"));
+
+        // Update description text
+        String desc = "";
+        switch (pet) {
+            case "Bear":
+                desc = "Bear: Calm and strong. Loves naps!\n Energy drains faster";
+                break;
+            case "Cat":
+                desc = "Cat: Curious and playful. Make sure to play with it! \n Hapiness drains faster";
+                break;
+            case "Dog":
+                desc = "Dog: Loyal and active. Make sure to feed him lots!\n Hunger drains faster";
+                break;
+        }
+
+        descriptionLabel.setText(desc);
     }
+
 }
 
 class TempType{
@@ -152,8 +171,7 @@ class RadioButton extends Actor {
 class NameInput extends Actor {
     private String text = "";
     private String prompt = "";
-    private World world;
-
+private World world;
     public NameInput(World world) {
         this.prompt = "Name: ";
         this.world = world;
@@ -216,6 +234,7 @@ class NameInput extends Actor {
     }
 
     public void createPet(){
+        
         if (TempType.getValue().equals("") || text.length() < 1){
             world.showText("Missing Info!", 325, 300);
             return;
@@ -224,7 +243,6 @@ class NameInput extends Actor {
         PetClass.Setup(text, TempType.getValue());
         GameState.createNewPet();
         GameState.savePlayer();
-
         ScreenManager.replace(new PlayWithPetScreen());
     }
 }
