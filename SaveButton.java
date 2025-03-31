@@ -17,6 +17,8 @@ public class SaveButton extends Actor
     public void act(){
         if (Greenfoot.mouseClicked(this)){
             // Save the state somehow through pet thingie
+            
+            showText("Saved!", 325, 80);        
         }  
     }
 }
