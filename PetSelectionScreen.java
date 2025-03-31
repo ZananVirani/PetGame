@@ -23,7 +23,7 @@ public class PetSelectionScreen extends World {
      */
     public PetSelectionScreen() {
         super(700, 500, 1);
-
+                
         addObject(new pageTitle("Give Your Pet A Name!"), 350, 60);
 
         pet1 = new RadioButton("  Bear", "bear.png");

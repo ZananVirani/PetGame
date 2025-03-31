@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Map;
+import java.util.LinkedHashMap;
 
 public class GameState {
    private static final String PLAYER_SAVE_FILE = "player_save.json";
@@ -17,7 +19,7 @@ public class GameState {
          Map<String, Object> playerData = Player.getPlayerData();
          ObjectMapper mapper = new ObjectMapper();
          mapper.writeValue(new File(PLAYER_SAVE_FILE), playerData);
-      } catch (IOException e) {
+      } catch (Exception e) {
          System.err.println("Error saving player: " + e.getMessage());
       }
    }
@@ -25,9 +27,10 @@ public class GameState {
    public static void loadPlayer() {
       try {
          ObjectMapper mapper = new ObjectMapper();
-         Map<String, Object> playerData = mapper.readValue(new File(PLAYER_SAVE_FILE), new TypeReference<Map<String, Object>>() {});
+         LinkedHashMap<String, Object> playerData = mapper.readValue(new File(PLAYER_SAVE_FILE), new TypeReference<LinkedHashMap>(){});
          Player.setPlayerData(playerData);
-      } catch (IOException e) {
+      } catch (Exception e) {
+          System.out.println("here");
          System.err.println("Error loading player: " + e.getMessage());
       }
    }
@@ -35,12 +38,12 @@ public class GameState {
    public static void savePet() {
       try {
          ObjectMapper mapper = new ObjectMapper();
-         String petFileName = PET_SAVE_DIRECTORY + Pet.getName().toLowerCase() + "_save.json";
-         Map<String, Object> petData = Pet.getPetData();
+         String petFileName = PET_SAVE_DIRECTORY + PetClass.getName().toLowerCase() + "_save.json";
+         Map<String, Object> petData = PetClass.getPetData();
          mapper.writeValue(new File(petFileName), petData);
          for (int i = 0; i < Player.getAlivePets().length; i++) {
             if (Player.getAlivePets()[i] == null) {
-               Player.getAlivePets()[i] = Pet.getName().toLowerCase();
+               Player.getAlivePets()[i] = PetClass.getName().toLowerCase();
                break;
             }
          }
@@ -55,7 +58,7 @@ public class GameState {
          ObjectMapper mapper = new ObjectMapper();
          String petFileName = PET_SAVE_DIRECTORY + petName.toLowerCase() + "_save.json";
          Map<String, Object> petData = mapper.readValue(new File(petFileName), new TypeReference<Map<String, Object>>() {});
-         Pet.setPetData(petData);
+         PetClass.setPetData(petData);
       } catch (IOException e) {
          System.err.println("Error loading pet: " + e.getMessage());
       }

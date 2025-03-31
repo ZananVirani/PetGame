@@ -1,75 +1,114 @@
- 
+import java.util.Map; 
+import java.util.HashMap;
 
 public class PetClass {
-   private static String petName;
-   private static int health;
-   private static int fullness;
-   private static int happiness;
-   private static int sleep;
-   private static int score;
-   private static String currentState;
+    private static String petName;
+    private static int health;
+    private static int fullness;
+    private static int happiness;
+    private static int sleep;
+    private static int score;
+    private static String currentState;
 
-   public static void Setup(String name){
-      petName = name;
-      health = 100;
-      fullness = 100;
-      happiness = 100;
-      sleep = 100;
-      score = 0;
-      currentState = null;
-   }
+    public static void Setup(String name){
+        petName = name;
+        health = 100;
+        fullness = 100;
+        happiness = 100;
+        sleep = 100;
+        score = 0;
+        currentState = null;
+    }
 
-   public static void increaseVital(int vital, int value) {
-      vital += value;
-   }
+    public static void increaseVital(int vital, int value) {
+        vital += value;
+    }
 
-   public static void decreaseVital(int vital, int value) {
-      vital -= value;
-   }
+    public static void decreaseVital(int vital, int value) {
+        vital -= value;
+    }
 
-   public static int getVital(int vital) {
-      return vital;
-   }
+    public static int getVital(int vital) {
+        return vital;
+    }
 
-   public static void increaseScore(int value) {
-      score += value;
-   }  
+    public static void increaseScore(int value) {
+        score += value;
+    }  
 
-   public static void decreaseScore(int value) {
-      score -= value;
-   }
+    public static void decreaseScore(int value) {
+        score -= value;
+    }
 
-   public static int getScore() {
-      return score;
-   }
+    public static int getScore() {
+        return score;
+    }
 
-   public static String getName() {
-      return petName;
-   }
+    public static String getName() {
+        return petName;
+    }
 
-   public static int getFullness(){
-      return fullness;     
-   }
+    public static int getFullness(){
+        return fullness;     
+    }
 
-   public static int getHealth(){
-      return health;
-   }
+    public static int getHealth(){
+        return health;
+    }
 
-   public static int getHappiness(){
-      return happiness;
-   }
+    public static int getHappiness(){
+        return happiness;
+    }
 
-   public static int getSleep(){
-      return sleep;
-   }
+    public static int getSleep(){
+        return sleep;
+    }
 
-   public static void setCurrentState(String state){
-      currentState = state;
-   }
+    public static void setCurrentState(String state){
+        currentState = state;
+    }
 
-   public static String getCurrentState(){
-      return currentState;
-   }
+    public static String getCurrentState(){
+        return currentState;
+    }
 
+    public static Map<String, Object> getPetData() {
+        Map<String, Object> petData = new HashMap<>();
+        petData.put("petName", petName);
+        petData.put("health", String.valueOf(health));
+        petData.put("fullness", String.valueOf(fullness));
+        petData.put("happiness", String.valueOf(happiness));
+        petData.put("sleep", String.valueOf(sleep));
+        petData.put("score", String.valueOf(score));
+        petData.put("currentState", currentState);
+        return petData;
+    }
+
+    public static void setPetData(Map<String, Object> petData) {
+        petName = petData.get("petName") != null ? petData.get("petName").toString() : null;
+
+        health = parseIntSafe(petData.get("health"));
+        fullness = parseIntSafe(petData.get("fullness"));
+        happiness = parseIntSafe(petData.get("happiness"));
+        sleep = parseIntSafe(petData.get("sleep"));
+        score = parseIntSafe(petData.get("score"));
+
+        currentState = petData.get("currentState") != null ? petData.get("currentState").toString() : null;
+
+    }
+
+    private static int parseIntSafe(Object value) {
+        if (value instanceof Number) {
+            return ((Number) value).intValue();
+        }
+        if (value != null) {
+            try {
+                return Integer.parseInt(value.toString());
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid number: " + value);
+            }
+        }
+        return 0; // default fallback
+    }
 
 }
