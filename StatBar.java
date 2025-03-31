@@ -21,7 +21,7 @@ public class StatBar extends Actor
         this.statName = name.toLowerCase(); // normalize
         this.maxValue = 100;
         this.value = initialValue;
-        barImage = new GreenfootImage(150, 20); // space for label + bar
+        barImage = new GreenfootImage(200, 20); // space for label + bar
         updateBar();
     }
 
@@ -55,16 +55,16 @@ public class StatBar extends Actor
         // Draw label
         barImage.setColor(Color.BLACK);
         barImage.setFont(barImage.getFont().deriveFont(12f));
-        barImage.drawString(capitalize(statName), 5, 15);
+        barImage.drawString(capitalize(statName), 10, 15);
 
         // Draw background
         barImage.setColor(Color.GRAY);
-        barImage.fillRect(60, 5, 80, 10);
+        barImage.fillRect(75, 5, 80, 10);
 
         // Draw filled bar
         barImage.setColor(getColorForStat(statName));
         int fillWidth = (int)(80 * (value / (double)maxValue));
-        barImage.fillRect(60, 5, fillWidth, 10);
+        barImage.fillRect(75, 5, fillWidth, 10);
 
         setImage(barImage);
     }

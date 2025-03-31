@@ -31,7 +31,7 @@ public class PlayWithPetScreen extends World
         hungerBar = new StatBar("hunger", 100);
         energyBar = new StatBar("energy", 100);
 
-        int x = 90, y = 350, spacing = 25;
+        int x = 120, y = 350, spacing = 25;
         addObject(healthBar, x, y);
         addObject(happinessBar, x, y + spacing);
         addObject(hungerBar, x, y + spacing * 2);
@@ -152,7 +152,7 @@ public class PlayWithPetScreen extends World
     {
         isGameOver = true;
         showText("GAME OVER", getWidth() / 2, getHeight() / 2);
-
+        addObject(new GameOverButton(), getWidth() / 2, getHeight() / 2 + 100);
         // Remove toy, hand, and interaction buttons
         removeObjects(getObjects(Toy.class));
         removeObjects(getObjects(Hand.class));
