@@ -10,9 +10,9 @@ import greenfoot.*;
  * @author Jay Prajapati
  */
 public class LoadPetScreen extends World {
-    private static final int PADDING_X = 100;
-    private static final int PADDING_Y = 70;
-    private static final int START_X = 140;
+    private static final int PADDING_X = 200;
+    private static final int PADDING_Y = 40;
+    private static final int START_X = 120;
     private static final int START_Y = 120;
     private static final int MAX_X = 600;
 

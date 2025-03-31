@@ -66,7 +66,7 @@ public class PlayWithPetScreen extends World
         addObject(new SimpleText("Math Game!"), 620, 230);  
         addObject(new Calculator(), 610, 250);
 
-        addObject(new SaveButton(this), 325, 50);
+        addObject(new SaveButton(this), 355, 55);
         showText(PetClass.getName(), 350, 330);
 
         globalTimer = 0;
@@ -93,12 +93,12 @@ public class PlayWithPetScreen extends World
             {
                 isExercising = false;
                 exerciseFrameCounter = 0;
-                showText("", getWidth() / 2, 60);
+                showText("", getWidth() / 2, 80);
                 updatePetMood(); // restore appropriate mood sprite
             }
             else
             {
-                showText("Cat's busy!", getWidth() / 2, 60);
+                showText(PetClass.getName() + "'s busy!", getWidth() / 2, 80);
                 return; // block all other logic while exercising
             }
         }
@@ -114,9 +114,9 @@ public class PlayWithPetScreen extends World
             }
         }
 
-        // Passive stat drain every 60 seconds
+        // Passive stat drain every 15 seconds
         globalTimer++;
-        if (globalTimer >= 3600)
+        if (globalTimer >= 1000)
         {
             if (isSleeping)
             {
@@ -155,19 +155,24 @@ public class PlayWithPetScreen extends World
     public void interact(String interaction)
     {
         if (isGameOver) return;
-
+        
+        if (currentToy != null){
+            removeObject(currentToy);
+            currentToy = null;
+        }
+        
         if (isExercising) {
-            showText("Cat's busy!", getWidth() / 2, 60);
+            showText(PetClass.getName() + "'s busy!", getWidth() / 2, 80);
             return;
         }
         if (isSleeping)
         {
-            showText("Pet is sleeping... wake it up first!", getWidth() / 2, 60);
+            showText(PetClass.getName() + " is sleeping... wake it up first!", getWidth() / 2, 60);
             return;
         }
 
         // Clear any previous warning
-        showText("", getWidth() / 2, 60);
+        showText("", getWidth() / 2, 80);
 
         switch(interaction)
         {
@@ -183,7 +188,7 @@ public class PlayWithPetScreen extends World
             case "Pet the Pet":
                 if (happinessBar.getValue() < 50)
                 {
-                    showText("Cat is unhappy, play with it!", getWidth() / 2, 60);
+                    showText(PetClass.getName() + " is unhappy, play with it!", getWidth() / 2, 60);
                     return;
                 }
                 happinessBar.increase(7);
@@ -212,15 +217,15 @@ public class PlayWithPetScreen extends World
                 showingExerciseFrame1 = true;
 
                 // Preload and scale exercise animation frames
-                exerciseFrame1 = new GreenfootImage("catActive1.png");
+                exerciseFrame1 = new GreenfootImage(PetClass.getType().toLowerCase() + "Active1.png");
                 exerciseFrame1.scale(200, 200);
 
-                exerciseFrame2 = new GreenfootImage("catActive2.png");
+                exerciseFrame2 = new GreenfootImage(PetClass.getType().toLowerCase() + "Active2.png");
                 exerciseFrame2.scale(200, 200);
 
                 pet.setImage(exerciseFrame1); // Start with frame 1
 
-                showText("Cat's busy!", getWidth() / 2, 60);
+                showText(PetClass.getName() + "'s busy!", getWidth() / 2, 80);
 
                 sleepBar.decrease(15);
                 healthBar.increase(10);
@@ -262,7 +267,7 @@ public class PlayWithPetScreen extends World
         else
         {
             updatePetMood(); // Re-evaluate mood immediately when waking up
-            showText("", getWidth() / 2, 60); // Clear “sleeping” warning
+            showText("", getWidth() / 2, 80); // Clear “sleeping” warning
         }
     }
 
@@ -310,15 +315,15 @@ public class PlayWithPetScreen extends World
 
         if (healthBar.getValue() < 50 && healthBar.getValue() > 0)
         {
-            showText("Warning: Pet's health is low", getWidth() / 2, 30);
+            showText("Warning: " + PetClass.getName() + "'s health is low", getWidth() / 2, 30);
         }
         else if (sleepBar.getValue() < 50 && sleepBar.getValue() > 0)
         {
-            showText("Warning: Pet is low on sleep", getWidth() / 2, 30);
+            showText("Warning: " + PetClass.getName() + " is low on sleep", getWidth() / 2, 30);
         }
         else if (fullnessBar.getValue() < 50 && fullnessBar.getValue() > 0)
         {
-            showText("Warning: Pet is getting hungry", getWidth() / 2, 30);
+            showText("Warning: " + PetClass.getName() + " is getting hungry", getWidth() / 2, 30);
         }
     }
 

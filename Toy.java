@@ -7,13 +7,20 @@ public class Toy extends Actor
 {
     private int dx = 4;
     private int dy = 3;
-
+    private int lifetime = 300;
+    
     public Toy()
     {
     }
 
     public void act()
     {
+        lifetime--;
+        if (lifetime <= 0){
+            getWorld().removeObject(this);
+            return;
+        }
+        
         // Stop moving if game is over
         if (getWorld() instanceof PlayWithPetScreen) {
             PlayWithPetScreen screen = (PlayWithPetScreen)getWorld();
@@ -22,6 +29,7 @@ public class Toy extends Actor
 
         moveAround();
     }
+    
 
     private void moveAround()
     {
