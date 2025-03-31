@@ -12,6 +12,8 @@ public class Player {
    private static String[] deceasedPets;
    private static LocalTime[] timeRestrictions; // Array to store start and end times
 
+   public Player(){}
+   
    public static void Setup() {
       pet = null;
       numberOfSessions = 0;

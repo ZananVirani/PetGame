@@ -21,7 +21,12 @@ public class SaveButton extends Actor
     
     public void act(){
         if (Greenfoot.mouseClicked(this)){
-            // Save the state somehow through pet thingie
+            try{
+                GameState.savePlayer();
+            } catch (Exception e){
+                world.showText("SOMETHING WENT WRONG!", 325, 200);
+            }
+            
             world.showText("Saved!", 325, 80);
             savedMessageTime = System.currentTimeMillis();
         } 

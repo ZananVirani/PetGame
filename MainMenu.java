@@ -17,7 +17,14 @@ public class MainMenu extends World
     public MainMenu() {
         super(700, 500, 1);
         
-
+        try{
+            GameState.loadPlayer();
+        } catch (Exception e){
+            System.out.println("Exception Caught");
+            Player.Setup();
+        }
+        
+        
         // Adding the Title Actor
         addObject(new Title("VIRTUAL PET SIMULATOR"), 350, 60);
 

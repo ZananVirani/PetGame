@@ -1,6 +1,6 @@
- 
-
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -20,7 +20,7 @@ public class GameState {
       try {
          Player.incrementSession();
          ObjectMapper mapper = new ObjectMapper();
-         mapper.writeValue(new File(PLAYER_SAVE_FILE), Player.class);
+         mapper.writeValue(new File(PLAYER_SAVE_FILE), new Player());
          // this.lastSaved = LocalDateTime.now();
       } catch (IOException e) {
          System.err.println("Error saving player: " + e.getMessage());
@@ -36,16 +36,16 @@ public class GameState {
       }
    }
 
-   public static void savePet(Pet pet) {
+   public static void savePet() {
       try {
          ObjectMapper mapper = new ObjectMapper();
-         String petFileName = PET_SAVE_DIRECTORY + Pet.getName().toLowerCase() + "_save.json";
-         mapper.writeValue(new File(petFileName), Pet.class);
+         String petFileName = PET_SAVE_DIRECTORY + PetClass.getName().toLowerCase() + "_save.json";
+         mapper.writeValue(new File(petFileName), new PetClass());
          // this.lastSaved = LocalDateTime.now();
          // Add pet name to alivePets array
          for (int i = 0; i < Player.getAlivePets().length; i++) {
             if (Player.getAlivePets()[i] == null) {
-               Player.getAlivePets()[i] = Pet.getName();
+               Player.getAlivePets()[i] = PetClass.getName();
                break;
             }
          }
@@ -54,14 +54,13 @@ public class GameState {
       }
    }
 
-   public static Pet loadPet(String petName) {
+   public static void loadPet(String petName) {
       try {
          ObjectMapper mapper = new ObjectMapper();
          String petFileName = PET_SAVE_DIRECTORY + petName.toLowerCase() + "_save.json";
-         return mapper.readValue(new File(petFileName), Pet.class);
+         mapper.readValue(new File(petFileName), PetClass.class);
       } catch (IOException e) {
          System.err.println("Error loading pet: " + e.getMessage());
-         return null;
       }
    }
 }

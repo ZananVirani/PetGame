@@ -1,9 +1,16 @@
 #BlueJ class context
 comment0.target=InventoryScreen
-comment1.params=
-comment1.target=InventoryScreen()
-comment1.text=\n\ This\ is\ the\ constructor\ for\ objects\ of\ class\ InventoryScreen.\n\ This\ function\ initializes\ and\ displays\ the\ inventory\ UI\ components.\n
+comment0.text=\n\ The\ InventoryScreen\ class\ displays\ the\ player's\ inventory\ items\ dynamically\ based\ on\ the\ provided\ inventory\ array\ from\ the\ backend.\ It\ also\ shows\ item\ descriptions\n\ and\ allows\ the\ player\ to\ navigate\ back\ to\ the\ main\ menu.\n\ \n\ This\ screen\ contains\ interactive\ item\ icons,\ an\ exit\ button,\ and\ a\ description\ panel\ to\ display\ details\ of\ selected\ items.\n\ \n\ @author\ Jay\ Prajapati\n
+comment1.params=inventory
+comment1.target=InventoryScreen(java.lang.String[][])
+comment1.text=\n\ Constructs\ an\ InventoryScreen\ with\ the\ given\ inventory\ items.\n\ \n\ @param\ inventory\ 2D\ array\ containing\ item\ names\ and\ their\ stats\ Format\:\ {{"itemName",\ "health",\ "energy"},\ ...}\n
 comment2.params=
-comment2.target=void\ act()
-comment2.text=\n\ This\ funciton\ handles\ mouse\ click\ events\ in\ the\ inventory\ screen.\n\ Updates\ description\ panel\ or\ navigates\ back\ to\ main\ menu.\n
-numComments=3
+comment2.target=void\ loadIcons()
+comment2.text=\n\ Loads\ the\ static\ icons\ (Exit\ button).\n
+comment3.params=
+comment3.target=void\ loadInventory()
+comment3.text=\n\ Loads\ the\ inventory\ items\ based\ on\ the\ inventory\ array\ provided\ from\ the\ backend.\ Displays\ the\ items\ in\ rows\ with\ a\ maximum\ of\ 3\ items\ per\ row.\n
+comment4.params=
+comment4.target=void\ act()
+comment4.text=\n\ Checks\ for\ mouse\ clicks\ on\ inventory\ items\ or\ the\ exit\ icon.\ Updates\ the\ description\ panel\ or\ navigates\ back\ to\ the\ main\ menu\ accordingly.\n
+numComments=5

@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Inventory
+comment1.params=
+comment1.target=Inventory()
+comment2.params=food
+comment2.target=void\ addFood(Food)
+comment3.params=gift
+comment3.target=void\ addGift(Gift)
+comment4.params=food
+comment4.target=boolean\ hasFood(Food)
+comment5.params=gift
+comment5.target=boolean\ hasGift(Gift)
+comment6.params=
+comment6.target=java.util.List\ getFoodItems()
+comment7.params=
+comment7.target=java.util.List\ getGiftItems()
+comment8.params=food
+comment8.target=void\ useFood(Food)
+comment9.params=gift
+comment9.target=void\ useGift(Gift)
+numComments=10
