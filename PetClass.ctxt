@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=PetClass
-comment1.params=name
-comment1.target=void\ Setup(java.lang.String)
+comment1.params=name\ type
+comment1.target=void\ Setup(java.lang.String,\ java.lang.String)
 comment10.params=
 comment10.target=int\ getHealth()
 comment11.params=
@@ -20,8 +20,8 @@ comment17.params=value
 comment17.target=int\ parseIntSafe(java.lang.Object)
 comment2.params=vital\ value
 comment2.target=void\ increaseVital(int,\ int)
-comment3.params=vital\ value
-comment3.target=void\ decreaseVital(int,\ int)
+comment3.params=vital\ value\ vitalName
+comment3.target=void\ decreaseVital(int,\ int,\ java.lang.String)
 comment4.params=vital
 comment4.target=int\ getVital(int)
 comment5.params=value

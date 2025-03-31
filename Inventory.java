@@ -1,74 +1,80 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Inventory {
-   private List<Food> foodItems;
-   private List<Gift> giftItems;
+    private List<Food> foodItems;
+    private List<Gift> giftItems;
 
-   private List<Food> randomFoods = new ArrayList<>();
-   randomFoods.add(new Food("Hamburger", 10));
-   randomFoods.add(new Food("Pizza", 8));
-   randomFoods.add(new Food("Fries", 12));
-   randomFoods.add(new Food("Drink", 5));
-   randomFoods.add(new Food("Taco", 9));
+    private List<Food> randomFoods;
 
-   private List<Gift> randomGifts = new ArrayList<>();
-   randomGifts.add(new Gift("Blue Gift", 10));
-   randomGifts.add(new Gift("Green Gift", 10));
-   randomGifts.add(new Gift("Gold Gift", 10));
-   randomGifts.add(new Gift("Purple Gift", 10));
-   randomGifts.add(new Gift("Red Gift", 10));
-   
-   
-   public Inventory() {
-      this.foodItems = new ArrayList<>();
-      this.giftItems = new ArrayList<>();
-   }
+    private List<Gift> randomGifts;
 
-   public void addFood() {
-      int randomIndex = random.nextInt(randomFoods.size());
-      foodItems.add(randomFoods.get(randomIndex));
-   }
+    public Inventory() {
+        this.foodItems = new ArrayList<>();
+        this.giftItems = new ArrayList<>();
 
-   public void addGift() {
-      int randomIndex = random.nextInt(randomGifts.size());
-      giftItems.add(randomGifts.get(randomIndex));
-   }
+        randomFoods = new ArrayList<>();
+        randomFoods.add(new Food("Hamburger", 10));
+        randomFoods.add(new Food("Pizza", 8));
+        randomFoods.add(new Food("Fries", 12));
+        randomFoods.add(new Food("Drink", 5));
+        randomFoods.add(new Food("Taco", 9));
 
-   public boolean hasFood(Food food) {
-      return this.foodItems.contains(food);
-   }
+        randomGifts = new ArrayList<>();
+        randomGifts.add(new Gift("Blue Gift", 10));
+        randomGifts.add(new Gift("Green Gift", 10));
+        randomGifts.add(new Gift("Gold Gift", 10));
+        randomGifts.add(new Gift("Purple Gift", 10));
+        randomGifts.add(new Gift("Red Gift", 10));
+    }
 
-   public boolean hasGift(Gift gift) {
-      return this.giftItems.contains(gift);
-   }
+    public void addFood() {
+        Random random = new Random();
+        int randomIndex = random.nextInt(randomFoods.size());
+        foodItems.add(randomFoods.get(randomIndex));
+    }
 
-   public List<Food> getFoodItems() {
-      return foodItems;
-   }
+    public void addGift() {
+        Random random = new Random();
+        int randomIndex = random.nextInt(randomGifts.size());
+        giftItems.add(randomGifts.get(randomIndex));
+    }
 
-   public List<Gift> getGiftItems() {
-      return giftItems;
-   }
+    public boolean hasFood(Food food) {
+        return this.foodItems.contains(food);
+    }
 
-   public void useFood(Food food) {
-      if (this.hasFood(food)) {
-         PetClass.increaseVital(PetClass.getFullness(), food.getValue());
-         PetClass.increaseScore(10);
-         foodItems.remove(food);
-      } else {
-         // Error message or something
-      }
-   }
+    public boolean hasGift(Gift gift) {
+        return this.giftItems.contains(gift);
+    }
 
-   public void useGift(Gift gift) {
-      if (this.hasGift(gift)) {
-         PetClass.increaseVital(PetClass.getHappiness(), gift.getValue());
-         PetClass.increaseScore(10);
-         giftItems.remove(gift);
-      } else {
-         // Error message or something
-      }
-   }
+    public List<Food> getFoodItems() {
+        return foodItems;
+    }
+
+    public List<Gift> getGiftItems() {
+        return giftItems;
+    }
+
+    public void useFood(Food food) {
+        if (this.hasFood(food)) {
+            PetClass.increaseVital(PetClass.getFullness(), food.getValue());
+            PetClass.increaseScore(10);
+            foodItems.remove(food);
+        } else {
+            // Error message or something
+        }
+    }
+
+    public void useGift(Gift gift) {
+        if (this.hasGift(gift)) {
+            PetClass.increaseVital(PetClass.getHappiness(), gift.getValue());
+            PetClass.increaseScore(10);
+            giftItems.remove(gift);
+        } else {
+            // Error message or something
+        }
+    }
 
 }

@@ -99,9 +99,9 @@ public class PetClass {
         petData.put("sleep", String.valueOf(sleep));
         petData.put("score", String.valueOf(score));
         petData.put("currentState", currentState);
-        petData.put("petType", Pet.petType);
-        petData.put("multiplier", String.valueOf(Pet.multiplier));
-        petData.put("vitalMultiplier", Pet.vitalMultiplier);
+        petData.put("petType", petType);
+        petData.put("multiplier", String.valueOf(multiplier));
+        petData.put("vitalMultiplier", vitalMultiplier);
         return petData;
     }
 
@@ -116,7 +116,7 @@ public class PetClass {
 
         currentState = petData.get("currentState") != null ? petData.get("currentState").toString() : null;
         petType = petData.get("petType") != null ? petData.get("petType").toString() : null;
-        multiplier = petData.get("multiplier") != null ? petData.get("multiplier").toString() : null;
+        multiplier = parseIntSafe(petData.get("multiplier"));
         vitalMultiplier = petData.get("vitalMultiplier") != null ? petData.get("vitalMultiplier").toString() : null;
 
     }
