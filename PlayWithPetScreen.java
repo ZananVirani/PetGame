@@ -24,7 +24,7 @@ public class PlayWithPetScreen extends World
         setBackground(bg);
 
         pet = new Pet();
-        addObject(pet, getWidth() / 2, getHeight() / 2 - 50);
+        addObject(pet, getWidth() / 2, getHeight() / 2 - 20);
 
         healthBar = new StatBar("health", 100);
         happinessBar = new StatBar("happiness", 100);
@@ -43,10 +43,13 @@ public class PlayWithPetScreen extends World
         addObject(new InteractionButton("Feed", this), 490, 460);
         addObject(new SleepButton(this), 620, 460);
         
-        addObject(new InventoryIcon(), 620, 70);
+        addObject(new InventoryIcon(), 610, 115);
+        addObject(new SimpleText("Inventory"), 630, 85);
         addObject(new Cross(), 50, 50);
-        addObject(new SimpleText(), 620, 230);  
+        addObject(new SimpleText("Math Game!"), 620, 230);  
         addObject(new Calculator(), 610, 250);
+        
+        addObject(new SaveButton(this), 325, 50);
 
         globalTimer = 0;
         isGameOver = false;
@@ -237,11 +240,11 @@ public class PlayWithPetScreen extends World
     }
     
     class SimpleText extends Actor{
-        public SimpleText(){
+        public SimpleText(String message){
             GreenfootImage img = new GreenfootImage(150, 100);
             img.setColor(Color.BLACK);
             img.setFont(new Font("Arial", false, false, 20));
-            img.drawString("Math Game!", 10, 25);
+            img.drawString(message, 10, 25);
             
             setImage(img);
         }

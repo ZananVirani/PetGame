@@ -1,6 +1,6 @@
- 
-
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -32,7 +32,7 @@ public class GameState {
       }
    }
 
-   public static void savePet(Pet pet) {
+   public static void savePet() {
       try {
          ObjectMapper mapper = new ObjectMapper();
          String petFileName = PET_SAVE_DIRECTORY + Pet.getName().toLowerCase() + "_save.json";
@@ -48,6 +48,7 @@ public class GameState {
          System.err.println("Error saving pet: " + e.getMessage());
       }
    }
+
 
    public static void loadPet(String petName) {
       try {

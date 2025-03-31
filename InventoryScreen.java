@@ -1,138 +1,209 @@
-/**
- * The InventoryScreen class represents the inventory page in the Virtual Pet Simulator game.
- * It displays various in-game items, an add icon, a description panel, and an exit icon.
- * Players can click on items to view their descriptions and return to the main menu using the exit icon.
- * 
- * @author Jay Prajapati
- * @version March 29th 2025
- */
-
 import greenfoot.*;
 import java.util.*;
 
+/**
+ * The InventoryScreen class displays the player's inventory items dynamically based on the provided inventory array from the backend. It also shows item descriptions
+ * and allows the player to navigate back to the main menu.
+ * 
+ * This screen contains interactive item icons, an exit button, and a description panel to display details of selected items.
+ * 
+ * @author Jay Prajapati
+ */
 public class InventoryScreen extends World 
 {
     private DescriptionPanel panel;
+    private String[][] inventory;
 
     /**
-     * This is the constructor for objects of class InventoryScreen.
-     * This function initializes and displays the inventory UI components.
+     * Constructs an InventoryScreen with the given inventory items.
+     * 
+     * @param inventory 2D array containing item names and their stats Format: {{"itemName", "health", "energy"}, ...}
      */
-    public InventoryScreen() {
+    public InventoryScreen(String[][] inventory) 
+    {
         super(700, 500, 1);
-
-        AddIcon addIcon = new AddIcon();
-        addObject(addIcon, 100, 100);
-
-        InventoryItem item1 = new InventoryItem("Item One");
-        addObject(item1, 200, 100);
-
+        this.inventory = inventory;
+        loadIcons();
+        loadInventory();
         panel = new DescriptionPanel();
         addObject(panel, 550, 250);
+    }
 
+    /**
+     * Loads the static icons (Exit button).
+     */
+    private void loadIcons() 
+    {
         addObject(new Cross(), 50, 50);
     }
 
     /**
-     * This funciton handles mouse click events in the inventory screen.
-     * Updates description panel or navigates back to main menu.
+     * Loads the inventory items based on the inventory array provided from the backend. Displays the items in rows with a maximum of 3 items per row.
      */
-    public void act() {
-        if (Greenfoot.mouseClicked(null)) {
-            Actor clicked = Greenfoot.getMouseInfo().getActor();
-            if (clicked instanceof InventoryItem) {
-                panel.updateDescription(((InventoryItem) clicked).getItemName());
-            } else if (clicked instanceof ExitIcon) {
-                Greenfoot.setWorld(new MainMenu());
+    private void loadInventory() 
+    {
+        int startX = 150;
+        int startY = 100;
+        int x = startX;
+        int y = startY;
+        int count = 0;
+
+        for (String[] item : inventory) 
+        {
+            if (item.length != 3) continue; // Safety check
+            String name = item[0];
+            int health = Integer.parseInt(item[1]);
+            int energy = Integer.parseInt(item[2]);
+            InventoryItem icon = new InventoryItem(name, health, energy);
+            addObject(icon, x, y);
+
+            count++;
+            if (count % 3 == 0) 
+            {
+                x = startX;
+                y += 100;
+            } 
+            else 
+            {
+                x += 100;
             }
         }
     }
 
     /**
-     * The InventoryItem class represents an in-game item.
+     * Checks for mouse clicks on inventory items or the exit icon. Updates the description panel or navigates back to the main menu accordingly.
      */
-    class InventoryItem extends Actor {
+    public void act() 
+    {
+        if (Greenfoot.mouseClicked(null)) 
+        {
+            Actor clicked = Greenfoot.getMouseInfo().getActor();
+            if (clicked instanceof InventoryItem) 
+            {
+                panel.updateDescription((InventoryItem) clicked);
+            } 
+            else if (clicked instanceof ExitIcon) 
+            {
+                Greenfoot.setWorld(new MainMenu());
+            }
+        }
+    }
+}
+    /**
+     * InventoryItem class represents an individual inventory item icon. Displays the item's image and stores its stats.
+     */
+    class InventoryItem extends Actor 
+    {
         private String itemName;
+        private int health;
+        private int energy;
 
         /**
-         * Constructs an InventoryItem with the specified name.
-         * @param name The item name.
+         * Constructs an InventoryItem with the given name, health, and energy values. Loads the item's image based on its name.
+         * 
+         * @param name Name of the item (must match the image file name)
+         * @param health Health stat of the item
+         * @param energy Energy stat of the item
          */
-        public InventoryItem(String name) {
+        public InventoryItem(String name, int health, int energy) 
+        {
             this.itemName = name;
-            GreenfootImage img = new GreenfootImage(50, 50);
-            img.setColor(Color.BLACK);
-            img.drawRect(0, 0, 49, 49);
+            this.health = health;
+            this.energy = energy;
+            GreenfootImage img;
+            try 
+            {
+                img = new GreenfootImage(name + ".png");
+            } 
+            catch (Exception e) 
+            {
+                img = new GreenfootImage(50, 50); // placeholder image
+                img.setColor(Color.RED);
+                img.fill();
+            }
+            img.scale(60, 60);
             setImage(img);
         }
 
         /**
          * Returns the name of the item.
-         * @return The item name.
+         * 
+         * @return Item name
          */
-        public String getItemName() {
+        public String getItemName() 
+        {
             return itemName;
         }
-    }
 
-    /**
-     * The AddIcon class represents the icon used to add new items.
-     */
-    class AddIcon extends Actor {
-        public AddIcon() {
-            GreenfootImage img = new GreenfootImage("addicon.png");
-            img.scale(40, 40);
-            setImage(img);
+        /**
+         * Returns the health stat of the item.
+         * 
+         * @return Health stat
+         */
+        public int getHealth() 
+        {
+            return health;
+        }
+
+        /**
+         * Returns the energy stat of the item.
+         * 
+         * @return Energy stat
+         */
+        public int getEnergy() 
+        {
+            return energy;
         }
     }
 
-    /**
-     * The ExitIcon class represents the icon used to exit the inventory screen.
-     */
-    class ExitIcon extends Actor {
-        public ExitIcon() {
-            GreenfootImage img = new GreenfootImage("exit.png");
-            img.scale(40, 40);
-            setImage(img);
-        }
-    }
 
     /**
-     * The DescriptionPanel class represents a panel displaying item details.
+     * DescriptionPanel class displays the information of the selected inventory item including its health and energy stats.
      */
-    class DescriptionPanel extends Actor {
+    class DescriptionPanel extends Actor 
+    {
         private GreenfootImage panel;
         private GreenfootImage cartIcon, heartIcon;
 
         /**
-         * Constructs the DescriptionPanel and initializes icons.
+         * Constructs a DescriptionPanel and initializes its display.
          */
-        public DescriptionPanel() {
+        public DescriptionPanel() 
+        {
             panel = new GreenfootImage(250, 400);
             cartIcon = new GreenfootImage("shoppingcart.png");
             heartIcon = new GreenfootImage("heart.png");
             cartIcon.scale(30, 30);
             heartIcon.scale(30, 30);
-            updateDescription("");
+            updateDescription(null);
         }
 
         /**
-         * Updates the panel to display the description of a selected item.
-         * @param itemName The name of the selected item.
+         * Updates the panel to display the information of the selected item.
+         * 
+         * @param item The selected inventory item (null to clear the panel)
          */
-        public void updateDescription(String itemName) {
+        public void updateDescription(InventoryItem item) 
+        {
             panel.setColor(Color.WHITE);
             panel.fill();
             panel.setColor(Color.BLACK);
-            panel.drawRect(0, 0, 249, 349);
-            panel.drawString(itemName.isEmpty() ? "Item One Description" : itemName, 10, 20);
-            panel.drawString("INFO", 10, 50);
-            panel.drawString("+STATS", 10, 70);
-            panel.drawString("-STATS", 10, 90);
-            panel.drawString("PERKS", 10, 110);
-            panel.drawImage(cartIcon, 10, 300);
-            panel.drawImage(heartIcon, 50, 300);
+            panel.drawRect(0, 0, 249, 250);
+            if (item != null) 
+            {
+                panel.drawString(item.getItemName(), 10, 20);
+                panel.drawString("INFO", 10, 50);
+                panel.drawString("+ Health: " + item.getHealth(), 10, 70);
+                panel.drawString("+ Energy: " + item.getEnergy(), 10, 90);
+            } 
+            else 
+            {
+                panel.drawString("Item Description", 10, 20);
+                panel.drawString("INFO", 10, 50);
+            }
+            panel.drawImage(cartIcon, 10, 350);
+            panel.drawImage(heartIcon, 50, 350);
             setImage(panel);
         }
     }
-}
+

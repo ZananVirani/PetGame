@@ -65,7 +65,7 @@ public class TextInput extends Actor {
             setSubmit(true);
             String correctAnswer = qDisplay.getCorrect(); 
             
-            while (input.charAt(0) == ('0') && input.length() > 1){
+            while (input.length() > 1 && input.charAt(0) == ('0')){
                 input.deleteCharAt(0);
             }
             

@@ -38,8 +38,8 @@ public class Inventory {
 
    public void useFood(Food food) {
       if (this.hasFood(food)) {
-         Pet.increaseVital(Pet.getFullness(), food.getValue());
-         Pet.increaseScore(10);
+         PetClass.increaseVital(PetClass.getFullness(), food.getValue());
+         PetClass.increaseScore(10);
          foodItems.remove(food);
       } else {
          // Error message or something
@@ -48,8 +48,8 @@ public class Inventory {
 
    public void useGift(Gift gift) {
       if (this.hasGift(gift)) {
-         Pet.increaseVital(Pet.getHappiness(), gift.getValue());
-         Pet.increaseScore(10);
+         PetClass.increaseVital(PetClass.getHappiness(), gift.getValue());
+         PetClass.increaseScore(10);
          giftItems.remove(gift);
       } else {
          // Error message or something
