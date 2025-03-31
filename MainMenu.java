@@ -21,7 +21,7 @@ public class MainMenu extends World {
             GameState.loadPlayer();
         } catch (Exception e) {
             System.out.println("Exception Caught");
-            Player.Setup();
+            Player.setup();
         }
 
         // Adding the Title Actor

@@ -21,7 +21,7 @@ public class InventoryIcon extends Actor
     public void act()
     {
         if (Greenfoot.mouseClicked(this)){
-            String[][] testInventory = {
+            /*String[][] testInventory = {
                 {"hamburger", "10", "5"},
                 {"pizza", "8", "4"},
                 {"fries", "12", "6"},
@@ -32,7 +32,8 @@ public class InventoryIcon extends Actor
                 {"goldgift", "0", "0"},
                 {"purplegift", "0", "0"},
                 {"redgift", "0", "0"}
-            };
+            };*/
+            Inventory testInventory = new Inventory();
             Greenfoot.setWorld(new InventoryScreen(testInventory)); 
         }
     }

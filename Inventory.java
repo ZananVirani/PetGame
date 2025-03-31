@@ -1,28 +1,36 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Inventory {
    private List<Food> foodItems;
    private List<Gift> giftItems;
 
-   private List<Food> randomFoods = new ArrayList<>();
-   randomFoods.add(new Food("Hamburger", 10));
-   randomFoods.add(new Food("Pizza", 8));
-   randomFoods.add(new Food("Fries", 12));
-   randomFoods.add(new Food("Drink", 5));
-   randomFoods.add(new Food("Taco", 9));
+   private List<Food> randomFoods;
+   private List<Gift> randomGifts;
 
-   private List<Gift> randomGifts = new ArrayList<>();
-   randomGifts.add(new Gift("Blue Gift", 10));
-   randomGifts.add(new Gift("Green Gift", 10));
-   randomGifts.add(new Gift("Gold Gift", 10));
-   randomGifts.add(new Gift("Purple Gift", 10));
-   randomGifts.add(new Gift("Red Gift", 10));
-   
-   
+   private Random random;
+
    public Inventory() {
       this.foodItems = new ArrayList<>();
       this.giftItems = new ArrayList<>();
+      this.random = new Random();
+
+      // Initialize Random Foods
+      randomFoods = new ArrayList<>();
+      randomFoods.add(new Food("Hamburger", 10));
+      randomFoods.add(new Food("Pizza", 8));
+      randomFoods.add(new Food("Fries", 12));
+      randomFoods.add(new Food("Drink", 5));
+      randomFoods.add(new Food("Taco", 9));
+
+      // Initialize Random Gifts
+      randomGifts = new ArrayList<>();
+      randomGifts.add(new Gift("Blue Gift", 10));
+      randomGifts.add(new Gift("Green Gift", 10));
+      randomGifts.add(new Gift("Gold Gift", 10));
+      randomGifts.add(new Gift("Purple Gift", 10));
+      randomGifts.add(new Gift("Red Gift", 10));
    }
 
    public void addFood() {
@@ -57,7 +65,7 @@ public class Inventory {
          PetClass.increaseScore(10);
          foodItems.remove(food);
       } else {
-         // Error message or something
+         System.out.println("Food item not found in inventory.");
       }
    }
 
@@ -67,8 +75,7 @@ public class Inventory {
          PetClass.increaseScore(10);
          giftItems.remove(gift);
       } else {
-         // Error message or something
+         System.out.println("Gift item not found in inventory.");
       }
    }
-
 }

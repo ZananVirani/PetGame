@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=LoadPetScreen
+comment0.text=\r\n\ LoadPetScreen\ displays\ all\ alive\ pets\ passed\ from\ the\ backend.\ Each\ pet\ name\r\n\ is\ shown\ in\ a\ simple\ box,\ evenly\ spaced\ and\ wrapped\ across\ multiple\ rows\ if\r\n\ necessary.\r\n\ Provides\ a\ way\ for\ players\ to\ select\ and\ load\ an\ existing\ pet.\ Includes\ a\r\n\ cross\ button\ to\ return\ to\ the\ Main\ Menu.\r\n\ \r\n\ @author\ Jay\ Prajapati\r\n
+comment1.params=pets
+comment1.target=LoadPetScreen(java.lang.String[])
+comment1.text=\r\n\ Creates\ a\ new\ LoadPetScreen\ with\ the\ given\ array\ of\ pet\ names.\r\n\ \r\n\ @param\ pets\ An\ array\ of\ strings\ containing\ names\ of\ alive\ pets.\r\n
+comment2.params=pets
+comment2.target=void\ layoutPets(java.lang.String[])
+comment2.text=\r\n\ Lays\ out\ pet\ name\ boxes\ evenly\ on\ the\ screen.\ Automatically\ moves\ to\ the\ next\r\n\ row\ when\ reaching\ screen\ edge.\r\n\ \r\n\ @param\ pets\ An\ array\ of\ strings\ containing\ pet\ names.\r\n
+comment3.params=
+comment3.target=void\ act()
+comment3.text=\r\n\ Detects\ if\ the\ cross\ button\ is\ clicked\ to\ return\ to\ Main\ Menu.\r\n
+numComments=4

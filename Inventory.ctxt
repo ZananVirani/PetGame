@@ -2,10 +2,10 @@
 comment0.target=Inventory
 comment1.params=
 comment1.target=Inventory()
-comment2.params=food
-comment2.target=void\ addFood(Food)
-comment3.params=gift
-comment3.target=void\ addGift(Gift)
+comment2.params=
+comment2.target=void\ addFood()
+comment3.params=
+comment3.target=void\ addGift()
 comment4.params=food
 comment4.target=boolean\ hasFood(Food)
 comment5.params=gift
