@@ -142,6 +142,7 @@ public class PlayWithPetScreen extends World
         }
         if (globalTimer >= 1200)
         {
+            GameState.saveAll();
             // TODO
             // Give player a gift
             if (isSleeping)
