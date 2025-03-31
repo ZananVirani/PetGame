@@ -37,9 +37,6 @@ public class CheckConfirm extends Actor
     public void act()
     {
         if (Greenfoot.mouseClicked(this)){
-            // SHIRRRARMAIENIUWFNIEWNFIEWNFIUNEWIFNEWUINFIUENI
-            // PUT YOUR STUFF OVER HEARE
-            
             int firstHr = hours1.getHour();
             int secondHr = hours2.getHour();
             int firstMin = minutes1.getMinutes();
@@ -49,7 +46,12 @@ public class CheckConfirm extends Actor
             LocalTime endTime = LocalTime.of(secondHr, secondMin);
             boolean enabled = toggle.isEnabled();
             
+            if (enabled)
             Player.setTimeRestrictions(startTime, endTime);
+            else 
+            Player.setTimeRestrictions(null, null);
+            
+            GameState.savePlayer();
             
             
         }

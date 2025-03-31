@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.time.LocalTime;
 
 /**
  * Write a description of class MinutesBox here.
@@ -8,9 +9,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MinutesBox extends Actor
 {
-    private int minutes = 0;
+    private int minutes;
 
-    public MinutesBox() {
+    public MinutesBox(LocalTime lt) {
+        if (lt != null)
+        minutes = lt.getMinute();
+        else
+        minutes = 0;
+        
         updateImage();
     }
 

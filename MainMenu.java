@@ -17,12 +17,7 @@ public class MainMenu extends World {
     public MainMenu() {
         super(700, 500, 1);
 
-        try {
-            GameState.loadPlayer();
-        } catch (Exception e) {
-            System.out.println("Exception Caught");
-            Player.setup();
-        }
+        Player.setup();
 
         // Adding the Title Actor
         addObject(new Title("VIRTUAL PET SIMULATOR"), 350, 60);
@@ -58,12 +53,20 @@ public class MainMenu extends World {
             if (clicked instanceof MenuButton) {
                 MenuButton btn = (MenuButton) clicked;
                 if (btn.getLabel().equals("NEW GAME")) {
+                    System.out.println(Player.isWithinTimeRestrictions());
+                    if (Player.isWithinTimeRestrictions())
                     ScreenManager.push(new PetSelectionScreen());
+                    else
+                    showText("Not Allowed To Play Right Now!", 350, 250);
                 } else if (btn.getLabel().equals("LOAD GAME")) {
-                    String[] alivePets = { "Fluffy", "Buddy", "Max", "Fluffy", "Buddy", "Max", "Fluffy", "Buddy", "Max",
+                    if (Player.isWithinTimeRestrictions()){
+                                   String[] alivePets = { "Fluffy", "Buddy", "Max", "Fluffy", "Buddy", "Max", "Fluffy", "Buddy", "Max",
                             "Fluffy", "Buddy", "Max" }; // Example array. Make sure you change this with the actual pets
                                                         // that are alive.
-                    Greenfoot.setWorld(new LoadPetScreen(alivePets));
+                    ScreenManager.push(new LoadPetScreen(alivePets));
+                }
+                    else
+                    showText("Not Allowed To Play Right Now!", 350, 250);
                 } else if (btn.getLabel().equals("TUTORIAL")) {
                     ScreenManager.push(new TutorialScreen());
                 } else {

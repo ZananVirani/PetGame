@@ -18,11 +18,11 @@ public class ParentalControls extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(700, 500, 1); 
         
-        HoursBox h1 = new HoursBox();
-        MinutesBox m1 = new MinutesBox();
+        HoursBox h1 = new HoursBox(Player.getStartTime());
+        MinutesBox m1 = new MinutesBox(Player.getStartTime());
         
-        HoursBox h2 = new HoursBox();
-        MinutesBox m2 = new MinutesBox();
+        HoursBox h2 = new HoursBox(Player.getEndTime());
+        MinutesBox m2 = new MinutesBox(Player.getEndTime());
         
          // Leave button
         addObject(new Cross(), 50, 50);
@@ -41,8 +41,8 @@ public class ParentalControls extends World
         addObject(m2, 530, 250);
         
         addObject(new SubtitleText("Playtime Statistics"), 633, 470);
-        addObject(new ParagraphText("Average Session: 180mins"), 490, 530);
-        addObject(new ParagraphText("Total Time: 200hrs and 50 mins"), 740, 530);
+        addObject(new ParagraphText(String.format("Average Session: %.2fmins", Player.getAverageSession())), 490, 530);
+        addObject(new ParagraphText(String.format("Total Time: %d hrs and %d mins", Player.getTotalTime().toHours(), Player.getTotalTime().toMinutes())), 740, 530);
         
         addObject(new CheckConfirm(h1, m1, h2, m2, pt), 620, 250);
         

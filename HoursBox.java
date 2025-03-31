@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.time.LocalTime;
 
 /**
  * Write a description of class HoursBox here.
@@ -10,7 +11,12 @@ public class HoursBox extends Actor
 {
     private int hour = 0;
 
-    public HoursBox() {
+    public HoursBox(LocalTime lt) {
+        if (lt != null)
+        hour = lt.getHour();
+        else
+        hour = 0;
+        
         updateImage();
     }
 
