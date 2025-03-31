@@ -2,8 +2,8 @@
 comment0.target=InventoryScreen
 comment1.params=
 comment1.target=InventoryScreen()
-comment1.text=\n\ This\ is\ the\ constructor\ for\ objects\ of\ class\ InventoryScreen.\n\ This\ function\ initializes\ and\ displays\ the\ inventory\ UI\ components.\n
+comment1.text=\r\n\ This\ is\ the\ constructor\ for\ objects\ of\ class\ InventoryScreen.\r\n\ This\ function\ initializes\ and\ displays\ the\ inventory\ UI\ components.\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\n\ This\ funciton\ handles\ mouse\ click\ events\ in\ the\ inventory\ screen.\n\ Updates\ description\ panel\ or\ navigates\ back\ to\ main\ menu.\n
+comment2.text=\r\n\ This\ funciton\ handles\ mouse\ click\ events\ in\ the\ inventory\ screen.\r\n\ Updates\ description\ panel\ or\ navigates\ back\ to\ main\ menu.\r\n
 numComments=3

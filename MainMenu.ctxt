@@ -2,8 +2,8 @@
 comment0.target=MainMenu
 comment1.params=
 comment1.target=MainMenu()
-comment1.text=\n\ This\ is\ the\ constructor\ for\ objects\ of\ class\ MainMenu.\n\ This\ function\ initializes\ and\ displays\ the\ main\ menu\ UI\ components.\n
+comment1.text=\r\n\ This\ is\ the\ constructor\ for\ objects\ of\ class\ MainMenu.\r\n\ This\ function\ initializes\ and\ displays\ the\ main\ menu\ UI\ components.\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\n\ This\ funciton\ handles\ mouse\ click\ events\ on\ the\ main\ menu\ buttons.\ This\ function\ navigates\ to\ PetSelectionScreen\ when\ "NEW\ GAME"\ is\ clicked.\n
+comment2.text=\r\n\ This\ funciton\ handles\ mouse\ click\ events\ on\ the\ main\ menu\ buttons.\ This\ function\ navigates\ to\ PetSelectionScreen\ when\ "NEW\ GAME"\ is\ clicked.\r\n
 numComments=3

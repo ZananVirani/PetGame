@@ -1,3 +1,5 @@
+package com.example.models;
+
 public class Fullness extends Vital {
    private int value;
 
@@ -14,9 +16,9 @@ public class Fullness extends Vital {
    }
 
    // public void isHungry() {
-   //    if(super.getValue() <= 0){
-   //       //Figure out penalty amount
-   //       health.decreaseHealth(10); 
-   //    }
+   // if(super.getValue() <= 0){
+   // //Figure out penalty amount
+   // health.decreaseHealth(10);
+   // }
    // }
 }

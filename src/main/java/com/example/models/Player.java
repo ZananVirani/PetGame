@@ -54,14 +54,16 @@ public class Player {
       numberOfSessions++;
    }
 
-   public void newGame(Player newPlayer) {
-      GameState newGame = new GameState(newPlayer);
+   // public void newGame(Player newPlayer) {
+   //    GameState newGame = new GameState(newPlayer);
+   // }
+
+   public List<String> getAlivePets() {
+      return alivePets;
    }
 
    // TODO: Add stats method
    public void stats() {
-      System.out.println("Player Name: " + name);
-      System.out.println("Age: " + age);
       System.out.println("Number of Sessions: " + numberOfSessions);
       System.out.println("Total Time Spent: " + totalTimeSpent);
       System.out.println("Parent Pass: " + parentPass);

@@ -1,3 +1,5 @@
+package com.example.models;
+
 public class Pet {
    private String name;
    private Health health;

@@ -1,10 +1,12 @@
+package com.example.models;
+
 public class Vital {
     private int value;
     private int criticalValue;
     
     public Vital(int value) {
        this.value = value;
-       this.criticalValue = value * 0.5;
+       this.criticalValue = (int) (this.value * 0.5);
     }
  
     public int getValue() {

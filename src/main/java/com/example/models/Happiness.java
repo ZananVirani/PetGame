@@ -1,3 +1,5 @@
+package com.example.models;
+
 public class Happiness extends Vital {
    private int value;
 

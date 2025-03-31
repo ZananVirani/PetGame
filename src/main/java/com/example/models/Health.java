@@ -1,3 +1,5 @@
+package com.example.models;
+
 public class Health extends Vital {
 
    public Health(int value) {
