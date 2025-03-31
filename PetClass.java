@@ -13,6 +13,7 @@ public class PetClass {
     private static String petType;
     private static int multiplier;
     private static String vitalMultiplier;
+    private static Inventory inventory;
     //private static String currentState;
 
     public static void Setup(String name, String type) {
@@ -22,6 +23,7 @@ public class PetClass {
         happiness = 100;
         sleep = 100;
         score = 0;
+        inventory = new Inventory();
         //currentState = null;
         petType = type;
         if (petType.equals("Cat")) {
@@ -35,7 +37,11 @@ public class PetClass {
             vitalMultiplier = "sleep";
         }
     }
-    
+
+    public static Inventory getInventory(){
+        return inventory;
+    }
+
     public static void increaseHealth(int value) {
         health += value;
     }
@@ -43,8 +49,8 @@ public class PetClass {
     public static void decreaseHealth(int value) {
         health -= value;
     }
-    
-        public static void increaseFullness(int value) {
+
+    public static void increaseFullness(int value) {
         fullness += value;
     }
 
@@ -55,7 +61,7 @@ public class PetClass {
             fullness -= value;
         }
     }
-        
+
     public static void increaseHappiness(int value) {
         happiness += value;
     }
@@ -67,9 +73,8 @@ public class PetClass {
             happiness -= value;
         }
     }
-    
-    
-        public static void increaseSleep(int value) {
+
+    public static void increaseSleep(int value) {
         sleep += value;
     }
 
@@ -80,7 +85,7 @@ public class PetClass {
             sleep -= value;
         }
     }
-    
+
     public static String getType(){
         return petType;
     }
@@ -116,15 +121,16 @@ public class PetClass {
     public static int getSleep() {
         return sleep;
     }
-/*
+
+    /*
     public static void setCurrentState(String state) {
-        currentState = state;
+    currentState = state;
     }
 
     public static String getCurrentState() {
-        return currentState;
+    return currentState;
     }
-    */
+     */
 
     public static Map<String, Object> getPetData() {
         Map<String, Object> petData = new HashMap<>();
@@ -138,6 +144,8 @@ public class PetClass {
         petData.put("petType", petType);
         petData.put("multiplier", String.valueOf(multiplier));
         petData.put("vitalMultiplier", vitalMultiplier);
+        petData.put("foodItems", Inventory.extractFoodNames(inventory.getFoodItems()));
+        petData.put("giftItems", Inventory.extractGiftNames(inventory.getGiftItems()));
         return petData;
     }
 
@@ -154,6 +162,27 @@ public class PetClass {
         petType = petData.get("petType") != null ? petData.get("petType").toString() : null;
         multiplier = parseIntSafe(petData.get("multiplier"));
         vitalMultiplier = petData.get("vitalMultiplier") != null ? petData.get("vitalMultiplier").toString() : null;
+        
+        // Inventory stuff
+        inventory.clear();
+        
+        String[] foods = ((List<?>) petData.get("foodItems"))
+            .stream()
+            .map(obj -> obj == null ? null : obj.toString())
+            .toArray(String[]::new);
+            
+        for (String i: foods){
+            inventory.addFoodFromName(i);
+        }
+
+        String[] gifts = ((List<?>) petData.get("giftItems"))
+            .stream()
+            .map(obj -> obj == null ? null : obj.toString())
+            .toArray(String[]::new);
+            
+        for (String i: gifts){
+            inventory.addGiftFromName(i);
+        }
 
     }
 

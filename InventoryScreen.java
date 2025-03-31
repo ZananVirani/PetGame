@@ -27,7 +27,7 @@ public class InventoryScreen extends World
         super(700, 500, 1);
         this.inventory = inventory;
         loadIcons();
-        loadInventory(this.inventory);
+        loadInventory(PetClass.);
         panel = new DescriptionPanel();
         addObject(panel, 550, 250);
     }
@@ -40,7 +40,7 @@ public class InventoryScreen extends World
         addObject(new Cross(), 50, 50);
     }
 
-    /**
+        /**
      * Loads the inventory items based on the inventory array provided from the backend. Displays the items in rows with a maximum of 3 items per row.
      */
     private void loadInventory(Inventory backend) 
@@ -49,50 +49,52 @@ public class InventoryScreen extends World
         int startY = 100;
         int x = startX;
         int y = startY;
-        int count = 0;
         
-        List<Food> foodItems = backend.getFoodItems();
-        
-        for(Food foodItem : foodItems){
+        GreenfootImage foodTitleImage = new GreenfootImage("Food", 24, Color.BLACK, null);
+        Actor foodTitle = new Actor() { { setImage(foodTitleImage); } };
+        addObject(foodTitle, getWidth() / 2, y - 30); // Centered above food row
             
+        List<Food> foodItems = backend.getFoodItems();
+        int count = 0;
+        for (Food foodItem : foodItems) {
             String name = foodItem.getName();
             int value = foodItem.getValue();
-            int energy = foodItem.getValue() + 10;
-            
+            int energy = value + 10;
+    
             InventoryItem icon = new InventoryItem(name, value, energy);
             addObject(icon, x, y);
-
+    
             count++;
-            if (count % 3 == 0) 
-            {
+            if (count % 3 == 0) {
                 x = startX;
                 y += 100;
-            } 
-            else 
-            {
+            } else {
                 x += 100;
             }
         }
         
+        x = startX;
+        y += 120; // Add vertical space between sections
+    
+        GreenfootImage giftTitleImage = new GreenfootImage("Gifts", 24, Color.BLACK, null);
+        Actor giftTitle = new Actor() { { setImage(giftTitleImage); } };
+        addObject(giftTitle, getWidth() / 2, y - 30); // Centered above gift row
+    
         List<Gift> giftItems = backend.getGiftItems();
-        
-        for(Gift giftItem : giftItems){
-            
+        count = 0;
+        for (Gift giftItem : giftItems) {
             String name = giftItem.getName();
             int value = giftItem.getValue();
-            int energy = giftItem.getValue() + 10;
-            
+            int energy = value + 10;
+    
             InventoryItem icon = new InventoryItem(name, value, energy);
             addObject(icon, x, y);
-
+    
             count++;
-            if (count % 3 == 0) 
-            {
+            if (count % 3 == 0) {
                 x = startX;
                 y += 100;
-            } 
-            else 
-            {
+            } else {
                 x += 100;
             }
         }
@@ -232,6 +234,32 @@ public class InventoryScreen extends World
             panel.drawImage(cartIcon, 10, 350);
             panel.drawImage(heartIcon, 50, 350);
             setImage(panel);
+        }
+    }
+    
+    class UseButton extends Actor {
+        private InventoryItem linkedItem;
+    
+        public UseButton(InventoryItem item) {
+            this.linkedItem = item;
+            GreenfootImage img = new GreenfootImage("Use", 20, Color.WHITE, Color.BLUE);
+            img.scale(80, 40);
+            setImage(img);
+        }
+    
+        public void act() {
+            if (Greenfoot.mouseClicked(this)) {
+                useItem(linkedItem);
+            }
+        }
+    
+        private void useItem(InventoryItem item) {
+            String name = item.getItemName();
+            int value = item.getHealth();
+            
+                      
+            
+    
         }
     }
 
