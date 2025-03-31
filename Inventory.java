@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Random;
 
 public class Inventory {
     private List<Food> foodItems;
@@ -63,7 +64,7 @@ public class Inventory {
             PetClass.increaseScore(10);
             foodItems.remove(food);
         } else {
-            // Error message or something
+            System.out.println("Food item not found in inventory.");
         }
     }
 
@@ -73,8 +74,7 @@ public class Inventory {
             PetClass.increaseScore(10);
             giftItems.remove(gift);
         } else {
-            // Error message or something
+            System.out.println("Gift item not found in inventory.");
         }
     }
-
 }

@@ -1,5 +1,7 @@
 import greenfoot.*;
 import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * The InventoryScreen class displays the player's inventory items dynamically based on the provided inventory array from the backend. It also shows item descriptions
@@ -12,19 +14,20 @@ import java.util.*;
 public class InventoryScreen extends World 
 {
     private DescriptionPanel panel;
-    private String[][] inventory;
+    //private String[][] inventory;
+    private Inventory inventory;
 
     /**
      * Constructs an InventoryScreen with the given inventory items.
      * 
      * @param inventory 2D array containing item names and their stats Format: {{"itemName", "health", "energy"}, ...}
      */
-    public InventoryScreen(String[][] inventory) 
+    public InventoryScreen(Inventory inventory) 
     {
         super(700, 500, 1);
         this.inventory = inventory;
         loadIcons();
-        loadInventory();
+        loadInventory(this.inventory);
         panel = new DescriptionPanel();
         addObject(panel, 550, 250);
     }
@@ -40,21 +43,46 @@ public class InventoryScreen extends World
     /**
      * Loads the inventory items based on the inventory array provided from the backend. Displays the items in rows with a maximum of 3 items per row.
      */
-    private void loadInventory() 
+    private void loadInventory(Inventory backend) 
     {
         int startX = 150;
         int startY = 100;
         int x = startX;
         int y = startY;
         int count = 0;
+        
+        List<Food> foodItems = backend.getFoodItems();
+        
+        for(Food foodItem : foodItems){
+            
+            String name = foodItem.getName();
+            int value = foodItem.getValue();
+            int energy = foodItem.getValue() + 10;
+            
+            InventoryItem icon = new InventoryItem(name, value, energy);
+            addObject(icon, x, y);
 
-        for (String[] item : inventory) 
-        {
-            if (item.length != 3) continue; // Safety check
-            String name = item[0];
-            int health = Integer.parseInt(item[1]);
-            int energy = Integer.parseInt(item[2]);
-            InventoryItem icon = new InventoryItem(name, health, energy);
+            count++;
+            if (count % 3 == 0) 
+            {
+                x = startX;
+                y += 100;
+            } 
+            else 
+            {
+                x += 100;
+            }
+        }
+        
+        List<Gift> giftItems = backend.getGiftItems();
+        
+        for(Gift giftItem : giftItems){
+            
+            String name = giftItem.getName();
+            int value = giftItem.getValue();
+            int energy = giftItem.getValue() + 10;
+            
+            InventoryItem icon = new InventoryItem(name, value, energy);
             addObject(icon, x, y);
 
             count++;

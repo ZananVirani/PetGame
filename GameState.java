@@ -12,7 +12,6 @@ public class GameState {
    private static final String PET_SAVE_DIRECTORY = "pets/";
    // private LocalDateTime lastSaved;
 
-
    public static void savePlayer() {
       try {
          Player.incrementSession();
@@ -27,10 +26,12 @@ public class GameState {
    public static void loadPlayer() {
       try {
          ObjectMapper mapper = new ObjectMapper();
-         LinkedHashMap<String, Object> playerData = mapper.readValue(new File(PLAYER_SAVE_FILE), new TypeReference<LinkedHashMap>(){});
+         LinkedHashMap<String, Object> playerData = mapper.readValue(new File(PLAYER_SAVE_FILE),
+               new TypeReference<LinkedHashMap>() {
+               });
          Player.setPlayerData(playerData);
       } catch (Exception e) {
-          System.out.println("here");
+         System.out.println("here");
          System.err.println("Error loading player: " + e.getMessage());
       }
    }
@@ -52,12 +53,13 @@ public class GameState {
       }
    }
 
-
    public static void loadPet(String petName) {
       try {
          ObjectMapper mapper = new ObjectMapper();
          String petFileName = PET_SAVE_DIRECTORY + petName.toLowerCase() + "_save.json";
-         Map<String, Object> petData = mapper.readValue(new File(petFileName), new TypeReference<Map<String, Object>>() {});
+         Map<String, Object> petData = mapper.readValue(new File(petFileName),
+               new TypeReference<Map<String, Object>>() {
+               });
          PetClass.setPetData(petData);
       } catch (IOException e) {
          System.err.println("Error loading pet: " + e.getMessage());
