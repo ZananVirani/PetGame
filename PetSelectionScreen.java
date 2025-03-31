@@ -23,7 +23,9 @@ public class PetSelectionScreen extends World {
      */
     public PetSelectionScreen() {
         super(700, 500, 1);
-                
+        
+        TempType.setValue("");
+        
         addObject(new pageTitle("Give Your Pet A Name!"), 350, 60);
 
         pet1 = new RadioButton("  Bear", "bear.png");
@@ -33,11 +35,10 @@ public class PetSelectionScreen extends World {
         addObject(pet1, 175, 200);
         addObject(pet2, 350, 200);
         addObject(pet3, 525, 200);
-        
-        
-        NameInput nameInput = new NameInput();
-        addObject(nameInput, 400, 280);
-        
+
+        NameInput nameInput = new NameInput(this);
+        addObject(nameInput, 300, 350);
+
         confirmButton = new ConfirmButton(nameInput);
         addObject(confirmButton, 600, 450);
 
@@ -64,9 +65,22 @@ public class PetSelectionScreen extends World {
      */
     private void selectPet(String pet) {
         selectedPet = pet;
+        TempType.setValue(pet);
         pet1.setSelected(pet.equals("Bear"));
         pet2.setSelected(pet.equals("Cat"));
         pet3.setSelected(pet.equals("Dog"));
+    }
+}
+
+class TempType{
+    private static String value = "";
+
+    public static void setValue(String val){
+        value = val;
+    }
+
+    public static String getValue(){
+        return value;
     }
 }
 
@@ -138,12 +152,14 @@ class RadioButton extends Actor {
 class NameInput extends Actor {
     private String text = "";
     private String prompt = "";
-    
-    public NameInput() {
+    private World world;
+
+    public NameInput(World world) {
         this.prompt = "Name: ";
+        this.world = world;
         updateImage();
     }
-    
+
     public NameInput(String prompt) {
         this.prompt = prompt;
         updateImage();
@@ -160,7 +176,7 @@ class NameInput extends Actor {
             } 
             else if (key.equals("space")){
                 text += ' ';
-            } else if (key.equals("enter") && text.length() > 0){
+            } else if (key.equals("enter")){
                 if (getPrompt().equals("Name: ")){
                     createPet();
                 } else validatePassword();
@@ -170,10 +186,10 @@ class NameInput extends Actor {
             updateImage();
         }
     }
-    
+
     public void validatePassword(){
         String password = "ilovecs2212";
-        
+
         if (text.equals(password)) ScreenManager.replace(new ParentalControls());
         else ScreenManager.replace(new IncorrectScreen());
     }
@@ -194,14 +210,19 @@ class NameInput extends Actor {
     public String getText() {
         return text;
     }
-    
+
     public String getPrompt() {
         return prompt;
     }
-    
+
     public void createPet(){
-        // do something to create pet
-        
+        if (TempType.getValue().equals("") || text.length() < 1){
+            world.showText("Missing Info!", 325, 300);
+            return;
+        }
+
+        PetClass.Setup(text, TempType.getValue());
+
         ScreenManager.replace(new PlayWithPetScreen());
     }
 }

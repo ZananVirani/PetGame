@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ConfirmButton
-comment0.text=\r\n\ The\ ConfirmButton\ class\ represents\ a\ button\ to\ confirm\ pet\ selection.\r\n
+comment0.text=\n\ The\ ConfirmButton\ class\ represents\ a\ button\ to\ confirm\ pet\ selection.\n
 comment1.params=input
 comment1.target=ConfirmButton(NameInput)
 comment2.params=

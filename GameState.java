@@ -65,4 +65,9 @@ public class GameState {
          System.err.println("Error loading pet: " + e.getMessage());
       }
    }
+   
+   public static void saveAll(){
+       savePlayer();
+       savePet();
+   }
 }

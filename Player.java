@@ -32,6 +32,10 @@ public class Player {
     public static String[] getAlivePets() {
         return alivePets;
     }
+    
+    public static String[] getDeceasedPets() {
+        return deceasedPets;
+    }
 
     public static void setTimeRestrictions(LocalTime startTime, LocalTime endTime) {
         if (true)//(parentPass) 

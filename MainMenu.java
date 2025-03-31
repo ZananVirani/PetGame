@@ -60,10 +60,7 @@ public class MainMenu extends World {
                     showText("Not Allowed To Play Right Now!", 350, 250);
                 } else if (btn.getLabel().equals("LOAD GAME")) {
                     if (Player.isWithinTimeRestrictions()){
-                                   String[] alivePets = { "Fluffy", "Buddy", "Max", "Fluffy", "Buddy", "Max", "Fluffy", "Buddy", "Max",
-                            "Fluffy", "Buddy", "Max" }; // Example array. Make sure you change this with the actual pets
-                                                        // that are alive.
-                    ScreenManager.push(new LoadPetScreen(alivePets));
+                    ScreenManager.push(new LoadPetScreen());
                 }
                     else
                     showText("Not Allowed To Play Right Now!", 350, 250);

@@ -21,10 +21,10 @@ public class LoadPetScreen extends World {
      * 
      * @param pets An array of strings containing names of alive pets.
      */
-    public LoadPetScreen(String[] pets) {
+    public LoadPetScreen() {
         super(700, 500, 1);
         addObject(new TitleText("Load Pets"), 620, 200);
-        layoutPets(pets);
+        layoutPets(Player.getAlivePets());
         addObject(new Cross(), 50, 50);
     }
 
@@ -39,13 +39,15 @@ public class LoadPetScreen extends World {
         int y = START_Y;
 
         for (String pet : pets) {
-            PetNameBox box = new PetNameBox(pet);
-            addObject(box, x, y);
+            if (pet != null){
+                PetNameBox box = new PetNameBox(pet);
+                addObject(box, x, y);
 
-            x += PADDING_X;
-            if (x > MAX_X) {
-                x = START_X;
-                y += PADDING_Y;
+                x += PADDING_X;
+                if (x > MAX_X) {
+                    x = START_X;
+                    y += PADDING_Y;
+                }
             }
         }
     }

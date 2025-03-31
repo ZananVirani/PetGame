@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=LoadPetScreen
 comment0.text=\n\ LoadPetScreen\ displays\ all\ alive\ pets\ passed\ from\ the\ backend.\ Each\ pet\ name\n\ is\ shown\ in\ a\ simple\ box,\ evenly\ spaced\ and\ wrapped\ across\ multiple\ rows\ if\n\ necessary.\n\ Provides\ a\ way\ for\ players\ to\ select\ and\ load\ an\ existing\ pet.\ Includes\ a\n\ cross\ button\ to\ return\ to\ the\ Main\ Menu.\n\ \n\ @author\ Jay\ Prajapati\n
-comment1.params=pets
-comment1.target=LoadPetScreen(java.lang.String[])
+comment1.params=
+comment1.target=LoadPetScreen()
 comment1.text=\n\ Creates\ a\ new\ LoadPetScreen\ with\ the\ given\ array\ of\ pet\ names.\n\ \n\ @param\ pets\ An\ array\ of\ strings\ containing\ names\ of\ alive\ pets.\n
 comment2.params=pets
 comment2.target=void\ layoutPets(java.lang.String[])

@@ -11,25 +11,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 class ConfirmButton extends Actor {
     private NameInput input;
-    
+
     public ConfirmButton(NameInput input) {
         this.input = input;
         GreenfootImage img = new GreenfootImage("CONFIRM", 24, Color.BLACK, new Color(200, 200, 200, 150));
         setImage(img);
     }
-    
+
     public ConfirmButton() {
         GreenfootImage img = new GreenfootImage("CONFIRM", 24, Color.BLACK, new Color(200, 200, 200, 150));
         setImage(img);
     }
-    
-    
+
     public void act(){
-        if (Greenfoot.mouseClicked(this) && input.getText().length() >= 1){
-            if (input.getPrompt().equals("Name: "))
-            input.createPet();
+        if (Greenfoot.mouseClicked(this)){
+            if (input.getPrompt().equals("Name: ")){
+                input.createPet();
+            }
             else input.validatePassword();
         }
-        
+
     }
 }
