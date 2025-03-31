@@ -82,7 +82,7 @@ public class StatBar extends Actor
                 return Color.YELLOW;
             case "hunger":
                 return Color.ORANGE; // Not available — fallback below
-            case "energy":
+            case "sleepiness":
                 return Color.BLUE;
             default:
                 return Color.WHITE;
@@ -90,7 +90,7 @@ public class StatBar extends Actor
     }
 
     /**
-     * Capitalizes the first letter of a word.
+     * Capitalizesleepinesss the first letter of a word.
      */
     private String capitalize(String word)
     {

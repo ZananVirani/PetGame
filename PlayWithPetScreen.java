@@ -6,7 +6,7 @@ import greenfoot.*;
  */
 public class PlayWithPetScreen extends World
 {
-    private StatBar healthBar, happinessBar, hungerBar, energyBar;
+    private StatBar healthBar, happinessBar, hungerBar, sleepBar;
     private int globalTimer;
     private Pet pet;
     private Toy currentToy;
@@ -29,13 +29,13 @@ public class PlayWithPetScreen extends World
         healthBar = new StatBar("health", 100);
         happinessBar = new StatBar("happiness", 100);
         hungerBar = new StatBar("hunger", 100);
-        energyBar = new StatBar("energy", 100);
+        sleepBar = new StatBar("sleepiness", 100);
 
         int x = 120, y = 350, spacing = 25;
         addObject(healthBar, x, y);
         addObject(happinessBar, x, y + spacing);
         addObject(hungerBar, x, y + spacing * 2);
-        addObject(energyBar, x, y + spacing * 3);
+        addObject(sleepBar, x, y + spacing * 3);
 
         addObject(new InteractionButton("Throw Ball", this), 100, 460);
         addObject(new InteractionButton("Pet the Pet", this), 230, 460);
@@ -50,6 +50,7 @@ public class PlayWithPetScreen extends World
         addObject(new Calculator(), 610, 250);
         
         addObject(new SaveButton(this), 325, 50);
+        showText(PetClass.getName(), 325, 350);
 
         globalTimer = 0;
         isGameOver = false;
@@ -65,7 +66,7 @@ public class PlayWithPetScreen extends World
         {
             if (isSleeping)
             {
-                energyBar.increase(10);
+                sleepBar.increase(10);
                 hungerBar.decrease(5);
                 happinessBar.decrease(5);
                 // pet image stays sleeping
@@ -74,9 +75,9 @@ public class PlayWithPetScreen extends World
             {
                 happinessBar.decrease(5);
                 hungerBar.decrease(7);
-                energyBar.decrease(6);
+                sleepBar.decrease(6);
 
-                if (hungerBar.getValue() == 0 || energyBar.getValue() == 0)
+                if (hungerBar.getValue() == 0 || sleepBar.getValue() == 0)
                 {
                     healthBar.decrease(10);
                 }
@@ -116,7 +117,7 @@ public class PlayWithPetScreen extends World
         {
             case "Throw Ball":
                 happinessBar.increase(10);
-                energyBar.decrease(5);
+                sleepBar.decrease(5);
                 hungerBar.decrease(3);
                 if (currentToy != null) removeObject(currentToy);
                 currentToy = new Toy();
@@ -135,7 +136,7 @@ public class PlayWithPetScreen extends World
 
             case "Give Toy":
                 happinessBar.increase(5);
-                energyBar.decrease(2);
+                sleepBar.decrease(2);
                 if (currentToy != null) removeObject(currentToy); 
                 currentToy = new Toy();
                 addObject(currentToy, 200, 250);
@@ -199,7 +200,7 @@ public class PlayWithPetScreen extends World
         {
             pet.setToAngry();
         }
-        else if (energyBar.getValue() < 50)
+        else if (sleepBar.getValue() < 50)
         {
             pet.setToSleepy();
         }
@@ -224,7 +225,7 @@ public class PlayWithPetScreen extends World
         {
             showText("Warning: Pet's health is low", getWidth() / 2, 30);
         }
-        else if (energyBar.getValue() < 50 && energyBar.getValue() > 0)
+        else if (sleepBar.getValue() < 50 && sleepBar.getValue() > 0)
         {
             showText("Warning: Pet is low on energy", getWidth() / 2, 30);
         }

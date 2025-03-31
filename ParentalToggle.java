@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ParentalToggle extends Actor
 {
-    private boolean enabled = false; // current state
+    private boolean enabled;
     private static final int WIDTH = 200;
     private static final int HEIGHT = 60;
 
