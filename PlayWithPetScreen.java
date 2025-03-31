@@ -74,10 +74,47 @@ public class PlayWithPetScreen extends World
 
     public void act()
     {
-        if (isGameOver) return;
+        // Exercise logic
+        if (isExercising)
+        {
+            exerciseTimer--;
+            exerciseFrameCounter++;
 
+            // Switch frames every 15 ticks
+            if (exerciseFrameCounter % 15 == 0)
+            {
+                pet.setImage(showingExerciseFrame1 ? exerciseFrame2 : exerciseFrame1);
+                showingExerciseFrame1 = !showingExerciseFrame1;
+            }
+
+            // End of exercise
+            if (exerciseTimer <= 0)
+            {
+                isExercising = false;
+                exerciseFrameCounter = 0;
+                showText("", getWidth() / 2, 60);
+                updatePetMood(); // restore appropriate mood sprite
+            }
+            else
+            {
+                showText("Cat's busy!", getWidth() / 2, 60);
+                return; // block all other logic while exercising
+            }
+        }
+
+        // Vet timer logic (if you have vet feature)
+        if (showVet)
+        {
+            vetTimer--;
+            if (vetTimer <= 0)
+            {
+                showVet = false;
+                removeObjects(getObjects(Nurse.class));
+            }
+        }
+
+        // Passive stat drain every 60 seconds
         globalTimer++;
-
         if (globalTimer >= 3600)
         {
             if (isSleeping)
@@ -85,7 +122,6 @@ public class PlayWithPetScreen extends World
                 sleepBar.increase(10);
                 fullnessBar.decrease(5);
                 happinessBar.decrease(5);
-                // pet image stays sleeping
             }
             else
             {
@@ -104,22 +140,25 @@ public class PlayWithPetScreen extends World
 
         updateWarnings();
 
-        if (healthBar.getValue() <= 0)
+        if (!isSleeping && !isGameOver && !isExercising)
+        {
+            updatePetMood(); // update appearance based on mood if not sleeping or exercising
+        }
+
+        if (healthBar.getValue() <= 0 && !isGameOver)
         {
             triggerGameOver();
         }
-
-        if (!isSleeping && !isGameOver)
-        {
-            updatePetMood();
-        }
-
     }
 
     public void interact(String interaction)
     {
         if (isGameOver) return;
 
+        if (isExercising) {
+            showText("Cat's busy!", getWidth() / 2, 60);
+            return;
+        }
         if (isSleeping)
         {
             showText("Pet is sleeping... wake it up first!", getWidth() / 2, 60);
@@ -162,6 +201,37 @@ public class PlayWithPetScreen extends World
                 happinessBar.increase(5);
 
                 break;
+            case "Exercise":
+                pet.setImage(exerciseFrame1);
+                pet.setCurrentState("exercise"); // Set state so mood logic knows to override it later
+
+                isExercising = true;
+                exerciseTimer = 300; // 5 seconds
+                exerciseFrameCounter = 0;
+                showingExerciseFrame1 = true;
+
+                // Preload and scale exercise animation frames
+                exerciseFrame1 = new GreenfootImage("catActive1.png");
+                exerciseFrame1.scale(200, 200);
+
+                exerciseFrame2 = new GreenfootImage("catActive2.png");
+                exerciseFrame2.scale(200, 200);
+
+                pet.setImage(exerciseFrame1); // Start with frame 1
+
+                showText("Cat's busy!", getWidth() / 2, 60);
+
+                sleepBar.decrease(15);
+                healthBar.increase(10);
+                break;
+
+            case "Take to Vet":
+                showVet = true;
+                vetTimer = 180; // Nurse stays for 3 seconds
+                addObject(new Nurse(), getWidth() / 2, getHeight() / 2);
+                healthBar.increase(25); // Boost health
+                happinessBar.increase(10);
+                break;
         }
     }
 
@@ -201,32 +271,32 @@ public class PlayWithPetScreen extends World
      */
     private void updatePetMood()
     {
-        // ?Always show dead if health is 0 or less
         if (isGameOver || healthBar.getValue() <= 0)
         {
             pet.setToDead();
             return;
         }
 
-        // ?Skip mood logic if pet is sleeping
-        if (isSleeping) return;
-
-        // ?Mood based on current stat levels
+        // Only change if mood is actually different
         if (happinessBar.getValue() < 50)
         {
-            pet.setToAngry();
+            if (!pet.getState().equals("angry"))
+                pet.setToAngry();
         }
         else if (sleepBar.getValue() < 50)
         {
-            pet.setToSleepy();
+            if (!pet.getState().equals("sleepy"))
+                pet.setToSleepy();
         }
         else if (fullnessBar.getValue() < 50)
         {
-            pet.setToHungry();
+            if (!pet.getState().equals("hungry"))
+                pet.setToHungry();
         }
         else
         {
-            pet.setToNormal();
+            if (!pet.getState().equals("normal"))
+                pet.setToNormal();
         }
     }
 
@@ -243,7 +313,7 @@ public class PlayWithPetScreen extends World
         }
         else if (sleepBar.getValue() < 50 && sleepBar.getValue() > 0)
         {
-            showText("Warning: Pet is low on energy", getWidth() / 2, 30);
+            showText("Warning: Pet is low on sleep", getWidth() / 2, 30);
         }
         else if (fullnessBar.getValue() < 50 && fullnessBar.getValue() > 0)
         {
@@ -264,6 +334,14 @@ public class PlayWithPetScreen extends World
             img.drawString(message, 10, 25);
             
             setImage(img);
+        }
+    }
+    
+    class Nurse extends Actor{
+        public Nurse()
+        {
+            setImage("nurse.png");
+            getImage().scale(200,200);
         }
     }
 
