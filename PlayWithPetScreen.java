@@ -146,7 +146,7 @@ public class PlayWithPetScreen extends World
                 PetClass.decreaseHappiness(5);
                 happinessBar.decrease(5);
                 
-                PetClass.decreaseFullness(5);
+                PetClass.decreaseFullness(7);
                 fullnessBar.decrease(7);
                 
                 PetClass.decreaseSleep(6);
@@ -154,8 +154,8 @@ public class PlayWithPetScreen extends World
 
                 if (fullnessBar.getValue() == 0 || sleepBar.getValue() == 0)
                 {
-                    PetClass.decreaseHealth(10);
-                    healthBar.decrease(10);
+                    PetClass.decreaseHealth(20);
+                    healthBar.decrease(20);
                 }
             }
             
@@ -259,9 +259,13 @@ public class PlayWithPetScreen extends World
 
                 showText(PetClass.getName() + "'s busy!", getWidth() / 2, 80);
                 
-                // xyz
-                sleepBar.decrease(15);
-                // xyz
+                PetClass.decreaseSleep(10);
+                sleepBar.decrease(10);
+                
+                PetClass.decreaseFullness(10);
+                fullnessBar.decrease(10);
+                
+                PetClass.increaseHealth(15);
                 healthBar.increase(10);
                 break;
 
