@@ -37,11 +37,8 @@ public class PlayWithPetScreen extends World
     {
         super(700, 500, 1);
 
-        // Set custom background color
-        GreenfootImage bg = new GreenfootImage(700, 500);
-        bg.setColor(Color.WHITE);
-        bg.fill();
-        setBackground(bg);
+        // Set custom background 
+        setBackground("background.png");
 
         pet = new Pet();
         addObject(pet, getWidth() / 2, getHeight() / 2 - 20);
@@ -51,7 +48,7 @@ public class PlayWithPetScreen extends World
         fullnessBar = new StatBar("fullness", PetClass.getFullness());
         sleepBar = new StatBar("sleepiness", PetClass.getSleep());
 
-        int x = 120, y = 150, spacing = 25;
+        int x = 120, y = 90, spacing = 25;
         addObject(healthBar, x, y);
         addObject(happinessBar, x, y + spacing);
         addObject(fullnessBar, x, y + spacing * 2);

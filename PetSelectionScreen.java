@@ -245,6 +245,7 @@ class NameInput extends Actor {
             world.showText("This name is taken. Choose a new one!", 325, 300);
         }
         GameState.savePlayer();
+        SoundManager.stopAll();
         ScreenManager.replace(new PlayWithPetScreen());
     }
 }
