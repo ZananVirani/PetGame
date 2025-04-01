@@ -274,6 +274,6 @@ public class InventoryScreen extends World
                 inventory.useFood(food);
                 fullness.increase(value);
             }                
-
+            ScreenManager.pop();
         }
     }

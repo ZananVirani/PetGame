@@ -182,6 +182,14 @@ public class Player {
 
     public static boolean createPet(){
         if (alivePets[alivePets.length-1] != null) alivePets = expandArray(alivePets,alivePets.length * 2); 
+        
+        for (int i = 0; i < deceasedPets.length; i++){
+            if (deceasedPets[i] != null){
+                if (deceasedPets[i].equals(PetClass.getName().toLowerCase()))
+                return false;
+            }
+        }
+        
         for (int i = 0; i < alivePets.length; i++) {
             if (alivePets[i] == null) {
                 alivePets[i] = PetClass.getName().toLowerCase();

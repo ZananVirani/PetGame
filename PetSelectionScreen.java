@@ -171,7 +171,8 @@ class RadioButton extends Actor {
 class NameInput extends Actor {
     private String text = "";
     private String prompt = "";
-private World world;
+    private World world;
+    
     public NameInput(World world) {
         this.prompt = "Name: ";
         this.world = world;
@@ -193,7 +194,6 @@ private World world;
                 text = text.substring(0, text.length() - 1);
             } 
             else if (key.equals("space")){
-                text += ' ';
             } else if (key.equals("enter")){
                 if (getPrompt().equals("Name: ")){
                     createPet();
@@ -234,14 +234,16 @@ private World world;
     }
 
     public void createPet(){
-        
+
         if (TempType.getValue().equals("") || text.length() < 1){
             world.showText("Missing Info!", 325, 300);
             return;
         }
 
         PetClass.Setup(text, TempType.getValue());
-        GameState.createNewPet();
+        if (!GameState.createNewPet()){
+            world.showText("This name is taken. Choose a new one!", 325, 300);
+        }
         GameState.savePlayer();
         ScreenManager.replace(new PlayWithPetScreen());
     }
@@ -258,7 +260,6 @@ class ExitIcon extends Actor {
     }
 }
 
-
 /**
  * Displays the description of the selected pet.
  */
@@ -267,7 +268,7 @@ class DescriptionLabel extends Actor {
 
     public DescriptionLabel() {
         updateImage();
-        
+
     }
 
     public void setText(String newText) {
