@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.Arrays;
 
 public class GameState {
-    private static final String PLAYER_SAVE_FILE = "player_save.json";
+    private static final File PLAYER_SAVE_FILE = new File("player_save.json");
     private static final String PET_SAVE_DIRECTORY = "pets/";
     // private LocalDateTime lastSaved;
 
@@ -18,7 +18,7 @@ public class GameState {
             Player.incrementSession();
             Map<String, Object> playerData = Player.getPlayerData();
             ObjectMapper mapper = new ObjectMapper();
-            mapper.writeValue(new File(PLAYER_SAVE_FILE), playerData);
+            mapper.writeValue(PLAYER_SAVE_FILE, playerData);
         } catch (Exception e) {
             System.err.println("Error saving player: " + e.getMessage());
         }
@@ -27,7 +27,7 @@ public class GameState {
     public static void loadPlayer() {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            LinkedHashMap<String, Object> playerData = mapper.readValue(new File(PLAYER_SAVE_FILE),
+            LinkedHashMap<String, Object> playerData = mapper.readValue(PLAYER_SAVE_FILE,
                     new TypeReference<LinkedHashMap>() {
                     });
             Player.setPlayerData(playerData);
@@ -41,8 +41,8 @@ public class GameState {
         try {
             File dir = new File("pets");
             if (!dir.exists()) {
-                boolean wasCreated = dir.mkdirs();  // mkdirs() creates parent directories
-            } 
+                boolean wasCreated = dir.mkdirs(); // mkdirs() creates parent directories
+            }
             ObjectMapper mapper = new ObjectMapper();
             String petFileName = PET_SAVE_DIRECTORY + PetClass.getName().toLowerCase() + "_save.json";
             Map<String, Object> petData = PetClass.getPetData();
@@ -54,12 +54,10 @@ public class GameState {
 
     public static boolean createNewPet() {
         try {
-            if (Player.createPet())
-            {
+            if (Player.createPet()) {
                 saveAll();
                 return true;
-            }
-            else
+            } else
                 return false;
         } catch (Exception e) {
             System.err.println("Error saving pet: " + e.getMessage());
@@ -80,7 +78,7 @@ public class GameState {
         }
     }
 
-    public static void saveAll(){
+    public static void saveAll() {
         savePet();
         savePlayer();
     }

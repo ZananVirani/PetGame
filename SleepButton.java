@@ -3,25 +3,24 @@ import greenfoot.*;
 /**
  * A toggle button that puts the pet to sleep or wakes it up.
  */
-public class SleepButton extends Actor
-{
+public class SleepButton extends Actor {
     private PlayWithPetScreen screen;
     private boolean sleeping = false;
 
-    public SleepButton(PlayWithPetScreen screen)
-    {
+    public SleepButton(PlayWithPetScreen screen) {
         this.screen = screen;
         updateImage();
     }
 
-    public void act()
-    {
-        if (PetClass.getSleep() >= 100) sleeping = false;
-        
-        if (Greenfoot.mouseClicked(this))
-        {
-            if (!sleeping || PetClass.getSleep() < 100)
-            {
+    public void act() {
+        if (PetClass.getSleep() >= 100) {
+            sleeping = false;
+            screen.getPet().setToNormal();
+            screen.getPet().setCurrentState("normal");
+        }
+
+        if (Greenfoot.mouseClicked(this)) {
+            if (!sleeping || PetClass.getSleep() < 100) {
                 sleeping = true;
                 screen.setSleepingMode(sleeping);
                 updateImage();
@@ -29,8 +28,7 @@ public class SleepButton extends Actor
         }
     }
 
-    private void updateImage()
-    {
+    private void updateImage() {
         int width = 120;
         int height = 30;
         String label = sleeping ? "Wake Up" : "Sleep";

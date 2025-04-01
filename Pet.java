@@ -3,15 +3,13 @@ import greenfoot.*;
 /**
  * Pet represents the virtual pet and handles its mood/state images.
  */
-public class Pet extends Actor
-{
+public class Pet extends Actor {
     private String currentState = "";
     private String type;
     private static final int PET_WIDTH = 200;
     private static final int PET_HEIGHT = 200;
 
-    public Pet()
-    {
+    public Pet() {
         type = PetClass.getType().toLowerCase();
         setToNormal(); // Default state
     }
@@ -19,10 +17,8 @@ public class Pet extends Actor
     /**
      * Sets the pet to normal (default) appearance.
      */
-    public void setToNormal()
-    {
-        if (!currentState.equals("normal"))
-        {
+    public void setToNormal() {
+        if (!currentState.equals("normal")) {
             setScaledImage(type + "Normal.png");
             currentState = "normal";
         }
@@ -31,10 +27,8 @@ public class Pet extends Actor
     /**
      * Sets the pet to hungry appearance.
      */
-    public void setToHungry()
-    {
-        if (!currentState.equals("hungry"))
-        {
+    public void setToHungry() {
+        if (!currentState.equals("hungry")) {
             setScaledImage(type + "Hungry.png");
             currentState = "hungry";
         }
@@ -43,10 +37,8 @@ public class Pet extends Actor
     /**
      * Sets the pet to sleepy appearance.
      */
-    public void setToSleepy()
-    {
-        if (!currentState.equals("sleepy"))
-        {
+    public void setToSleepy() {
+        if (!currentState.equals("sleepy")) {
             setScaledImage(type + "Sleepy.png");
             currentState = "sleepy";
         }
@@ -55,10 +47,8 @@ public class Pet extends Actor
     /**
      * Sets the pet to angry appearance.
      */
-    public void setToAngry()
-    {
-        if (!currentState.equals("angry"))
-        {
+    public void setToAngry() {
+        if (!currentState.equals("angry")) {
             setScaledImage(type + "Angry.png");
             currentState = "angry";
         }
@@ -67,10 +57,8 @@ public class Pet extends Actor
     /**
      * Sets the pet to dead appearance.
      */
-    public void setToDead()
-    {
-        if (!currentState.equals("dead"))
-        {
+    public void setToDead() {
+        if (!currentState.equals("dead")) {
             setScaledImage(type + "Dead.png");
             currentState = "dead";
         }
@@ -79,10 +67,8 @@ public class Pet extends Actor
     /**
      * Sets the pet to sleeping appearance.
      */
-    public void setToSleeping()
-    {
-        if (!currentState.equals("sleeping"))
-        {
+    public void setToSleeping() {
+        if (!currentState.equals("sleeping")) {
             setScaledImage(type + "Sleeping.png");
             currentState = "sleeping";
         }
@@ -91,10 +77,8 @@ public class Pet extends Actor
     /**
      * Sets the pet to exercise appearance (initial frame).
      */
-    public void setToExercise()
-    {
-        if (!currentState.equals("exercise"))
-        {
+    public void setToExercise() {
+        if (!currentState.equals("exercise")) {
             setScaledImage(type + "Active1.png");
             currentState = "exercise";
         }
@@ -103,8 +87,7 @@ public class Pet extends Actor
     /**
      * Directly sets and scales the image for the pet.
      */
-    private void setScaledImage(String filename)
-    {
+    private void setScaledImage(String filename) {
         GreenfootImage img = new GreenfootImage(filename);
         img.scale(PET_WIDTH, PET_HEIGHT);
         setImage(img);
@@ -113,8 +96,7 @@ public class Pet extends Actor
     /**
      * Used when manually animating during exercise.
      */
-    public void setExerciseFrame(String filename)
-    {
+    public void setExerciseFrame(String filename) {
         GreenfootImage img = new GreenfootImage(filename);
         img.scale(PET_WIDTH, PET_HEIGHT);
         setImage(img);
@@ -123,16 +105,14 @@ public class Pet extends Actor
     /**
      * Manually sets the pet's current state (used during animation).
      */
-    public void setCurrentState(String state)
-    {
+    public void setCurrentState(String state) {
         currentState = state;
     }
 
     /**
      * Returns the current state string.
      */
-    public String getState()
-    {
+    public String getState() {
         return currentState;
     }
 }

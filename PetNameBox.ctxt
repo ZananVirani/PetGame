@@ -2,5 +2,5 @@
 comment0.target=PetNameBox
 comment1.params=petName
 comment1.target=PetNameBox(java.lang.String)
-comment1.text=\n\ Creates\ a\ new\ PetNameBox\ with\ the\ given\ pet\ name.\n\ \n\ @param\ petName\ Name\ of\ the\ pet\ to\ display.\n
+comment1.text=\r\n\ Creates\ a\ new\ PetNameBox\ with\ the\ given\ pet\ name.\r\n\ \r\n\ @param\ petName\ Name\ of\ the\ pet\ to\ display.\r\n
 numComments=2

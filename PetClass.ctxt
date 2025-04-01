@@ -26,7 +26,7 @@ comment2.params=
 comment2.target=Inventory\ getInventory()
 comment20.params=
 comment20.target=java.util.Map\ getPetData()
-comment20.text=\n\ \ \ \ public\ static\ void\ setCurrentState(String\ state)\ {\n\ \ \ \ currentState\ \=\ state;\n\ \ \ \ }\n\n\ \ \ \ public\ static\ String\ getCurrentState()\ {\n\ \ \ \ return\ currentState;\n\ \ \ \ }\n
+comment20.text=\r\n\ \ \ \ public\ static\ void\ setCurrentState(String\ state)\ {\r\n\ \ \ \ currentState\ \=\ state;\r\n\ \ \ \ }\r\n\r\n\ \ \ \ public\ static\ String\ getCurrentState()\ {\r\n\ \ \ \ return\ currentState;\r\n\ \ \ \ }\r\n
 comment21.params=petData
 comment21.target=void\ setPetData(java.util.Map)
 comment22.params=value

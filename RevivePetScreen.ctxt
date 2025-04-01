@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=RevivePetScreen
-comment0.text=\n\ RevivePetScreen\ displays\ all\ dead\ pets\ passed\ from\ the\ backend.\n\ Each\ pet\ name\ is\ shown\ in\ a\ simple\ box,\ evenly\ spaced\ and\ wrapped\n\ across\ multiple\ rows\ if\ necessary.\n\ Provides\ a\ way\ for\ players\ to\ select\ and\ revive\ a\ dead\ pet.\n\ Includes\ a\ cross\ button\ to\ return\ to\ the\ Main\ Menu.\n\ \n\ @author\ Jay\n\ @version\ 1.0\n
+comment0.text=\r\n\ RevivePetScreen\ displays\ all\ dead\ pets\ passed\ from\ the\ backend.\r\n\ Each\ pet\ name\ is\ shown\ in\ a\ simple\ box,\ evenly\ spaced\ and\ wrapped\r\n\ across\ multiple\ rows\ if\ necessary.\r\n\ Provides\ a\ way\ for\ players\ to\ select\ and\ revive\ a\ dead\ pet.\r\n\ Includes\ a\ cross\ button\ to\ return\ to\ the\ Main\ Menu.\r\n\ \r\n\ @author\ Jay\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=RevivePetScreen()
-comment1.text=\n\ Creates\ a\ new\ RevivePetScreen\ with\ the\ given\ array\ of\ dead\ pet\ names.\n\ \n\ @param\ pets\ An\ array\ of\ strings\ containing\ names\ of\ dead\ pets.\n
+comment1.text=\r\n\ Creates\ a\ new\ RevivePetScreen\ with\ the\ given\ array\ of\ dead\ pet\ names.\r\n\ \r\n\ @param\ pets\ An\ array\ of\ strings\ containing\ names\ of\ dead\ pets.\r\n
 comment2.params=pets
 comment2.target=void\ layoutPets(java.lang.String[])
-comment2.text=\n\ Lays\ out\ pet\ name\ boxes\ evenly\ on\ the\ screen.\n\ Automatically\ moves\ to\ the\ next\ row\ when\ reaching\ screen\ edge.\n\ \n\ @param\ pets\ An\ array\ of\ strings\ containing\ pet\ names.\n
+comment2.text=\r\n\ Lays\ out\ pet\ name\ boxes\ evenly\ on\ the\ screen.\r\n\ Automatically\ moves\ to\ the\ next\ row\ when\ reaching\ screen\ edge.\r\n\ \r\n\ @param\ pets\ An\ array\ of\ strings\ containing\ pet\ names.\r\n
 comment3.params=
 comment3.target=void\ act()
-comment3.text=\n\ Detects\ if\ the\ cross\ button\ is\ clicked\ to\ return\ to\ Main\ Menu.\n
+comment3.text=\r\n\ Detects\ if\ the\ cross\ button\ is\ clicked\ to\ return\ to\ Main\ Menu.\r\n
 numComments=4

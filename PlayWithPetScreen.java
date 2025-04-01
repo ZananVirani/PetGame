@@ -4,8 +4,7 @@ import greenfoot.*;
  * PlayWithPetScreen is the main interactive area with the pet.
  * Handles stat tracking, interaction, passive depletion, and Game Over logic.
  */
-public class PlayWithPetScreen extends World
-{
+public class PlayWithPetScreen extends World {
     private StatBar healthBar, happinessBar, fullnessBar, sleepBar;
     private int globalTimer;
     private Pet pet;
@@ -33,11 +32,10 @@ public class PlayWithPetScreen extends World
     private Calculator calculator;
     private SimpleText mathText, invText;
 
-    public PlayWithPetScreen()
-    {
+    public PlayWithPetScreen() {
         super(700, 500, 1);
 
-        // Set custom background 
+        // Set custom background
         setBackground("background.png");
 
         pet = new Pet();
@@ -64,18 +62,17 @@ public class PlayWithPetScreen extends World
         addObject(new InteractionButton("Take to Vet", this), 210, 420);
 
         //////////////////////////////////
-        
+
         invText = new SimpleText("Inventory");
         addObject(invText, 630, 85);
-        
-        
+
         mathText = new SimpleText("Math Game!");
-        addObject(new SimpleText("Math Game!"), 620, 230); 
-        
+        addObject(new SimpleText("Math Game!"), 620, 230);
+
         invIcon = new InventoryIcon();
         addObject(invIcon, 610, 115);
         addObject(new Cross(), 50, 50);
-        
+
         calculator = new Calculator();
         addObject(calculator, 610, 250);
 
@@ -87,15 +84,15 @@ public class PlayWithPetScreen extends World
         gift = false;
     }
 
-    public void act()
-    {
-        if (Greenfoot.mouseClicked(null)) SoundManager.playClick();
+    public void act() {
+        if (Greenfoot.mouseClicked(null))
+            SoundManager.playClick();
         if (!isGameOver)
-        SoundManager.playBgm();
-        if (isGameOver){
+            SoundManager.playBgm();
+        if (isGameOver) {
             exerciseTimer = -1;
             showVet = false;
-            if (Greenfoot.mouseClicked(null)){
+            if (Greenfoot.mouseClicked(null)) {
                 Actor clicked = Greenfoot.getMouseInfo().getActor();
                 if (clicked instanceof GameOverButton) {
                     ScreenManager.clearStack();
@@ -103,56 +100,49 @@ public class PlayWithPetScreen extends World
                 }
             }
         }
-        if (isExercising)
-        {
+        if (isExercising) {
             exerciseTimer--;
             exerciseFrameCounter++;
 
             // Switch frames every 15 ticks
-            if (exerciseFrameCounter % 15 == 0)
-            {
+            if (exerciseFrameCounter % 15 == 0) {
                 pet.setImage(showingExerciseFrame1 ? exerciseFrame2 : exerciseFrame1);
                 showingExerciseFrame1 = !showingExerciseFrame1;
             }
 
             // End of exercise
-            if (exerciseTimer <= 0)
-            {
+            if (exerciseTimer <= 0) {
                 isExercising = false;
                 exerciseFrameCounter = 0;
                 showText("", getWidth() / 2, 80);
                 updatePetMood(); // restore appropriate mood sprite
-            }
-            else
-            {
+            } else {
                 showText(PetClass.getName() + "'s busy!", getWidth() / 2, 80);
                 return; // block all other logic while exercising
             }
         }
 
-        if (vetOnCooldown){
+        if (vetOnCooldown) {
             vetCoolDownTimer--;
 
-            if (vetTimer <= 0){
+            if (vetTimer <= 0) {
                 showVet = false;
                 removeObjects(getObjects(Nurse.class));
             }
         }
 
-        if(toyOnCoolDown){
+        if (toyOnCoolDown) {
             toyCoolDownTimer--;
-            if (toyCoolDownTimer <= 0){
+            if (toyCoolDownTimer <= 0) {
                 toyOnCoolDown = false;
             }
 
         }
 
         // Vet timer logic (if you have vet feature)
-        if (showVet)
-        {
+        if (showVet) {
             vetTimer--;
-            if (vetTimer <= 0)
-            {
+            if (vetTimer <= 0) {
                 showVet = false;
                 removeObjects(getObjects(Nurse.class));
             }
@@ -160,46 +150,41 @@ public class PlayWithPetScreen extends World
 
         // Passive stat drain every 15 seconds
         globalTimer++;
-        if (globalTimer % 60 == 0){
+        if (globalTimer % 60 == 0) {
             Player.incrementTime();
         }
-        if (globalTimer >= 1200 && !isGameOver)
-        {
+        if (globalTimer >= 1200 && !isGameOver) {
 
-                GameState.saveAll();
+            GameState.saveAll();
 
-                Inventory inv = PetClass.getInventory();
-                if (gift) {
-                    Gift gift = inv.addGift();
-                    addObject(new ItemImage(gift.getName().toLowerCase(), this),450, 300);
-                    showText("Gift Received!", 450, 370);  
-                } else{
-                    Food food = inv.addFood();
-                    addObject(new ItemImage(food.getName().toLowerCase(), this), 450, 300);
-                    showText("Food Received!", 450, 370); 
-                }
+            Inventory inv = PetClass.getInventory();
+            if (gift) {
+                Gift gift = inv.addGift();
+                addObject(new ItemImage(gift.getName().toLowerCase(), this), 450, 300);
+                showText("Gift Received!", 450, 370);
+            } else {
+                Food food = inv.addFood();
+                addObject(new ItemImage(food.getName().toLowerCase(), this), 450, 300);
+                showText("Food Received!", 450, 370);
+            }
 
-                gift = !gift;
+            gift = !gift;
 
-            if (isSleeping)
-            {
+            if (isSleeping) {
                 PetClass.increaseSleep(15);
                 sleepBar.increase(15);
 
                 fullnessBar.decrease(PetClass.decreaseFullness(5));
 
                 happinessBar.decrease(PetClass.decreaseHappiness(5));
-            }
-            else
-            {
+            } else {
                 happinessBar.decrease(PetClass.decreaseHappiness(5));
 
                 fullnessBar.decrease(PetClass.decreaseFullness(7));
 
                 sleepBar.decrease(PetClass.decreaseSleep(6));
 
-                if (fullnessBar.getValue() == 0 || sleepBar.getValue() == 0)
-                {
+                if (fullnessBar.getValue() == 0 || sleepBar.getValue() == 0) {
                     PetClass.decreaseHealth(20);
                     healthBar.decrease(20);
                 }
@@ -214,26 +199,24 @@ public class PlayWithPetScreen extends World
 
         updateWarnings();
 
-        if (!isSleeping && !isGameOver && !isExercising)
-        {
+        if (!isSleeping && !isGameOver && !isExercising) {
             updatePetMood(); // update appearance based on mood if not sleeping or exercising
         }
 
-        if (healthBar.getValue() <= 0 && !isGameOver)
-        {
+        if (healthBar.getValue() <= 0 && !isGameOver) {
             triggerGameOver();
         }
 
-        if (Greenfoot.mouseClicked(invIcon) && !isGameOver){
-            ScreenManager.push(new InventoryScreen(fullnessBar, happinessBar)); 
+        if (Greenfoot.mouseClicked(invIcon) && !isGameOver) {
+            ScreenManager.push(new InventoryScreen(fullnessBar, happinessBar));
         }
     }
 
-    public void interact(String interaction)
-    {
-        if (isGameOver) return;
+    public void interact(String interaction) {
+        if (isGameOver)
+            return;
 
-        if (currentToy != null){
+        if (currentToy != null) {
             removeObject(currentToy);
             currentToy = null;
         }
@@ -242,8 +225,7 @@ public class PlayWithPetScreen extends World
             showText(PetClass.getName() + "'s busy!", getWidth() / 2, 80);
             return;
         }
-        if (isSleeping)
-        {
+        if (isSleeping) {
             showText(PetClass.getName() + " is sleeping... wake it up first!", getWidth() / 2, 60);
             return;
         }
@@ -251,10 +233,9 @@ public class PlayWithPetScreen extends World
         // Clear any previous warning
         showText("", getWidth() / 2, 80);
 
-        switch(interaction)
-        {
+        switch (interaction) {
             case "Throw Ball":
-                if(toyOnCoolDown){
+                if (toyOnCoolDown) {
                     showText("Take a break!", getWidth() / 2, 60);
                     return;
                 }
@@ -265,7 +246,8 @@ public class PlayWithPetScreen extends World
 
                 fullnessBar.decrease(PetClass.decreaseFullness(3));
 
-                if (currentToy != null) removeObject(currentToy);
+                if (currentToy != null)
+                    removeObject(currentToy);
                 currentToy = new Toy();
                 addObject(currentToy, 150, 250);
 
@@ -275,8 +257,7 @@ public class PlayWithPetScreen extends World
                 break;
 
             case "Pet the Pet":
-                if (happinessBar.getValue() < 50)
-                {
+                if (happinessBar.getValue() < 50) {
                     showText(PetClass.getName() + " is unhappy, play with it!", getWidth() / 2, 60);
                     return;
                 }
@@ -322,8 +303,7 @@ public class PlayWithPetScreen extends World
                 break;
 
             case "Take to Vet":
-                if (vetOnCooldown)
-                {
+                if (vetOnCooldown) {
                     showText("Vet is on cooldown!", getWidth() / 2, 60);
                     return;
                 }
@@ -337,15 +317,14 @@ public class PlayWithPetScreen extends World
                 vetOnCooldown = true;
                 vetCoolDownTimer = VET_COOLDOWN_DURATION;
 
-                break; 
+                break;
         }
     }
 
     /**
      * Triggers end of game.
      */
-    private void triggerGameOver()
-    {
+    private void triggerGameOver() {
         isGameOver = true;
         showText("GAME OVER", getWidth() / 2, getHeight() / 2);
         Player.petDied(PetClass.getName());
@@ -362,16 +341,12 @@ public class PlayWithPetScreen extends World
         SoundManager.stopBgm();
     }
 
-    public void setSleepingMode(boolean sleep)
-    {
+    public void setSleepingMode(boolean sleep) {
         isSleeping = sleep;
 
-        if (isSleeping)
-        {
+        if (isSleeping) {
             pet.setToSleeping(); // ✅ Use this, not setImage directly
-        }
-        else
-        {
+        } else {
             updatePetMood(); // Re-evaluate mood immediately when waking up
             showText("", getWidth() / 2, 80); // Clear “sleeping” warning
         }
@@ -381,32 +356,23 @@ public class PlayWithPetScreen extends World
      * Updates the pet's image based on current stat levels.
      * Prioritizes death first, then other moods if pet is alive and awake.
      */
-    private void updatePetMood()
-    {
-        if (isGameOver || healthBar.getValue() <= 0)
-        {
+    private void updatePetMood() {
+        if (isGameOver || healthBar.getValue() <= 0) {
             pet.setToDead();
             return;
         }
 
         // Only change if mood is actually different
-        if (happinessBar.getValue() < 50)
-        {
+        if (happinessBar.getValue() < 50) {
             if (!pet.getState().equals("angry"))
                 pet.setToAngry();
-        }
-        else if (sleepBar.getValue() < 50)
-        {
+        } else if (sleepBar.getValue() < 50) {
             if (!pet.getState().equals("sleepy"))
                 pet.setToSleepy();
-        }
-        else if (fullnessBar.getValue() < 50)
-        {
+        } else if (fullnessBar.getValue() < 50) {
             if (!pet.getState().equals("hungry"))
                 pet.setToHungry();
-        }
-        else
-        {
+        } else {
             if (!pet.getState().equals("normal"))
                 pet.setToNormal();
         }
@@ -415,31 +381,24 @@ public class PlayWithPetScreen extends World
     /**
      * Display appropriate warning text based on stat levels.
      */
-    private void updateWarnings()
-    {
+    private void updateWarnings() {
         showText("", getWidth() / 2, 30);
 
-        if (healthBar.getValue() < 50 && healthBar.getValue() > 0)
-        {
+        if (healthBar.getValue() < 50 && healthBar.getValue() > 0) {
             showText("Warning: " + PetClass.getName() + "'s health is low", getWidth() / 2, 30);
-        }
-        else if (sleepBar.getValue() < 50 && sleepBar.getValue() > 0)
-        {
+        } else if (sleepBar.getValue() < 50 && sleepBar.getValue() > 0) {
             showText("Warning: " + PetClass.getName() + " is low on sleep", getWidth() / 2, 30);
-        }
-        else if (fullnessBar.getValue() < 50 && fullnessBar.getValue() > 0)
-        {
+        } else if (fullnessBar.getValue() < 50 && fullnessBar.getValue() > 0) {
             showText("Warning: " + PetClass.getName() + " is getting hungry", getWidth() / 2, 30);
         }
     }
 
-    public boolean isGameOver()
-    {
+    public boolean isGameOver() {
         return isGameOver;
     }
 
-    class SimpleText extends Actor{
-        public SimpleText(String message){
+    class SimpleText extends Actor {
+        public SimpleText(String message) {
             GreenfootImage img = new GreenfootImage(150, 100);
             img.setColor(Color.BLACK);
             img.setFont(new Font("Arial", false, false, 20));
@@ -449,12 +408,15 @@ public class PlayWithPetScreen extends World
         }
     }
 
-    class Nurse extends Actor{
-        public Nurse()
-        {
+    class Nurse extends Actor {
+        public Nurse() {
             setImage("nurse.png");
-            getImage().scale(200,200);
+            getImage().scale(200, 200);
         }
+    }
+
+    public Pet getPet() {
+        return this.pet;
     }
 
 }
