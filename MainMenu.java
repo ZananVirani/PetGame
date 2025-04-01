@@ -48,6 +48,8 @@ public class MainMenu extends World {
      * function navigates to PetSelectionScreen when "NEW GAME" is clicked.
      */
     public void act() {
+        SoundManager.playLobbyMusic();
+
         if (Greenfoot.mouseClicked(null)) {
             Actor clicked = Greenfoot.getMouseInfo().getActor();
             if (clicked instanceof MenuButton) {

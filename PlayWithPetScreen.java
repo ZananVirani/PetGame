@@ -35,11 +35,8 @@ public class PlayWithPetScreen extends World
     {
         super(700, 500, 1);
 
-        // Set custom background color
-        GreenfootImage bg = new GreenfootImage(700, 500);
-        bg.setColor(Color.WHITE);
-        bg.fill();
-        setBackground(bg);
+        // Set custom background 
+        setBackground("background.png");
 
         pet = new Pet();
         addObject(pet, getWidth() / 2, getHeight() / 2 - 20);

@@ -243,6 +243,7 @@ private World world;
         PetClass.Setup(text, TempType.getValue());
         GameState.createNewPet();
         GameState.savePlayer();
+        SoundManager.stopAll();
         ScreenManager.replace(new PlayWithPetScreen());
     }
 }
