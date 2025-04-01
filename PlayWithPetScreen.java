@@ -46,7 +46,7 @@ public class PlayWithPetScreen extends World
         fullnessBar = new StatBar("fullness", PetClass.getFullness());
         sleepBar = new StatBar("sleepiness", PetClass.getSleep());
 
-        int x = 120, y = 150, spacing = 25;
+        int x = 120, y = 90, spacing = 25;
         addObject(healthBar, x, y);
         addObject(happinessBar, x, y + spacing);
         addObject(fullnessBar, x, y + spacing * 2);
