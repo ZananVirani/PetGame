@@ -18,20 +18,23 @@ public class InventoryScreen extends World
     private Inventory inventory;
     private UseButton useButton;
     private int globalTimer;
+    private StatBar fullness, happiness;
 
     /**
      * Constructs an InventoryScreen with the given inventory items.
      * 
      * @param inventory 2D array containing item names and their stats Format: {{"itemName", "health", "energy"}, ...}
      */
-    public InventoryScreen() 
+    public InventoryScreen(StatBar full, StatBar happy) 
     {
         super(700, 500, 1);
+        fullness = full;
+        happiness = happy;
         this.inventory = PetClass.getInventory();
         loadIcons();
         loadInventory(this.inventory);
         panel = new DescriptionPanel();
-        addObject(panel, 550, 250);
+        addObject(panel, 570, 200);
         globalTimer = 0;
     }
 
@@ -49,14 +52,11 @@ public class InventoryScreen extends World
     private void loadInventory(Inventory backend) 
     {
         int startX = 150;
-        int startY = 100;
+        int startY = 90;
         int x = startX;
         int y = startY;
         
-        GreenfootImage foodTitleImage = new GreenfootImage("Food", 24, Color.BLACK, null);
-        Actor foodTitle = new Actor() { { setImage(foodTitleImage); } };
-        addObject(foodTitle, getWidth() / 2, y - 30); // Centered above food row
-            
+        addObject(new SubtitleText("Food"), 600, 170);
         List<Food> foodItems = backend.getFoodItems();
         int count = 0;
         for (Food foodItem : foodItems) {
@@ -68,20 +68,18 @@ public class InventoryScreen extends World
             addObject(icon, x, y);
     
             count++;
-            if (count % 3 == 0) {
+            if (count % 6 == 0) {
                 x = startX;
-                y += 100;
+                y += 50;
             } else {
-                x += 100;
+                x += 50;
             }
         }
         
         x = startX;
-        y += 120; // Add vertical space between sections
+        y = startY + 225; // Add vertical space between sections
     
-        GreenfootImage giftTitleImage = new GreenfootImage("Gifts", 24, Color.BLACK, null);
-        Actor giftTitle = new Actor() { { setImage(giftTitleImage); } };
-        addObject(giftTitle, getWidth() / 2, y - 30); // Centered above gift row
+        addObject(new SubtitleText("Gifts"), 600, 400); // Centered above gift row
     
         List<Gift> giftItems = backend.getGiftItems();
         count = 0;
@@ -94,11 +92,11 @@ public class InventoryScreen extends World
             addObject(icon, x, y);
     
             count++;
-            if (count % 3 == 0) {
+            if (count % 6 == 0) {
                 x = startX;
-                y += 100;
+                y += 50;
             } else {
-                x += 100;
+                x += 50;
             }
         }
     }
@@ -125,13 +123,9 @@ public class InventoryScreen extends World
                     removeObject(useButton);
                 }
                 
-                useButton = new UseButton(inventory, item);
-                addObject(useButton, 550, 400); 
+                useButton = new UseButton(inventory, item, fullness, happiness);
+                addObject(useButton, 550, 300); 
             } 
-            else if (clicked instanceof ExitIcon) 
-            {
-                Greenfoot.setWorld(new MainMenu());
-            }
         }
     }
 }
@@ -159,7 +153,7 @@ public class InventoryScreen extends World
             GreenfootImage img;
             try 
             {
-                img = new GreenfootImage(name + ".png");
+                img = new GreenfootImage(name.toLowerCase().replaceAll("\\s+", "") + ".png");
             } 
             catch (Exception e) 
             {
@@ -167,7 +161,7 @@ public class InventoryScreen extends World
                 img.setColor(Color.RED);
                 img.fill();
             }
-            img.scale(60, 60);
+            img.scale(40, 40);
             setImage(img);
         }
 
@@ -216,11 +210,7 @@ public class InventoryScreen extends World
          */
         public DescriptionPanel() 
         {
-            panel = new GreenfootImage(250, 400);
-            cartIcon = new GreenfootImage("shoppingcart.png");
-            heartIcon = new GreenfootImage("heart.png");
-            cartIcon.scale(30, 30);
-            heartIcon.scale(30, 30);
+            panel = new GreenfootImage(220, 320);
             updateDescription(null);
         }
 
@@ -234,7 +224,7 @@ public class InventoryScreen extends World
             panel.setColor(Color.WHITE);
             panel.fill();
             panel.setColor(Color.BLACK);
-            panel.drawRect(0, 0, 249, 250);
+            panel.drawRect(0, 0, 200, 300);
             if (item != null) 
             {
                 panel.drawString(item.getItemName(), 10, 20);
@@ -247,8 +237,6 @@ public class InventoryScreen extends World
                 panel.drawString("Item Description", 10, 20);
                 panel.drawString("INFO", 10, 50);
             }
-            panel.drawImage(cartIcon, 10, 350);
-            panel.drawImage(heartIcon, 50, 350);
             setImage(panel);
         }
     }
@@ -256,12 +244,15 @@ public class InventoryScreen extends World
     class UseButton extends Actor {
         private InventoryItem linkedItem;
         private Inventory inventory;
+        private StatBar fullness, happiness;
     
-        public UseButton(Inventory inventory, InventoryItem item) {
+        public UseButton(Inventory inventory, InventoryItem item, StatBar fullness, StatBar happiness) {
             this.linkedItem = item;
             this.inventory = inventory;
-            GreenfootImage img = new GreenfootImage("Use", 20, Color.WHITE, Color.BLUE);
-            img.scale(80, 40);
+            this.fullness = fullness;
+            this.happiness = happiness;
+            GreenfootImage img = new GreenfootImage("Use", 20, Color.WHITE, Color.GREEN);
+            img.scale(120, 50);
             setImage(img);
         }
     
@@ -277,9 +268,11 @@ public class InventoryScreen extends World
             if(name.endsWith("Gift")){
                 Gift gift = new Gift(name, value);
                 inventory.useGift(gift);
+                happiness.increase(value);
             } else{
                 Food food = new Food(name, value);
-                inventory.useFood(food);                
+                inventory.useFood(food);
+                fullness.increase(value);
             }                
 
         }

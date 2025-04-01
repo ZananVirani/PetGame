@@ -29,6 +29,7 @@ public class PlayWithPetScreen extends World
     private int toyCoolDownTimer = 0;
     private final int TOY_COOLDOWN_DURATION = 600;
     private boolean gift;
+    private InventoryIcon invIcon;
 
     public PlayWithPetScreen()
     {
@@ -66,7 +67,8 @@ public class PlayWithPetScreen extends World
         //////////////////////////////////
         
         addObject(new SimpleText("Inventory"), 630, 85);
-        addObject(new InventoryIcon(), 610, 115);
+        invIcon = new InventoryIcon();
+        addObject(invIcon, 610, 115);
         addObject(new Cross(), 50, 50);
         addObject(new Calculator(), 610, 250);
         addObject(new SimpleText("Math Game!"), 620, 230);  
@@ -202,6 +204,10 @@ public class PlayWithPetScreen extends World
         if (healthBar.getValue() <= 0 && !isGameOver)
         {
             triggerGameOver();
+        }
+        
+        if (Greenfoot.mouseClicked(invIcon)){
+            ScreenManager.push(new InventoryScreen(fullnessBar, happinessBar)); 
         }
     }
 
