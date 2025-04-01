@@ -57,18 +57,22 @@ public class MainMenu extends World {
                 if (btn.getLabel().equals("NEW GAME")) {
                     System.out.println(Player.isWithinTimeRestrictions());
                     if (Player.isWithinTimeRestrictions())
+                    SoundManager.playClick();
                     ScreenManager.push(new PetSelectionScreen());
                     else
                     showText("Not Allowed To Play Right Now!", 350, 250);
                 } else if (btn.getLabel().equals("LOAD GAME")) {
                     if (Player.isWithinTimeRestrictions()){
+                    SoundManager.playClick();
                     ScreenManager.push(new LoadPetScreen());
                 }
                     else
                     showText("Not Allowed To Play Right Now!", 350, 250);
                 } else if (btn.getLabel().equals("TUTORIAL")) {
+                    SoundManager.playClick();
                     ScreenManager.push(new TutorialScreen());
                 } else {
+                    SoundManager.playClick();
                     ScreenManager.push(new PasswordScreen());
                 }
             }
