@@ -56,7 +56,7 @@ public class LoadPetScreen extends World {
      * Detects if the cross button is clicked to return to Main Menu.
      */
     public void act() {
-
+    if (Greenfoot.mouseClicked(null)) SoundManager.playClick();
     }
 }
 
@@ -81,6 +81,7 @@ class PetNameBox extends Actor
         if (Greenfoot.mouseClicked(this)){
             if (world instanceof LoadPetScreen){
                 GameState.loadPet(name);
+                SoundManager.stopAll();
                 ScreenManager.replace(new PlayWithPetScreen());
             } else{
                 Player.revivePet(name);

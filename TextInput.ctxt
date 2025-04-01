@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=TextInput
 comment0.text=\n\ Write\ a\ description\ of\ class\ TextInput\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=width\ height\ score\ qDisplay\ icon
-comment1.target=TextInput(int,\ int,\ Score,\ QuestionDisplay,\ ResultIcon)
+comment1.params=width\ height\ score\ qDisplay\ icon\ world
+comment1.target=TextInput(int,\ int,\ Score,\ QuestionDisplay,\ ResultIcon,\ greenfoot.World)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=

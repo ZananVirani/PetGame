@@ -49,30 +49,26 @@ public class MainMenu extends World {
      */
     public void act() {
         SoundManager.playLobbyMusic();
-
         if (Greenfoot.mouseClicked(null)) {
+            SoundManager.playClick();
             Actor clicked = Greenfoot.getMouseInfo().getActor();
             if (clicked instanceof MenuButton) {
                 MenuButton btn = (MenuButton) clicked;
                 if (btn.getLabel().equals("NEW GAME")) {
-                    System.out.println(Player.isWithinTimeRestrictions());
                     if (Player.isWithinTimeRestrictions())
-                    SoundManager.playClick();
                     ScreenManager.push(new PetSelectionScreen());
                     else
                     showText("Not Allowed To Play Right Now!", 350, 250);
                 } else if (btn.getLabel().equals("LOAD GAME")) {
                     if (Player.isWithinTimeRestrictions()){
-                    SoundManager.playClick();
+                    
                     ScreenManager.push(new LoadPetScreen());
                 }
                     else
                     showText("Not Allowed To Play Right Now!", 350, 250);
                 } else if (btn.getLabel().equals("TUTORIAL")) {
-                    SoundManager.playClick();
                     ScreenManager.push(new TutorialScreen());
                 } else {
-                    SoundManager.playClick();
                     ScreenManager.push(new PasswordScreen());
                 }
             }

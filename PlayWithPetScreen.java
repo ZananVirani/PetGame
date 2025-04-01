@@ -68,15 +68,16 @@ public class PlayWithPetScreen extends World
         invText = new SimpleText("Inventory");
         addObject(invText, 630, 85);
         
+        
+        mathText = new SimpleText("Math Game!");
+        addObject(new SimpleText("Math Game!"), 620, 230); 
+        
         invIcon = new InventoryIcon();
         addObject(invIcon, 610, 115);
         addObject(new Cross(), 50, 50);
         
         calculator = new Calculator();
         addObject(calculator, 610, 250);
-        
-        mathText = new SimpleText("Math Game!");
-        addObject(new SimpleText("Math Game!"), 620, 230);  
 
         addObject(new SaveButton(this), 355, 55);
         showText(PetClass.getName(), 350, 330);
@@ -88,6 +89,9 @@ public class PlayWithPetScreen extends World
 
     public void act()
     {
+        if (Greenfoot.mouseClicked(null)) SoundManager.playClick();
+        if (!isGameOver)
+        SoundManager.playBgm();
         if (isGameOver){
             exerciseTimer = -1;
             showVet = false;
@@ -355,6 +359,7 @@ public class PlayWithPetScreen extends World
         removeObjects(getObjects(InventoryIcon.class));
         removeObjects(getObjects(Calculator.class));
         removeObjects(getObjects(SimpleText.class));
+        SoundManager.stopBgm();
     }
 
     public void setSleepingMode(boolean sleep)

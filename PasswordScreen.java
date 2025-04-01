@@ -28,4 +28,8 @@ public class PasswordScreen extends World
         ConfirmButton confirmButton = new ConfirmButton(nameInput);
         addObject(confirmButton, 600, 450);
     }
+    
+    public void act(){
+        if (Greenfoot.mouseClicked(null)) SoundManager.playClick();
+    }
 }

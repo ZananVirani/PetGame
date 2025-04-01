@@ -18,8 +18,10 @@ public class BlackScreen extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(700, 500, 1);
         
-        getBackground().setColor(Color.BLACK);
+        getBackground().setColor(Color.GRAY);
         getBackground().fill();
+        
+        showText("Thanks for playing :)", getWidth() / 2, getHeight() / 2);
     }
     
     public void act(){

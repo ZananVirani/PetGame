@@ -35,4 +35,8 @@ public class TutorialScreen extends World
         addObject(new SubtitleText(tutorialText),400,280);
         addObject(new TitleText("Tutorial"), 650, 200);
     }
+    
+    public void act(){
+        if (Greenfoot.mouseClicked(null)) SoundManager.playClick();
+    }
 }

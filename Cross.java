@@ -22,7 +22,8 @@ public class Cross extends Actor
     public void act()
     {
         if (Greenfoot.mouseClicked(this)){
-            ScreenManager.pop();
+            if (getWorld() instanceof MainMenu) ScreenManager.push(new BlackScreen());
+            else ScreenManager.pop();
         }
     }
 }

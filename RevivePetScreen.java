@@ -56,5 +56,6 @@ public class RevivePetScreen extends World {
      * Detects if the cross button is clicked to return to Main Menu.
      */
     public void act() {
+        if (Greenfoot.mouseClicked(null)) SoundManager.playClick();
     }
 }

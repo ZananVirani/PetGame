@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MathGame extends World
 {
     private int globalTimer;
+    private Score currentScore;
     /**
      * Constructor for objects of class MathGame.
      * 
@@ -17,11 +18,11 @@ public class MathGame extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(700, 500, 1); 
-        Score currentScore = new Score(0);
+        currentScore = new Score(PetClass.getScore());
         QuestionDisplay qDisplay = new QuestionDisplay();
         ResultIcon resIcon = new ResultIcon();
         
-        TextInput input = new TextInput(150, 45, currentScore, qDisplay, resIcon);
+        TextInput input = new TextInput(150, 45, currentScore, qDisplay, resIcon, this);
         
         // Leave button
         addObject(new Cross(), 50, 50);
@@ -51,6 +52,7 @@ public class MathGame extends World
     }
     
     public void act(){
+        if (Greenfoot.mouseClicked(null)) SoundManager.playClick();
         globalTimer++;
         if (globalTimer % 60 == 0){
             Player.incrementTime();

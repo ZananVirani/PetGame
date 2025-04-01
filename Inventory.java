@@ -95,6 +95,7 @@ public class Inventory {
 
     public void useFood(Food food) {
         if (this.hasFood(food)) {
+            
             foodItems.remove(food);
             PetClass.increaseFullness(food.getValue());
         } else {

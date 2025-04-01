@@ -6,4 +6,6 @@ comment2.params=
 comment2.target=int\ getValue()
 comment3.params=
 comment3.target=java.lang.String\ getName()
-numComments=4
+comment4.params=obj
+comment4.target=boolean\ equals(java.lang.Object)
+numComments=5

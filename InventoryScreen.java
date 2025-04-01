@@ -106,6 +106,7 @@ public class InventoryScreen extends World
      */
     public void act() 
     {
+        if (Greenfoot.mouseClicked(null)) SoundManager.playClick();
         globalTimer++;
         if (globalTimer % 60 == 0){
             Player.incrementTime();
@@ -273,7 +274,7 @@ public class InventoryScreen extends World
                 Food food = new Food(name, value);
                 inventory.useFood(food);
                 fullness.increase(value);
-            }                
+            }            
             ScreenManager.pop();
         }
     }

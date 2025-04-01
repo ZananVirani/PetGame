@@ -49,4 +49,8 @@ public class ParentalControls extends World
         
         addObject(new ReviveButton(), 370, 440);
     }
+    
+    public void act(){
+        if (Greenfoot.mouseClicked(null)) SoundManager.playClick();
+    }
 }

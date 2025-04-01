@@ -29,6 +29,7 @@ public class MathTutorial extends World
     }
     
     public void act(){
+        if (Greenfoot.mouseClicked(null)) SoundManager.playClick();
         globalTimer++;
         if (globalTimer % 60 == 0){
             Player.incrementTime();

@@ -52,6 +52,7 @@ public class PetSelectionScreen extends World {
      *
      **/
     public void act() {
+        if (Greenfoot.mouseClicked(null)) SoundManager.playClick();
         if (Greenfoot.mouseClicked(pet1))
             selectPet("Bear");
         else if (Greenfoot.mouseClicked(pet2))
