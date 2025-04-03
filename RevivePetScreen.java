@@ -7,7 +7,7 @@ import greenfoot.*;
  * Provides a way for players to select and revive a dead pet.
  * Includes a cross button to return to the Main Menu.
  * 
- * @author Jay Prajapati
+ * @author Group 78
  */
 public class RevivePetScreen extends World {
     private static final int PADDING_X = 200;
