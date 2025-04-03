@@ -1,14 +1,26 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EquationBox here.
+ * The BorderBox class is used to create a simple rectangular border box in the Greenfoot environment. The box has a specified width and height
+ * and is outlined in black with no fill.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This class is useful for visually grouping or framing UI components such as text, buttons, or other interactive elements.
+ * 
+ * Example usage:
+ * addObject(new BorderBox(200, 100), 300, 250);
+ * 
+ * @author Group 78
  */
 public class BorderBox extends Actor
 {
-    public BorderBox(int width, int height){
+    /**
+     * Constructs a BorderBox with the specified width and height. The box will have a black outline with no fill.
+     * 
+     * @param width The width of the border box.
+     * @param height The height of the border box.
+     */
+    public BorderBox(int width, int height) 
+    {
         GreenfootImage img = new GreenfootImage(width, height);
         img.setColor(Color.BLACK);
         img.drawRect(0, 0, width - 1, height - 1); // outline only, no fill
