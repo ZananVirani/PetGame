@@ -1,16 +1,22 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
- * Write a description of class NextQButton here.
+ * The NextQButton class represents a button that allows the player to proceed to the next question in the Math tutorial. It is linked to a TextInput
+ * field which processes the player's input upon clicking.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * When the button is clicked, it triggers the onSubmit() method of the associated TextInput.
+ * 
+ * @author Group 78
  */
 public class NextQButton extends Actor
 {
     private TextInput input;
-    
-    public NextQButton(TextInput input){
+
+    /**
+     * Constructs a NextQButton with an associated TextInput field. Sets the button's label and visual appearance.
+     * 
+     * @param input The TextInput object associated with this button.
+     */
+    public NextQButton(TextInput input)
+    {
         this.input = input;
         int width = 160;
         int height = 50;
@@ -27,16 +33,16 @@ public class NextQButton extends Actor
 
         buttonImg.drawImage(textImg, textX, textY);
         setImage(buttonImg);
-        
     }
-    
+
     /**
-     * Act - do whatever the NextQButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - performs an action when the NextQButton is clicked.
+     * Specifically, it triggers the onSubmit() method of the associated TextInput.
      */
     public void act()
     {
-        if (Greenfoot.mouseClicked(this)){
+        if (Greenfoot.mouseClicked(this))
+        {
             input.onSubmit();
         }
     }
