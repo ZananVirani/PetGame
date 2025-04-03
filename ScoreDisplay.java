@@ -1,29 +1,37 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ScoreDisplay here.
+ * The ScoreDisplay class is responsible for displaying the player's current score on the screen. It continuously updates the score display.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * The score is displayed in large, bold text.
+ * 
+ * @author Group 78
  */
 public class ScoreDisplay extends Actor
 {
     private Score score;
 
+    /**
+     * Constructs a ScoreDisplay and associates it with the given score object.
+     * 
+     * @param score The Score object to display.
+     */
     public ScoreDisplay(Score score) {
         this.score = score;
         updateImage();
     }
-    
+
     /**
-     * Act - do whatever the ScoreDisplay wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - continuously updates the score display when the 'Act' or 'Run' button is pressed.
      */
     public void act()
     {
         updateImage();
     }
-    
+
+    /**
+     * Updates the displayed image to show the current score.
+     */
     private void updateImage(){
         GreenfootImage img = new GreenfootImage(250, 60);
         img.setColor(Color.BLACK);
@@ -37,3 +45,4 @@ public class ScoreDisplay extends Actor
         setImage(img);
     }
 }
+
