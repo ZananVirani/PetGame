@@ -3,8 +3,7 @@
  * The MainMenu class represents the main menu screen of the Virtual Pet Simulator game. It displays the game title, an oval visual element, three main buttons 
  * (New Game, Load Game, Tutorial), and a settings icon. This class also handles the transition to the Pet Selection Screen when the "NEW GAME" button is clicked.
  * 
- * @author Jay Prajapati
- * @version March 29th 2025
+ * @author Group 78
  */
 
 import greenfoot.*;
