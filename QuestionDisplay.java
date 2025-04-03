@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class QuestionDisplay here.
+ * The QuestionDisplay class is responsible for displaying a math question and its answer on the screen. It generates new questions, manages whether the
+ * answer is revealed, and updates the displayed text accordingly. This class is used in the math tutorial screen to show questions to the user.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Group 78
  */
 public class QuestionDisplay extends Actor
 {
@@ -12,16 +12,27 @@ public class QuestionDisplay extends Actor
     private String correctAnswer;
     private boolean reveal;
     
+    /**
+     * Constructs a QuestionDisplay object and generates a new question. The answer is initially hidden.
+     */
     public QuestionDisplay(){
         reveal = false;
         generate();       
         updateImage();
     }
     
+    /**
+     * Returns the correct answer to the displayed question.
+     * 
+     * @return The correct answer as a String.
+     */
     public String getCorrect(){
         return correctAnswer;
     }
     
+    /**
+     * Generates a new math question and its corresponding answer. The question and answer are fetched from MathBackend.
+     */
     public void generate(){
         String[] eq = MathBackend.newQuestion();
         questionText = eq[0];
@@ -30,11 +41,19 @@ public class QuestionDisplay extends Actor
         updateImage();
     }
     
+    /**
+     * Sets whether the answer to the question should be revealed.
+     * 
+     * @param val True to reveal the answer, false to hide it.
+     */
     public void setReveal(boolean val){
         reveal = val;
         updateImage();
     }
     
+    /**
+     * Updates the displayed image of the question. Shows the question only, or both question and answer based on the 'reveal' flag.
+     */
     private void updateImage(){
         
         GreenfootImage img = new GreenfootImage(250, 60);
