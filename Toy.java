@@ -1,7 +1,10 @@
 import greenfoot.*;
 
 /**
- * Toy bounces around while pet is playing. Stops if the game is over.
+ * Toy bounces around while the pet is playing. The Toy moves in a bouncing pattern and disappears after a certain lifetime. It stops moving if the game
+ * is over. Used to create an interactive effect on the play screen.
+ * 
+ * @author Group 78
  */
 public class Toy extends Actor
 {
@@ -13,6 +16,10 @@ public class Toy extends Actor
     {
     }
 
+    /**
+     * Act method - called repeatedly to update the toy's behavior.
+     * Handles bouncing movement, lifetime expiry, and stops if the game is over.
+     */
     public void act()
     {
         lifetime--;
@@ -30,7 +37,9 @@ public class Toy extends Actor
         moveAround();
     }
     
-
+    /**
+     * Moves the toy around in a bouncing pattern. Reverses direction when reaching the edges of the world.
+     */
     private void moveAround()
     {
         setLocation(getX() + dx, getY() + dy);
