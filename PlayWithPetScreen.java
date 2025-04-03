@@ -356,7 +356,7 @@ public class PlayWithPetScreen extends World {
      * Updates the pet's image based on current stat levels.
      * Prioritizes death first, then other moods if pet is alive and awake.
      */
-    private void updatePetMood() {
+    public void updatePetMood() {
         if (isGameOver || healthBar.getValue() <= 0) {
             pet.setToDead();
             return;

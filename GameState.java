@@ -8,11 +8,21 @@ import java.util.Map;
 import java.util.LinkedHashMap;
 import java.util.Arrays;
 
+/**
+ * GameState class manages the saving and loading of game data.
+ * This includes player data and pet data, using JSON format for storage.
+ * 
+ * @author Group78
+ */
 public class GameState {
     private static final File PLAYER_SAVE_FILE = new File("player_save.json");
     private static final String PET_SAVE_DIRECTORY = "pets/";
     // private LocalDateTime lastSaved;
 
+    /**
+     * Saves the current player data to a JSON file.
+     * Increments the session count before saving.
+     */
     public static void savePlayer() {
         try {
             Player.incrementSession();
@@ -24,6 +34,10 @@ public class GameState {
         }
     }
 
+    /**
+     * Loads player data from the JSON save file.
+     * Restores all player attributes including session count and time restrictions.
+     */
     public static void loadPlayer() {
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -37,6 +51,10 @@ public class GameState {
         }
     }
 
+    /**
+     * Saves the current pet's data to a JSON file.
+     * Creates the pets directory if it doesn't exist.
+     */
     public static void savePet() {
         try {
             File dir = new File("pets");
@@ -52,6 +70,11 @@ public class GameState {
         }
     }
 
+    /**
+     * Creates a new pet and saves all game data.
+     *
+     * @return true if pet was created successfully, false otherwise
+     */
     public static boolean createNewPet() {
         try {
             if (Player.createPet()) {
@@ -65,6 +88,11 @@ public class GameState {
         }
     }
 
+    /**
+     * Loads a pet's data from its JSON save file.
+     *
+     * @param petName Name of the pet to load
+     */
     public static void loadPet(String petName) {
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -78,6 +106,10 @@ public class GameState {
         }
     }
 
+    /**
+     * Saves both player and pet data.
+     * This is typically called when important game state changes occur.
+     */
     public static void saveAll() {
         savePet();
         savePlayer();

@@ -15,8 +15,8 @@ public class SleepButton extends Actor {
     public void act() {
         if (PetClass.getSleep() >= 100) {
             sleeping = false;
+            screen.setSleepingMode(sleeping);
             screen.getPet().setToNormal();
-            screen.getPet().setCurrentState("normal");
         }
 
         if (Greenfoot.mouseClicked(this)) {
