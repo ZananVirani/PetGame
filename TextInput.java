@@ -13,7 +13,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * - Grants food/gift rewards for every 10 correct answers
  * - Saves game state on each submission
  * 
- * @author Jay Prajapati
+ * @author Group 78
  */
 public class TextInput extends Actor {
     private StringBuilder input;
