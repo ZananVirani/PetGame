@@ -1,20 +1,33 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class GameOverButton here.
+ * The GameOverButton class represents a button that appears when the game is over.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * When clicked, this button clears the screen stack and returns the player to the Main Menu. It is visually displayed as a dark gray button with the
+ * label "Back To Main Menu".
+ * 
+ * This class enhances navigation after the game ends and provides a clear way for the user to return to the main screen.
+ * 
+ * Example usage:
+ * addObject(new GameOverButton(), 350, 400);
+ * 
+ * @author Group 78
  */
 public class GameOverButton extends Actor
 {
-    public GameOverButton() {
+    /**
+     * Constructs a GameOverButton with predefined width, height, and label.
+     * 
+     * The button image is styled with a dark gray background and white bold text.
+     */
+    public GameOverButton()
+    {
         int width = 160;
         int height = 100;
         String label = "Back To\nMain Menu";
 
         GreenfootImage buttonImg = new GreenfootImage(width, height);
-        buttonImg.setColor(Color.DARK_GRAY); // Green background
+        buttonImg.setColor(Color.DARK_GRAY); // Button background color
         buttonImg.fillRect(0, 0, width, height);
 
         Font font = new Font("Arial", true, false, 24);
@@ -25,14 +38,17 @@ public class GameOverButton extends Actor
         buttonImg.drawImage(textImg, textX, textY);
         setImage(buttonImg);
     }
-    
+
     /**
-     * Act - do whatever the LetsGoButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act method - listens for mouse clicks on the GameOverButton.
+     * 
+     * When clicked, it clears the screen stack and navigates the user back to the Main Menu. This method is automatically called by the Greenfoot
+     * environment during each act cycle.
      */
     public void act()
     {
-        if (Greenfoot.mouseClicked(this)){
+        if (Greenfoot.mouseClicked(this))
+        {
             ScreenManager.clearStack();
             ScreenManager.push(new MainMenu());
         }
