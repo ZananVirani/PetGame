@@ -7,8 +7,7 @@ import greenfoot.*;
  * Provides a way for players to select and revive a dead pet.
  * Includes a cross button to return to the Main Menu.
  * 
- * @author Jay
- * @version 1.0
+ * @author Jay Prajapati
  */
 public class RevivePetScreen extends World {
     private static final int PADDING_X = 200;
@@ -16,6 +15,7 @@ public class RevivePetScreen extends World {
     private static final int START_X = 120;
     private static final int START_Y = 120;
     private static final int MAX_X = 600;
+
     /**
      * Creates a new RevivePetScreen with the given array of dead pet names.
      * 
@@ -39,7 +39,7 @@ public class RevivePetScreen extends World {
         int y = START_Y;
 
         for (String pet : pets) {
-            if (pet != null){
+            if (pet != null) {
                 PetNameBox box = new PetNameBox(pet, this);
                 addObject(box, x, y);
 
@@ -56,6 +56,7 @@ public class RevivePetScreen extends World {
      * Detects if the cross button is clicked to return to Main Menu.
      */
     public void act() {
-        if (Greenfoot.mouseClicked(null)) SoundManager.playClick();
+        if (Greenfoot.mouseClicked(null))
+            SoundManager.playClick();
     }
 }

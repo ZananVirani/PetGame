@@ -8,6 +8,9 @@ import greenfoot.*;
  */
 public class ReviveButton extends Actor {
 
+    /**
+     * Constructor for the class: creates a new ReviveButton.
+     */
     public ReviveButton() {
         int width = 160;
         int height = 50;
