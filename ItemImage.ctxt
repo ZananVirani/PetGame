@@ -1,11 +1,10 @@
 #BlueJ class context
 comment0.target=ItemImage
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Image\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=file\ world
-comment1.target=ItemImage(java.lang.String,\ greenfoot.World)
-comment2.params=
-comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Image\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-comment3.params=input
-comment3.target=java.lang.String\ toFlatLowercase(java.lang.String)
-numComments=4
+comment0.text=\r\n\ The\ ItemImage\ class\ represents\ an\ item\ image\ that\ temporarily\ appears\ on\ the\ screen.\r\n\ \r\n\ This\ class\ is\ used\ to\ display\ an\ item\ (such\ as\ food\ or\ gifts)\ when\ the\ user\ interacts\ with\ the\ game\ (e.g.,\ selects\ or\ uses\ an\ item).\ The\ image\ is\r\n\ shown\ for\ a\ limited\ time\ and\ then\ disappears\ automatically.\r\n\ \r\n\ The\ item's\ image\ file\ is\ dynamically\ loaded\ based\ on\ the\ file\ name\ passed\ to\ the\ constructor.\ Spaces\ in\ the\ file\ name\ are\ removed\ and\ the\ name\ is\r\n\ converted\ to\ lowercase\ to\ match\ the\ expected\ file\ name\ format.\r\n\ \r\n\ Example\ usage\:\r\n\ ItemImage\ image\ \=\ new\ ItemImage("Pizza",\ world);\r\n\ \r\n\ @author\ Group\ 78\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ method\ -\ Controls\ the\ lifetime\ of\ the\ ItemImage.\r\n\ \r\n\ Decreases\ the\ lifetime\ counter\ on\ every\ frame.\ Once\ the\ lifetime\ expires,\ the\ image\ is\ removed\ from\ the\ world.\r\n
+comment2.params=input
+comment2.target=java.lang.String\ toFlatLowercase(java.lang.String)
+comment2.text=\r\n\ Converts\ the\ input\ string\ to\ lowercase\ and\ removes\ all\ whitespace.\r\n\ \r\n\ This\ ensures\ that\ the\ image\ file\ name\ format\ is\ consistent\ and\ file\ loading\ succeeds.\r\n\ \r\n\ @param\ input\ The\ original\ string\ input.\r\n\ @return\ The\ formatted\ string\ with\ lowercase\ letters\ and\ no\ spaces.\r\n
+numComments=3

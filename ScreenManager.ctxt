@@ -1,12 +1,16 @@
 #BlueJ class context
 comment0.target=ScreenManager
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ ScreenManager\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ ScreenManager\ manages\ the\ navigation\ between\ different\ screens\ in\ the\ game.\r\n\ \r\n\ This\ class\ implements\ a\ stack-based\ screen\ management\ system\ that\ allows\ for\r\n\ pushing\ new\ screens,\ popping\ back\ to\ previous\ screens,\ and\ replacing\ the\r\n\ current\ screen.\r\n\ It\ maintains\ a\ history\ of\ visited\ screens\ and\ provides\ methods\ to\ navigate\r\n\ between\ them.\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=newWorld
 comment1.target=void\ push(greenfoot.World)
+comment1.text=\r\n\ Pushes\ a\ new\ screen\ onto\ the\ stack\ and\ displays\ it.\r\n\ \r\n\ @param\ newWorld\ The\ new\ World\ to\ display\r\n
 comment2.params=
 comment2.target=void\ pop()
+comment2.text=\r\n\ Pops\ the\ current\ screen\ from\ the\ stack\ and\ returns\ to\ the\ previous\ screen.\r\n\ If\ the\ stack\ becomes\ empty,\ returns\ to\ the\ MainMenu.\r\n\ If\ the\ stack\ is\ already\ empty,\ displays\ a\ BlackScreen.\r\n
 comment3.params=newWorld
 comment3.target=void\ replace(greenfoot.World)
+comment3.text=\r\n\ Replaces\ the\ current\ screen\ with\ a\ new\ one.\r\n\ \r\n\ @param\ newWorld\ The\ new\ World\ to\ display\r\n
 comment4.params=
 comment4.target=void\ clearStack()
+comment4.text=\r\n\ Clears\ the\ entire\ screen\ stack.\r\n\ This\ is\ typically\ used\ when\ returning\ to\ the\ main\ menu\ or\ restarting\ the\r\n\ game.\r\n
 numComments=5

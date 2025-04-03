@@ -1,3 +1,5 @@
+import greenfoot.*;
+
 /**
  * The ItemImage class represents an item image that temporarily appears on the screen.
  * 

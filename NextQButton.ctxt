@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=NextQButton
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ NextQButton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ NextQButton\ class\ represents\ a\ button\ that\ allows\ the\ player\ to\ proceed\ to\ the\ next\ question\ in\ the\ Math\ tutorial.\ It\ is\ linked\ to\ a\ TextInput\r\n\ field\ which\ processes\ the\ player's\ input\ upon\ clicking.\r\n\ \r\n\ When\ the\ button\ is\ clicked,\ it\ triggers\ the\ onSubmit()\ method\ of\ the\ associated\ TextInput.\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=input
 comment1.target=NextQButton(TextInput)
+comment1.text=\r\n\ Constructs\ a\ NextQButton\ with\ an\ associated\ TextInput\ field.\ Sets\ the\ button's\ label\ and\ visual\ appearance.\r\n\ \r\n\ @param\ input\ The\ TextInput\ object\ associated\ with\ this\ button.\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ NextQButton\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.text=\r\n\ Act\ -\ performs\ an\ action\ when\ the\ NextQButton\ is\ clicked.\r\n\ Specifically,\ it\ triggers\ the\ onSubmit()\ method\ of\ the\ associated\ TextInput.\r\n
 numComments=3

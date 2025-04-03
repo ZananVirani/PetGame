@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=LetsGoButton
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ LetsGoButton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ LetsGoButton\ class\ represents\ a\ clickable\ button\ that\ allows\ the\ user\ to\ start\ the\ Math\ game.\ When\ the\ button\ is\ clicked,\ it\ navigates\ the\ user\ to\r\n\ the\ MathTutorial\ screen.\r\n\ \r\n\ This\ button\ is\ visually\ styled\ with\ a\ green\ background\ and\ white\ "Let's\ Go\!"\ text.\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=
 comment1.target=LetsGoButton()
+comment1.text=\r\n\ Constructs\ a\ LetsGoButton\ object.\ Initializes\ the\ button's\ appearance,\ including\ its\ size,\ background\ color,\ and\ displayed\ text.\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ LetsGoButton\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.text=\r\n\ Act\ method\ is\ called\ when\ the\ 'Act'\ or\ 'Run'\ button\ is\ pressed\ in\ the\ environment.\ Checks\ if\ the\ button\ is\ clicked\ and\ navigates\ to\ the\r\n\ MathTutorial\ screen.\r\n
 numComments=3

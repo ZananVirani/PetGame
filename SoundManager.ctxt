@@ -1,13 +1,19 @@
 #BlueJ class context
 comment0.target=SoundManager
+comment0.text=\r\n\ SoundManager\ handles\ all\ sound-related\ functionality\ in\ the\ game.\r\n\ \r\n\ This\ class\ manages\ background\ music,\ sound\ effects,\ and\ provides\ methods\r\n\ to\ control\ playback\ of\ different\ audio\ elements.\ It\ maintains\ the\ state\r\n\ of\ background\ music\ and\ ensures\ proper\ sound\ management\ throughout\ the\ game.\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=
 comment1.target=void\ playLobbyMusic()
+comment1.text=\r\n\ Starts\ playing\ the\ lobby\ music\ in\ a\ loop\ if\ it's\ not\ already\ playing.\r\n
 comment2.params=
 comment2.target=void\ playBgm()
+comment2.text=\r\n\ Starts\ playing\ the\ background\ music\ in\ a\ loop.\r\n
 comment3.params=
 comment3.target=void\ playClick()
+comment3.text=\r\n\ Plays\ the\ click\ sound\ effect.\r\n
 comment4.params=
 comment4.target=void\ stopBgm()
+comment4.text=\r\n\ Stops\ the\ background\ music.\r\n
 comment5.params=
 comment5.target=void\ stopAll()
+comment5.text=\r\n\ Stops\ all\ currently\ playing\ sounds.\r\n
 numComments=6

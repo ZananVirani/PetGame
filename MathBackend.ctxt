@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.target=MathBackend
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ MathBackend\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ MathBackend\ handles\ the\ generation\ of\ math\ questions\ for\ the\ math\ game.\r\n\ \r\n\ This\ class\ provides\ functionality\ to\ generate\ random\ math\ questions\ of\r\n\ different\ types\r\n\ (addition,\ subtraction,\ multiplication,\ and\ division)\ with\ appropriate\r\n\ difficulty\ levels.\r\n\ Questions\ are\ generated\ with\ clean\ integer\ results\ and\ no\ negative\ numbers\r\n\ for\ subtraction.\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=
 comment1.target=java.lang.String[]\ newQuestion()
+comment1.text=\r\n\ Generates\ a\ new\ math\ question\ and\ its\ answer.\r\n\ \r\n\ The\ method\ randomly\ selects\ one\ of\ four\ operations\ (addition,\ subtraction,\r\n\ multiplication,\ or\ division)\ and\ generates\ appropriate\ numbers\ for\ the\r\n\ operation.\r\n\ For\ subtraction,\ it\ ensures\ no\ negative\ results.\ For\ multiplication,\ it\r\n\ limits\r\n\ to\ 12\u00D712\ tables.\ For\ division,\ it\ ensures\ clean\ integer\ division.\r\n\ \r\n\ @return\ A\ String\ array\ where\:\r\n\ \ \ \ \ \ \ \ \ -\ index\ 0\ contains\ the\ question\ string\ (e.g.,\ "5\ +\ 3\ \=\ ")\r\n\ \ \ \ \ \ \ \ \ -\ index\ 1\ contains\ the\ correct\ answer\ as\ a\ string\r\n
 numComments=2

@@ -1,12 +1,16 @@
 #BlueJ class context
 comment0.target=MinutesBox
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ MinutesBox\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ MinutesBox\ class\ represents\ a\ clickable\ UI\ element\ that\ displays\ and\ allows\ adjustment\r\n\ of\ minute\ values\ in\ a\ 24-hour\ clock\ format.\ It\ can\ increment\ or\ decrement\ minutes\ when\ clicked.\r\n\ \r\n\ This\ component\ is\ used\ in\ time\ setting\ screens\ to\ let\ users\ easily\ set\ the\ desired\ time.\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=lt
 comment1.target=MinutesBox(java.time.LocalTime)
+comment1.text=\r\n\ Constructs\ a\ MinutesBox\ object\ with\ the\ current\ minute\ value.\r\n\ \r\n\ @param\ lt\ LocalTime\ object\ used\ to\ initialize\ the\ minute\ value.\ If\ null,\ initializes\ minutes\ to\ 0.\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Act\ method\ is\ called\ when\ the\ 'Act'\ or\ 'Run'\ button\ is\ pressed\ in\ the\ environment.\ Checks\ if\ the\ MinutesBox\ is\ clicked\ and\ increments\ or\r\n\ decrements\ the\ minutes\ based\ on\ click\ position.\r\n
 comment3.params=
 comment3.target=void\ updateImage()
+comment3.text=\r\n\ Updates\ the\ visual\ appearance\ of\ the\ MinutesBox\ with\ the\ current\ minute\ value.\ Displays\ an\ up\ arrow,\ the\ current\ minute,\ and\ a\ down\ arrow.\r\n
 comment4.params=
 comment4.target=int\ getMinutes()
+comment4.text=\r\n\ Returns\ the\ current\ minute\ value\ displayed\ in\ the\ MinutesBox.\r\n\ \r\n\ @return\ the\ current\ minutes\ value\r\n
 numComments=5

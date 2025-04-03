@@ -1,3 +1,4 @@
+import greenfoot.*;
 /**
  * The ParagraphText class is responsible for displaying a block of text (paragraph) in the Greenfoot environment. It creates a visual box containing the
  * given message.

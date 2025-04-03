@@ -1,3 +1,4 @@
+import greenfoot.*;
 /**
  * The InventoryIcon class represents an icon used to access the player's inventory.
  * 

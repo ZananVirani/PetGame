@@ -1,12 +1,13 @@
 #BlueJ class context
 comment0.target=InteractionButton
-comment0.text=\r\n\ A\ styled\ and\ animated\ action\ button\ using\ only\ fillRect.\r\n\ No\ roundRect,\ but\ includes\ shadow\ effect\ and\ click\ animation.\r\n
+comment0.text=\r\n\ The\ InteractionButton\ class\ represents\ a\ clickable\ button\ on\ the\ PlayWithPetScreen\ that\ triggers\ a\ specific\ interaction\ with\ the\ pet,\ such\ as\ playing\r\n\ or\ feeding.\r\n\ \r\n\ When\ clicked,\ the\ button\ briefly\ enlarges\ to\ provide\ visual\ feedback\ and\ triggers\ the\ corresponding\ interaction\ action.\r\n\ \r\n\ This\ button\ enhances\ user\ experience\ by\ providing\ interactive\ feedback\ and\ executes\ a\ method\ in\ the\ PlayWithPetScreen\ when\ pressed.\r\n\ \r\n\ Example\ usage\:\r\n\ InteractionButton\ playButton\ \=\ new\ InteractionButton("Play",\ screen);\r\n\ addObject(playButton,\ 300,\ 200);\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=actionType\ screen
 comment1.target=InteractionButton(java.lang.String,\ PlayWithPetScreen)
 comment1.text=\r\n\ Constructor.\r\n\ @param\ actionType\ The\ action\ this\ button\ triggers\r\n\ @param\ screen\ The\ world\ the\ button\ belongs\ to\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Act\ method\ -\ Handles\ click\ detection\ and\ animation\ behavior.\r\n\ \r\n\ When\ the\ button\ is\ clicked,\ it\ triggers\ the\ associated\ action\ in\ the\ PlayWithPetScreen\ and\ starts\ an\ animation\ that\ enlarges\ the\ button\ briefly.\r\n
 comment3.params=enlarged
 comment3.target=void\ drawButton(boolean)
-comment3.text=\r\n\ Draws\ a\ rectangular\ button\ with\ text\ and\ optional\ scale\ effect.\r\n\ @param\ enlarged\ Whether\ to\ draw\ the\ button\ in\ a\ "clicked"\ larger\ size.\r\n
+comment3.text=\r\n\ Draws\ the\ button\ with\ optional\ enlargement.\ The\ button\ is\ drawn\ with\ a\ light\ blue\ background,\ dark\ gray\ shadow,\ and\ black\ text.\r\n\ \r\n\ @param\ enlarged\ Whether\ the\ button\ should\ appear\ in\ an\ enlarged\ (clicked)\ state.\r\n
 numComments=4

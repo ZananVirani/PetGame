@@ -1,3 +1,4 @@
+import greenfoot.*;
 /**
  * The LetsGoButton class represents a clickable button that allows the user to start the Math game. When the button is clicked, it navigates the user to
  * the MathTutorial screen.

@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=ParagraphText
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ ParagraphText\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ ParagraphText\ class\ is\ responsible\ for\ displaying\ a\ block\ of\ text\ (paragraph)\ in\ the\ Greenfoot\ environment.\ It\ creates\ a\ visual\ box\ containing\ the\r\n\ given\ message.\r\n\ \r\n\ This\ class\ is\ used\ to\ display\ instructions,\ descriptions,\ or\ other\ lengthy\ messages\ to\ the\ player\ within\ the\ game\ screen.\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=message
 comment1.target=ParagraphText(java.lang.String)
+comment1.text=\r\n\ Constructs\ a\ ParagraphText\ object\ with\ the\ specified\ message.\ The\ message\ is\ rendered\ in\ a\ black\ font\ on\ a\ large\ image\ background.\r\n\ \r\n\ @param\ message\ The\ text\ content\ to\ be\ displayed\ as\ a\ paragraph.\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ ParagraphText\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.text=\r\n\ Act\ -\ currently\ no\ behavior.\r\n\ This\ method\ is\ called\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ is\ pressed\ in\ the\ environment.\r\n
 numComments=3

@@ -1,3 +1,4 @@
+import greenfoot.*;
 /**
  * The NextQButton class represents a button that allows the player to proceed to the next question in the Math tutorial. It is linked to a TextInput
  * field which processes the player's input upon clicking.
