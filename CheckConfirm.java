@@ -2,20 +2,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.time.LocalTime;
 
 /**
- * The CheckConfirm class represents a checkmark confirmation button in the Greenfoot environment.
- * This button is used to save and apply the player's selected time restrictions from the 
- * HoursBox and MinutesBox components. It also interacts with the parental toggle option.
+ * The CheckConfirm class represents a checkmark confirmation button in the Greenfoot environment. This button is used to save and apply the player's
+ * selected time restrictions from the HoursBox and MinutesBox components. It also interacts with the parental toggle option.
  * 
- * When clicked, the button either sets or removes the player's time restrictions based on the toggle state.
- * A visual circular checkmark icon is displayed as the button.
+ * When clicked, the button either sets or removes the player's time restrictions based on the toggle state. A visual circular checkmark icon is
+ * displayed as the button.
  * 
  * This class is part of the parental control system in the game.
  * 
  * Example usage:
  * addObject(new CheckConfirm(h1, m1, h2, m2, toggle, world), x, y);
  * 
- * @author 
- * @version 1.0
+ * @author Group 78
  */
 public class CheckConfirm extends Actor
 {
@@ -25,8 +23,8 @@ public class CheckConfirm extends Actor
     private World world;
 
     /**
-     * Constructs a CheckConfirm button with the specified hour boxes, minute boxes,
-     * parental toggle, and associated world. Initializes the checkmark icon.
+     * Constructs a CheckConfirm button with the specified hour boxes, minute boxes, parental toggle, and associated world. Initializes the checkmark
+     * icon.
      * 
      * @param h1 First HoursBox instance
      * @param m1 First MinutesBox instance
@@ -57,10 +55,8 @@ public class CheckConfirm extends Actor
     }
 
     /**
-     * Act method - listens for mouse clicks on the CheckConfirm button.
-     * When clicked, it reads the selected start and end times from the HoursBox and MinutesBox,
-     * checks if parental restrictions are enabled, and saves the appropriate time restrictions.
-     * Displays a confirmation message once saved.
+     * Act method - listens for mouse clicks on the CheckConfirm button. When clicked, it reads the selected start and end times from the HoursBox and
+     * MinutesBox, checks if parental restrictions are enabled, and saves the appropriate time restrictions.Displays a confirmation message once saved.
      * 
      * This method is automatically called by the Greenfoot environment in each act cycle.
      */
