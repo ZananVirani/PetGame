@@ -1,13 +1,19 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-class PetNameBox extends Actor 
+/**
+ * The PetNameBox class represents a visual text box that displays the name of the pet. It creates an image with the pet's name and sets it as the
+ * Actor's image. This class is used to visually display the pet's name on the screen.
+ * 
+ * @author Group 78
+ */
+class PetNameBox extends Actor
 {
     /**
      * Creates a new PetNameBox with the given pet name.
      * 
-     * @param petName Name of the pet to display.
+     * @param petName The name of the pet to display.
      */
-    public PetNameBox(String petName) 
+    public PetNameBox(String petName)
     {
         GreenfootImage img = new GreenfootImage(petName, 24, Color.BLACK, new Color(200, 200, 200, 150));
         setImage(img);
