@@ -1,13 +1,16 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
- * Write a description of class LetsGoButton here.
+ * The LetsGoButton class represents a clickable button that allows the user to start the Math game. When the button is clicked, it navigates the user to
+ * the MathTutorial screen.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This button is visually styled with a green background and white "Let's Go!" text.
+ * 
+ * @author Group 78
  */
 public class LetsGoButton extends Actor
 {
+    /**
+     * Constructs a LetsGoButton object. Initializes the button's appearance, including its size, background color, and displayed text.
+     */
     public LetsGoButton() {
         int width = 160;
         int height = 50;
@@ -25,14 +28,14 @@ public class LetsGoButton extends Actor
         buttonImg.drawImage(textImg, textX, textY);
         setImage(buttonImg);
     }
-    
+
     /**
-     * Act - do whatever the LetsGoButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act method is called when the 'Act' or 'Run' button is pressed in the environment. Checks if the button is clicked and navigates to the
+     * MathTutorial screen.
      */
-    public void act()
+    public void act() 
     {
-        if (Greenfoot.mouseClicked(this)){
+        if (Greenfoot.mouseClicked(this)) {
             ScreenManager.push(new MathGame());
         }
     }
