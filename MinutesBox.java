@@ -2,15 +2,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.time.LocalTime;
 
 /**
- * Write a description of class MinutesBox here.
+ * The MinutesBox class represents a clickable UI element that displays and allows adjustment
+ * of minute values in a 24-hour clock format. It can increment or decrement minutes when clicked.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This component is used in time setting screens to let users easily set the desired time.
+ * 
+ * @author Group 78
  */
 public class MinutesBox extends Actor
 {
     private int minutes;
 
+    /**
+     * Constructs a MinutesBox object with the current minute value.
+     * 
+     * @param lt LocalTime object used to initialize the minute value. If null, initializes minutes to 0.
+     */
     public MinutesBox(LocalTime lt) {
         if (lt != null)
         minutes = lt.getMinute();
@@ -20,6 +27,10 @@ public class MinutesBox extends Actor
         updateImage();
     }
 
+    /**
+     * Act method is called when the 'Act' or 'Run' button is pressed in the environment. Checks if the MinutesBox is clicked and increments or
+     * decrements the minutes based on click position.
+     */
     public void act() {
         if (Greenfoot.mouseClicked(this)) {
             int mouseY = Greenfoot.getMouseInfo().getY();
@@ -35,6 +46,9 @@ public class MinutesBox extends Actor
         }
     }
 
+    /**
+     * Updates the visual appearance of the MinutesBox with the current minute value. Displays an up arrow, the current minute, and a down arrow.
+     */
     private void updateImage() {
         GreenfootImage img = new GreenfootImage(100, 100);
         img.setColor(Color.WHITE);
@@ -50,6 +64,11 @@ public class MinutesBox extends Actor
         setImage(img);
     }
 
+    /**
+     * Returns the current minute value displayed in the MinutesBox.
+     * 
+     * @return the current minutes value
+     */
     public int getMinutes() {
         return minutes;
     }

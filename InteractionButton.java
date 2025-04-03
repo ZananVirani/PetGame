@@ -1,8 +1,18 @@
 import greenfoot.*;
 
 /**
- * A styled and animated action button using only fillRect.
- * No roundRect, but includes shadow effect and click animation.
+ * The InteractionButton class represents a clickable button on the PlayWithPetScreen that triggers a specific interaction with the pet, such as playing
+ * or feeding.
+ * 
+ * When clicked, the button briefly enlarges to provide visual feedback and triggers the corresponding interaction action.
+ * 
+ * This button enhances user experience by providing interactive feedback and executes a method in the PlayWithPetScreen when pressed.
+ * 
+ * Example usage:
+ * InteractionButton playButton = new InteractionButton("Play", screen);
+ * addObject(playButton, 300, 200);
+ * 
+ * @author Group 78
  */
 public class InteractionButton extends Actor
 {
@@ -26,6 +36,12 @@ public class InteractionButton extends Actor
         drawButton(false);
     }
 
+
+    /**
+     * Act method - Handles click detection and animation behavior.
+     * 
+     * When the button is clicked, it triggers the associated action in the PlayWithPetScreen and starts an animation that enlarges the button briefly.
+     */
     public void act()
     {
         if (Greenfoot.mouseClicked(this) && !isAnimating)
@@ -51,8 +67,9 @@ public class InteractionButton extends Actor
     }
 
     /**
-     * Draws a rectangular button with text and optional scale effect.
-     * @param enlarged Whether to draw the button in a "clicked" larger size.
+     * Draws the button with optional enlargement. The button is drawn with a light blue background, dark gray shadow, and black text.
+     * 
+     * @param enlarged Whether the button should appear in an enlarged (clicked) state.
      */
     private void drawButton(boolean enlarged)
     {
