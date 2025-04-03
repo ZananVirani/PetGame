@@ -4,8 +4,7 @@
  * It allows the player to select one of three pets, enter a name for the pet, and confirm their selection.
  * Clicking confirm will transition to the Inventory screen. Clicking exit will return to Main Menu.
  * 
- * @author Jay Prajapati
- * @version March 29th 2025
+ * @author Group 78
  */
 
 import greenfoot.*;
