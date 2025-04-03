@@ -1,13 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TutorialText here.
+ * TutorialText displays the instructions and game rules for the player.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * It provides guidance on how to play the math game, how to submit answers, and how to earn rewards and increase the pet's happiness.
+ * 
+ * The text is displayed in a large message box when the game starts.
+ * 
+ * @author Group 78
  */
 public class TutorialText extends Actor
 {
+    /**
+     * Constructs a TutorialText object and displays the game instructions.
+     */
     public TutorialText() {
         String message =
             "Your pet loves brain games! Solve math problems to earn rewards\nand make your pet smarter!\n\n" +

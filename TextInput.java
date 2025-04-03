@@ -1,10 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TextInput here.
+ * TextInput handles user keyboard input during the quiz gameplay. It collects text input from the player, displays it on the screen, and checks if the
+ * input matches the correct answer. It also manages feedback, score updates, and gift/food rewards.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This class is used in conjunction with QuestionDisplay, ResultIcon, and Score classes.
+ * 
+ * Features:
+ * - Accepts alphanumeric input up to 6 characters
+ * - Handles enter key for submission and backspace for deletion
+ * - Updates score and displays result feedback
+ * - Grants food/gift rewards for every 10 correct answers
+ * - Saves game state on each submission
+ * 
+ * @author Group 78
  */
 public class TextInput extends Actor {
     private StringBuilder input;
@@ -18,6 +27,16 @@ public class TextInput extends Actor {
     private World world;
     private int globalTimer;
 
+    /**
+     * Constructs a TextInput field with the specified dimensions and references to other game components.
+     * 
+     * @param width  The width of the input box.
+     * @param height The height of the input box.
+     * @param score  The Score object to update upon correct answers.
+     * @param qDisplay The QuestionDisplay object associated with this input.
+     * @param icon   The ResultIcon object to show feedback.
+     * @param world  The World in which this TextInput exists.
+     */
     public TextInput(int width, int height, 
     Score score, QuestionDisplay qDisplay, ResultIcon icon, World world) {
         this.world = world;
@@ -32,6 +51,9 @@ public class TextInput extends Actor {
         updateImage();
     }
 
+    /**
+     * Called repeatedly in the Greenfoot environment. Handles key input, submission, and displays feedback messages.
+     */
     public void act() {
         if (globalTimer > 0) globalTimer--;
         if (globalTimer <= 0) {
@@ -50,10 +72,18 @@ public class TextInput extends Actor {
         }
     }
 
+    /**
+     * Returns the current text input as a String.
+     * 
+     * @return The text entered by the user.
+     */
     public String getText() {
         return input.toString();
     }
 
+    /**
+     * Updates the displayed image of the input box based on current input text.
+     */
     private void updateImage() {
         GreenfootImage img = new GreenfootImage(width, height);
         img.setColor(Color.WHITE);
@@ -66,10 +96,24 @@ public class TextInput extends Actor {
         setImage(img);
     }
 
+    /**
+     * Sets the submitted state of this input.
+     * 
+     * @param val true if submitted, false otherwise.
+     */
     public void setSubmit(boolean val){
         submitted = val;    
     }
 
+
+    /**
+     * Handles the input submission:
+     * - Checks if the input matches the correct answer.
+     * - Updates score and shows feedback.
+     * - Grants rewards every 10 correct answers.
+     * - Saves game state.
+     * - Clears and resets input if already submitted.
+     */
     public void onSubmit(){
         if (!submitted){
             setSubmit(true);
@@ -111,6 +155,9 @@ public class TextInput extends Actor {
         }
     }
 
+    /**
+     * Clears the current text input.
+     */
     public void clear(){
         input.delete(0, input.length());
     }

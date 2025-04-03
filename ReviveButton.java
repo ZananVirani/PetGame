@@ -1,10 +1,9 @@
 import greenfoot.*;
 
 /**
- * ReviveButton navigates the player to the RevivePetScreen
- * when clicked, showing all dead pets passed from the backend.
+ * ReviveButton navigates the player to the RevivePetScreen when clicked, showing all dead pets passed from the backend.
  * 
- * @author Jay Prajapati
+ * @author Group 78
  */
 public class ReviveButton extends Actor {
 
