@@ -1,14 +1,33 @@
 import java.util.Random;
 
 /**
- * Write a description of class MathBackend here.
+ * MathBackend handles the generation of math questions for the math game.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This class provides functionality to generate random math questions of
+ * different types
+ * (addition, subtraction, multiplication, and division) with appropriate
+ * difficulty levels.
+ * Questions are generated with clean integer results and no negative numbers
+ * for subtraction.
+ * 
+ * @author Group 78
  */
-public class MathBackend  
-{
-    public static String[] newQuestion(){
+public class MathBackend {
+    /**
+     * Generates a new math question and its answer.
+     * 
+     * The method randomly selects one of four operations (addition, subtraction,
+     * multiplication, or division) and generates appropriate numbers for the
+     * operation.
+     * For subtraction, it ensures no negative results. For multiplication, it
+     * limits
+     * to 12×12 tables. For division, it ensures clean integer division.
+     * 
+     * @return A String array where:
+     *         - index 0 contains the question string (e.g., "5 + 3 = ")
+     *         - index 1 contains the correct answer as a string
+     */
+    public static String[] newQuestion() {
         Random rand = new Random();
         String[] result = new String[2];
 
@@ -49,7 +68,7 @@ public class MathBackend
 
         result[0] = String.format("%d %s %d = ", a, op, b);
         result[1] = Integer.toString(answer);
-        
+
         return result;
 
     }
