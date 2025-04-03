@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=CheckConfirm
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ CheckConfirm\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ CheckConfirm\ class\ represents\ a\ checkmark\ confirmation\ button\ in\ the\ Greenfoot\ environment.\ This\ button\ is\ used\ to\ save\ and\ apply\ the\ player's\r\n\ selected\ time\ restrictions\ from\ the\ HoursBox\ and\ MinutesBox\ components.\ It\ also\ interacts\ with\ the\ parental\ toggle\ option.\r\n\ \r\n\ When\ clicked,\ the\ button\ either\ sets\ or\ removes\ the\ player's\ time\ restrictions\ based\ on\ the\ toggle\ state.\ A\ visual\ circular\ checkmark\ icon\ is\r\n\ displayed\ as\ the\ button.\r\n\ \r\n\ This\ class\ is\ part\ of\ the\ parental\ control\ system\ in\ the\ game.\r\n\ \r\n\ Example\ usage\:\r\n\ addObject(new\ CheckConfirm(h1,\ m1,\ h2,\ m2,\ toggle,\ world),\ x,\ y);\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=h1\ m1\ h2\ m2\ pt\ world
 comment1.target=CheckConfirm(HoursBox,\ MinutesBox,\ HoursBox,\ MinutesBox,\ ParentalToggle,\ greenfoot.World)
+comment1.text=\r\n\ Constructs\ a\ CheckConfirm\ button\ with\ the\ specified\ hour\ boxes,\ minute\ boxes,\ parental\ toggle,\ and\ associated\ world.\ Initializes\ the\ checkmark\r\n\ icon.\r\n\ \r\n\ @param\ h1\ First\ HoursBox\ instance\r\n\ @param\ m1\ First\ MinutesBox\ instance\r\n\ @param\ h2\ Second\ HoursBox\ instance\r\n\ @param\ m2\ Second\ MinutesBox\ instance\r\n\ @param\ pt\ ParentalToggle\ instance\r\n\ @param\ world\ The\ Greenfoot\ world\ where\ the\ button\ is\ added\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ CheckConfirm\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.text=\r\n\ Act\ method\ -\ listens\ for\ mouse\ clicks\ on\ the\ CheckConfirm\ button.\ When\ clicked,\ it\ reads\ the\ selected\ start\ and\ end\ times\ from\ the\ HoursBox\ and\r\n\ MinutesBox,\ checks\ if\ parental\ restrictions\ are\ enabled,\ and\ saves\ the\ appropriate\ time\ restrictions.Displays\ a\ confirmation\ message\ once\ saved.\r\n\ \r\n\ This\ method\ is\ automatically\ called\ by\ the\ Greenfoot\ environment\ in\ each\ act\ cycle.\r\n
 numComments=3

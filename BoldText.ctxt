@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=BoldText
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ EquationText\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ BoldText\ class\ displays\ bolded\ text\ on\ the\ screen\ with\ a\ specific\ font\ size\ and\ color.\ This\ class\ is\ used\ to\ render\ important\ \r\n\ or\ highlighted\ text\ in\ the\ Greenfoot\ environment.\ It\ draws\ the\ given\ input\ text\ centered\ inside\ a\ predefined\ image\ box.\r\n\ \r\n\ Example\ usage\:\r\n\ new\ BoldText("Game\ Over",\ 40);\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=inputText\ fontSize
 comment1.target=BoldText(java.lang.String,\ int)
+comment1.text=\r\n\ Constructs\ a\ BoldText\ object\ with\ the\ specified\ input\ text\ and\ font\ size.\r\n\ The\ text\ is\ rendered\ in\ bold\ Arial\ font,\ centered\ within\ a\ rectangle.\r\n\ \r\n\ @param\ inputText\ The\ text\ to\ be\ displayed.\r\n\ @param\ fontSize\ The\ size\ of\ the\ font\ used\ to\ render\ the\ text.\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ EquationText\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n

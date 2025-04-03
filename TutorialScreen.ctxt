@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=TutorialScreen
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ TutorialScreen\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ TutorialScreen\ class\ is\ a\ screen\ that\ displays\ the\ tutorial\ screen.\r\n\ \r\n\ This\ world\ provides\ a\ short\ summary\ of\ how\ to\ play\ the\ game.\r\n\ It\ includes\ instructions\ on\ how\ to\ care\ for\ the\ pet,\ track\ its\ vitals,\r\n\ and\ manage\ screen\ time.\ The\ tutorial\ is\ designed\ to\ be\ informative\r\n\ and\ user-friendly,\ ensuring\ that\ players\ understand\ the\ game\ mechanics\r\n\ before\ they\ start\ playing.\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=
 comment1.target=TutorialScreen()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ TutorialScreen.\r\n\ \r\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ TutorialScreen.\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Handles\ the\ click\ event\ for\ the\ world,\ just\ to\ trigger\ the\ sound.\r\n
 numComments=3

@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=Cross
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Cross\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ Cross\ class\ represents\ a\ cross\ (X)\ button\ in\ the\ user\ interface.\ \ It\ is\ used\ to\ close\ or\ exit\ the\ current\ screen.\r\n\ \r\n\ When\ clicked,\ if\ the\ current\ screen\ is\ the\ MainMenu,\ it\ opens\ a\ BlackScreen.\ Otherwise,\ it\ pops\ the\ current\ screen\ and\ returns\ to\ the\ previous\ one.\r\n\ \r\n\ This\ class\ enhances\ navigation\ by\ providing\ a\ standard\ exit\ button.\r\n\ \r\n\ Example\ usage\:\r\n\ addObject(new\ Cross(),\ 50,\ 50);\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=
 comment1.target=Cross()
+comment1.text=\r\n\ Constructs\ a\ Cross\ object\ and\ scales\ its\ image\ to\ 50x50\ pixels.\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Cross\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.text=\r\n\ Act\ method\ -\ listens\ for\ mouse\ clicks\ on\ the\ Cross\ button.\r\n\ \r\n\ If\ the\ current\ world\ is\ the\ MainMenu,\ it\ pushes\ a\ BlackScreen\ to\ the\ screen\ stack.\ Otherwise,\ it\ pops\ the\ current\ screen,\ effectively\ closing\ it\r\n\ and\ returning\ to\ the\ previous\ screen.\r\n\ \r\n\ This\ method\ is\ called\ automatically\ by\ the\ Greenfoot\ environment\ in\ each\ act\ cycle.\r\n
 numComments=3

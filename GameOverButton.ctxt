@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=GameOverButton
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ GameOverButton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ GameOverButton\ class\ represents\ a\ button\ that\ appears\ when\ the\ game\ is\ over.\r\n\ \r\n\ When\ clicked,\ this\ button\ clears\ the\ screen\ stack\ and\ returns\ the\ player\ to\ the\ Main\ Menu.\ It\ is\ visually\ displayed\ as\ a\ dark\ gray\ button\ with\ the\r\n\ label\ "Back\ To\ Main\ Menu".\r\n\ \r\n\ This\ class\ enhances\ navigation\ after\ the\ game\ ends\ and\ provides\ a\ clear\ way\ for\ the\ user\ to\ return\ to\ the\ main\ screen.\r\n\ \r\n\ Example\ usage\:\r\n\ addObject(new\ GameOverButton(),\ 350,\ 400);\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=
 comment1.target=GameOverButton()
+comment1.text=\r\n\ Constructs\ a\ GameOverButton\ with\ predefined\ width,\ height,\ and\ label.\r\n\ \r\n\ The\ button\ image\ is\ styled\ with\ a\ dark\ gray\ background\ and\ white\ bold\ text.\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ LetsGoButton\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.text=\r\n\ Act\ method\ -\ listens\ for\ mouse\ clicks\ on\ the\ GameOverButton.\r\n\ \r\n\ When\ clicked,\ it\ clears\ the\ screen\ stack\ and\ navigates\ the\ user\ back\ to\ the\ Main\ Menu.\ This\ method\ is\ automatically\ called\ by\ the\ Greenfoot\r\n\ environment\ during\ each\ act\ cycle.\r\n
 numComments=3

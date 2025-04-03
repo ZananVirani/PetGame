@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=Hand
-comment0.text=\r\n\ Hand\ animation\ appears\ when\ petting.\ Stops\ if\ the\ game\ is\ over.\r\n
+comment0.text=\r\n\ The\ Hand\ class\ represents\ a\ hand\ animation\ that\ appears\ when\ the\ player\ pets\ their\ virtual\ pet.\r\n\ \r\n\ The\ animation\ lasts\ for\ a\ short\ duration\ and\ disappears\ automatically\ after\ a\ timer\ runs\ out.\ Additionally,\ if\ the\ game\ is\ over,\ the\ animation\ stops\r\n\ immediately.\r\n\ \r\n\ This\ class\ adds\ visual\ feedback\ to\ the\ petting\ interaction\ in\ the\ game.\r\n\ \r\n\ Example\ usage\:\r\n\ addObject(new\ Hand(),\ 300,\ 300);\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=
 comment1.target=Hand()
+comment1.text=\r\n\ Constructs\ a\ Hand\ object.\r\n\ \r\n\ Sets\ the\ image\ of\ the\ hand\ and\ scales\ it\ to\ the\ appropriate\ size.\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Act\ method\ -\ controls\ the\ animation\ behavior\ of\ the\ hand.\r\n\ \r\n\ -\ If\ the\ current\ world\ is\ an\ instance\ of\ PlayWithPetScreen\ and\ the\ game\ is\ over,\ the\ animation\ stops.\r\n\ -\ Otherwise,\ the\ hand\ gently\ moves\ up\ and\ down\ and\ disappears\ after\ the\ timer\ runs\ out.\r\n\ \r\n\ This\ method\ is\ automatically\ called\ by\ the\ Greenfoot\ environment\ during\ each\ act\ cycle.\r\n
 numComments=3

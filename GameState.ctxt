@@ -1,15 +1,22 @@
 #BlueJ class context
 comment0.target=GameState
+comment0.text=\r\n\ GameState\ class\ manages\ the\ saving\ and\ loading\ of\ game\ data.\r\n\ This\ includes\ player\ data\ and\ pet\ data,\ using\ JSON\ format\ for\ storage.\r\n\ \r\n\ @author\ Group78\r\n
 comment1.params=
 comment1.target=void\ savePlayer()
+comment1.text=\r\n\ Saves\ the\ current\ player\ data\ to\ a\ JSON\ file.\r\n\ Increments\ the\ session\ count\ before\ saving.\r\n
 comment2.params=
 comment2.target=void\ loadPlayer()
+comment2.text=\r\n\ Loads\ player\ data\ from\ the\ JSON\ save\ file.\r\n\ Restores\ all\ player\ attributes\ including\ session\ count\ and\ time\ restrictions.\r\n
 comment3.params=
 comment3.target=void\ savePet()
+comment3.text=\r\n\ Saves\ the\ current\ pet's\ data\ to\ a\ JSON\ file.\r\n\ Creates\ the\ pets\ directory\ if\ it\ doesn't\ exist.\r\n
 comment4.params=
 comment4.target=boolean\ createNewPet()
+comment4.text=\r\n\ Creates\ a\ new\ pet\ and\ saves\ all\ game\ data.\r\n\r\n\ @return\ true\ if\ pet\ was\ created\ successfully,\ false\ otherwise\r\n
 comment5.params=petName
 comment5.target=void\ loadPet(java.lang.String)
+comment5.text=\r\n\ Loads\ a\ pet's\ data\ from\ its\ JSON\ save\ file.\r\n\r\n\ @param\ petName\ Name\ of\ the\ pet\ to\ load\r\n
 comment6.params=
 comment6.target=void\ saveAll()
+comment6.text=\r\n\ Saves\ both\ player\ and\ pet\ data.\r\n\ This\ is\ typically\ called\ when\ important\ game\ state\ changes\ occur.\r\n
 numComments=7

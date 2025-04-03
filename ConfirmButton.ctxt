@@ -1,10 +1,13 @@
 #BlueJ class context
 comment0.target=ConfirmButton
-comment0.text=\r\n\ The\ ConfirmButton\ class\ represents\ a\ button\ to\ confirm\ pet\ selection.\r\n
+comment0.text=\r\n\ The\ ConfirmButton\ class\ represents\ a\ button\ that\ allows\ the\ user\ to\ confirm\ their\ pet\ selection\ or\ validate\ their\ password,\ depending\ on\ the\ current\r\n\ input\ prompt.\r\n\ \r\n\ If\ the\ input\ prompt\ is\ "Name\:\ ",\ clicking\ the\ button\ will\ create\ a\ pet.\ Otherwise,\ it\ will\ validate\ the\ password\ provided\ by\ the\ user.\r\n\ \r\n\ This\ button\ is\ displayed\ on\ the\ pet\ selection\ and\ password\ confirmation\ screens.\r\n\ \r\n\ Example\ usage\:\r\n\ addObject(new\ ConfirmButton(nameInput),\ x,\ y);\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=input
 comment1.target=ConfirmButton(NameInput)
+comment1.text=\r\n\ Constructs\ a\ ConfirmButton\ associated\ with\ the\ provided\ NameInput\ instance.\ This\ constructor\ is\ used\ when\ the\ button\ needs\ to\ interact\ with\ a\r\n\ specific\ NameInput\ field.\r\n\ \r\n\ @param\ input\ The\ NameInput\ instance\ associated\ with\ this\ button.\r\n
 comment2.params=
 comment2.target=ConfirmButton()
+comment2.text=\r\n\ Constructs\ a\ ConfirmButton\ without\ any\ associated\ NameInput.\r\n\ Typically\ used\ when\ the\ button\ does\ not\ need\ to\ perform\ any\ action\ related\ to\ NameInput.\r\n
 comment3.params=
 comment3.target=void\ act()
+comment3.text=\r\n\ Act\ method\ -\ listens\ for\ mouse\ clicks\ on\ the\ ConfirmButton.\r\n\ If\ the\ input\ prompt\ is\ "Name\:\ ",\ it\ will\ trigger\ the\ creation\ of\ a\ new\ pet.\ Otherwise,\ it\ will\ attempt\ to\ validate\ the\ user's\ password.\r\n\ \r\n\ This\ method\ is\ automatically\ called\ by\ the\ Greenfoot\ environment\ in\ each\ act\ cycle.\r\n
 numComments=4

@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=BlackScreen
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ GameOver\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ end\ screen\ of\ the\ game\ when\ the\ user\ leaves\ the\ game.\r\n\ \r\n\ This\ is\ the\ screen\ that\ appears\ when\ ther\ user\ wants\ to\ close\ the\ game,\ and\r\n\ is\ a\ work-around\ from\ the\ fact\r\n\ that\ the\ Greenfoot\ IDE\ does\ not\ offer\ a\ convenient,\ safe\ way\ for\ the\ game\ to\r\n\ properly\ exit.\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=
 comment1.target=BlackScreen()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ GameOver.\r\n\ \r\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ GameOver.\r\n\ \r\n\ Draws\ a\ gray\ screen\ with\ a\ message\ in\ the\ center,\ thanking\ the\ player\ for\r\n\ playing.\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ When\ the\ act\ method\ is\ called,\ stop\ the\ game.\r\n
 numComments=3

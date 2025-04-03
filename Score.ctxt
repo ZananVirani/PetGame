@@ -1,13 +1,19 @@
 #BlueJ class context
 comment0.target=Score
+comment0.text=\r\n\ Score\ class\ manages\ a\ numerical\ score\ value\ that\ can\ be\ increased\ or\r\n\ decreased.\r\n\ This\ class\ provides\ basic\ score\ manipulation\ functionality\ and\ string\r\n\ representation.\r\n\ \r\n\ @author\ Group78\r\n
 comment1.params=initial
 comment1.target=Score(int)
+comment1.text=\r\n\ Constructs\ a\ new\ Score\ with\ the\ specified\ initial\ value.\r\n\r\n\ @param\ initial\ The\ initial\ score\ value\r\n
 comment2.params=amount
 comment2.target=void\ increase(int)
+comment2.text=\r\n\ Increases\ the\ score\ by\ the\ specified\ amount.\r\n\r\n\ @param\ amount\ The\ amount\ to\ increase\ the\ score\ by\r\n
 comment3.params=amount
 comment3.target=void\ decrease(int)
+comment3.text=\r\n\ Decreases\ the\ score\ by\ the\ specified\ amount.\r\n\r\n\ @param\ amount\ The\ amount\ to\ decrease\ the\ score\ by\r\n
 comment4.params=
 comment4.target=int\ getScore()
+comment4.text=\r\n\ Gets\ the\ current\ score\ value.\r\n\r\n\ @return\ The\ current\ score\r\n
 comment5.params=
 comment5.target=java.lang.String\ toString()
+comment5.text=\r\n\ Returns\ a\ string\ representation\ of\ the\ score.\r\n\r\n\ @return\ The\ score\ as\ a\ formatted\ string\r\n
 numComments=6

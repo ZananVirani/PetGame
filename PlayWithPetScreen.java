@@ -52,7 +52,8 @@ public class PlayWithPetScreen extends World {
     private SimpleText mathText, invText;
 
     /**
-     * Constructor sets up the pet, stat bars, UI components, and interaction buttons.
+     * Constructor sets up the pet, stat bars, UI components, and interaction
+     * buttons.
      */
     public PlayWithPetScreen() {
         super(700, 500, 1);
@@ -110,7 +111,8 @@ public class PlayWithPetScreen extends World {
     }
 
     /**
-     * act() runs continuously and manages stat changes, animations, and logic checks.
+     * act() runs continuously and manages stat changes, animations, and logic
+     * checks.
      */
     public void act() {
         if (Greenfoot.mouseClicked(null))
@@ -241,9 +243,9 @@ public class PlayWithPetScreen extends World {
         }
     }
 
-
-     /**
+    /**
      * Handles user interaction from the buttons (Throw Ball, Feed, etc.)
+     * 
      * @param interaction The label of the interaction to perform.
      */
     public void interact(String interaction) {
@@ -386,11 +388,13 @@ public class PlayWithPetScreen extends World {
         removeObjects(getObjects(InventoryIcon.class));
         removeObjects(getObjects(Calculator.class));
         removeObjects(getObjects(SimpleText.class));
+        removeObjects(getObjects(Cross.class));
         SoundManager.stopBgm(); // stop music
     }
 
     /**
      * Enables or disables sleep mode.
+     * 
      * @param sleep true to sleep, false to wake up
      */
     public void setSleepingMode(boolean sleep) {
@@ -445,6 +449,7 @@ public class PlayWithPetScreen extends World {
 
     /**
      * Returns whether the pet has died and game is over.
+     * 
      * @return true if dead
      */
     public boolean isGameOver() {
@@ -476,6 +481,7 @@ public class PlayWithPetScreen extends World {
 
     /**
      * Gives access to the pet object.
+     * 
      * @return pet instance
      */
     public Pet getPet() {

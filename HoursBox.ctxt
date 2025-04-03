@@ -1,12 +1,16 @@
 #BlueJ class context
 comment0.target=HoursBox
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ HoursBox\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ HoursBox\ class\ allows\ the\ user\ to\ select\ and\ adjust\ the\ hour\ value.\r\n\ \r\n\ It\ displays\ the\ current\ hour\ and\ provides\ up\ and\ down\ arrows\ for\ incrementing\ or\ decrementing\ the\ hour.\ The\ hour\ value\ loops\ between\ 0\ and\ 23,\r\n\ ensuring\ a\ 24-hour\ format.\ Clicking\ above\ or\ below\ the\ box\ adjusts\ the\ hour\ accordingly.\r\n\ \r\n\ This\ class\ is\ used\ as\ part\ of\ the\ parental\ control\ time\ restriction\ settings.\r\n\ \r\n\ Example\ usage\:\r\n\ HoursBox\ box\ \=\ new\ HoursBox(LocalTime.now());\r\n\ addObject(box,\ 100,\ 100);\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=lt
 comment1.target=HoursBox(java.time.LocalTime)
+comment1.text=\r\n\ Constructs\ an\ HoursBox\ object\ and\ initializes\ its\ hour\ value.\r\n\ \r\n\ @param\ lt\ LocalTime\ object\ to\ initialize\ the\ hour\ value;\ if\ null,\ defaults\ to\ 0.\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Act\ method\ -\ updates\ the\ hour\ value\ based\ on\ mouse\ click\ position.\r\n\ \r\n\ If\ the\ user\ clicks\ above\ the\ box,\ the\ hour\ increments\ by\ 1\ (mod\ 24).\ If\ the\ user\ clicks\ below\ the\ box,\ the\ hour\ decrements\ by\ 1\ (mod\ 24).\r\n
 comment3.params=
 comment3.target=void\ updateImage()
+comment3.text=\r\n\ Updates\ the\ visual\ representation\ of\ the\ HoursBox.\r\n\ \r\n\ Draws\ the\ current\ hour\ along\ with\ up\ and\ down\ arrows.\r\n
 comment4.params=
 comment4.target=int\ getHour()
+comment4.text=\r\n\ Retrieves\ the\ current\ hour\ value\ stored\ in\ this\ HoursBox.\r\n\ \r\n\ @return\ the\ hour\ value\ (0-23)\r\n
 numComments=5

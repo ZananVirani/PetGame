@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=MathGame
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ MathGame\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ MathGame\ is\ the\ main\ game\ world\ where\ the\ player\ can\ answer\ math\ questions\ to\r\n\ win\ prizes.\r\n\ \r\n\ This\ world\ prompts\ the\ player\ with\ a\ math\ question\ and\ allows\ them\ to\ input\r\n\ their\ answer.\ If\ they\r\n\ get\ 10\ questions\ correct,\ they\ will\ receive\ a\ gift.\ The\ game\ also\ keeps\ track\r\n\ of\ the\ player's\ score\r\n\ and\ awards\ food\ and\ gifts\ based\ on\ their\ performance.\ This\ was\ done\ to\r\n\ encourage\ players\ to\r\n\ continue\ playing,\ exercise\ their\ mind,\ and\ to\ reward\ them\ for\ their\ efforts.\r\n\ \r\n\ @author\ Group\ 78\r\n\ @see\ MathBackend\r\n\ @see\ Score\r\n\ @see\ TextInput\r\n
 comment1.params=
 comment1.target=MathGame()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MathGame.\r\n\ \r\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MathGame,\ initializes\ the\ world\ with\ a\ score\r\n\ and\r\n\ sets\ up\ the\ game\ interface.\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Keep\ track\ of\ time.\ All\ of\ the\ main\ logic\ is\ handled\ by\ the\ actors.\r\n\ Handles\ the\ click\ event\ for\ the\ world,\ just\ to\ trigger\ the\ sound.\r\n
 numComments=3

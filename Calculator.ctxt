@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=Calculator
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Calculator\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ Calculator\ class\ represents\ an\ interactive\ calculator\ icon\ in\ the\ Greenfoot\ environment.When\ the\ user\ clicks\ on\ this\ icon,\ it\ opens\ the\r\n\ MathTutorial\ screen,\ which\ likely\ contains\ a\ tutorial\ or\ educational\ content\ related\ to\ mathematics.\r\n\ \r\n\ This\ class\ is\ part\ of\ the\ game's\ user\ interface,\ allowing\ players\ to\ access\ math\ learning\ features.\r\n\ The\ calculator\ image\ is\ resized\ for\ proper\ display.\r\n\ \r\n\ Example\ usage\:\r\n\ addObject(new\ Calculator(),\ 300,\ 250);\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=
 comment1.target=Calculator()
+comment1.text=\r\n\ Constructs\ a\ Calculator\ object\ and\ scales\ its\ image\ to\ a\ standard\ size\ (60x60).\r\n\ The\ scaled\ image\ improves\ visibility\ and\ maintains\ consistency\ with\ other\ UI\ elements.\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Calculator\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.text=\r\n\ Act\ method\ -\ checks\ for\ mouse\ clicks\ on\ the\ Calculator\ icon.\ When\ clicked,\ it\ navigates\ the\ player\ to\ the\ MathTutorial\ screen.\r\n\ This\ method\ is\ called\ automatically\ by\ the\ Greenfoot\ environment\ during\ each\ act\ cycle.\r\n
 numComments=3

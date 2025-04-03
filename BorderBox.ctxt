@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=BorderBox
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ EquationBox\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ BorderBox\ class\ is\ used\ to\ create\ a\ simple\ rectangular\ border\ box\ in\ the\ Greenfoot\ environment.\ The\ box\ has\ a\ specified\ width\ and\ height\r\n\ and\ is\ outlined\ in\ black\ with\ no\ fill.\r\n\ \r\n\ This\ class\ is\ useful\ for\ visually\ grouping\ or\ framing\ UI\ components\ such\ as\ text,\ buttons,\ or\ other\ interactive\ elements.\r\n\ \r\n\ Example\ usage\:\r\n\ addObject(new\ BorderBox(200,\ 100),\ 300,\ 250);\r\n\ \r\n\ @author\ Group\ 78\r\n
 comment1.params=width\ height
 comment1.target=BorderBox(int,\ int)
+comment1.text=\r\n\ Constructs\ a\ BorderBox\ with\ the\ specified\ width\ and\ height.\ The\ box\ will\ have\ a\ black\ outline\ with\ no\ fill.\r\n\ \r\n\ @param\ width\ The\ width\ of\ the\ border\ box.\r\n\ @param\ height\ The\ height\ of\ the\ border\ box.\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ EquationBox\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
