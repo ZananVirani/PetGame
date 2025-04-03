@@ -1,28 +1,33 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Subtitle here.
+ * SubtitleText displays a subtitle message on the screen. It creates a text image with the provided message and shows it in the world.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This class can be used to display informational or narrative subtitles.
+ * 
+ * @author Group 78
  */
 public class SubtitleText extends Actor
 {
+    /**
+     * Constructs a SubtitleText with the specified message.
+     * 
+     * @param message The subtitle message to display.
+     */
     public SubtitleText(String message) {
-        
         GreenfootImage img = new GreenfootImage(700, 300);
         img.setColor(Color.BLACK);
         img.setFont(new Font("Arial", false, false, 20));
         img.drawString(message, 10, 25);
         setImage(img);
     }
-    
+
     /**
-     * Act - do whatever the TutorialTitle wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - does nothing by default.
+     * This method is called whenever the 'Act' or 'Run' button is pressed in Greenfoot.
      */
     public void act()
     {
-        // Add your action code here.
+        // No action needed for SubtitleText
     }
 }
