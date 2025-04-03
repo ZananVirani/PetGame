@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * 
  * This screen contains interactive item icons, an exit button, and a description panel to display details of selected items.
  * 
- * @author Jay Prajapati
+ * @author Group 78
  */
 public class InventoryScreen extends World 
 {
