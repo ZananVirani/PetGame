@@ -2,7 +2,7 @@
 
 ## Software Description
 
-This virtual per game is a java-based simulation that allows players to create, care for, and interact with their very own virtual pet. The game features a comprehensive pet management system where players can feed their pets, give them gifts, manage their sleep cycles, and track their overall well-being. The game allows you to choose from 3 different pets with unique characteristics, an inventory system for food and gift items, time restrictions for gameplay, and a save/load system for game progress.
+This virtual pet game is a java-based simulation that allows players to create, care for, and interact with their very own virtual pet. The game features a comprehensive pet management system where players can feed their pets, give them gifts, manage their sleep cycles, and track their overall well-being. The game allows you to choose from 3 different pets with unique characteristics, an inventory system for food and gift items, time restrictions for gameplay, and a save/load system for game progress.
 
 ## Required Libraries and Third-Party Tools
 
